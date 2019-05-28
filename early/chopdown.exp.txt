@@ -1,0 +1,61 @@
+playing fake games all the way down the tree to insure this actually can be done..
+Assume we are already down as far as
+NCT3894132fake/h.32498fakex1Q/EXC/bullet5/charXXX-YYY/isLeaf for each of the following bullets
+(so we are already pretty far down in the parse tree including split to bullets and with retained context of EXCLUDE, which works like AND_NOT XXX  AND_NOT YYY)
+
+Bullet 1. Contraindications to radiotherapy (including active inflammatory bowel disease or prior pelvic XRT)
+a. isLeaf results in _Complex
+b. Complex results in XXXX  _kingword(including) YYYY
+  1) XXXX=Contraindications to radiotherapy
+  2) YYYY=active inflammatory bowel disease or prior pelvic XRT
+     i) _isLeaf results in _OR
+     ii) _OR results in active inflammatory bowel disease
+
+** this notation is now too cumbersome, here is new one... sequence is roughly (  game-->whatLearned   )
+isLeaf('Contraind....XRT') --> complex
+complex-->kingword('including' meaning 'OR')     *** is this step too hard???
+[split is caused: 'contra...' OR 'active infl...or prior...']
+isLeaf('contraindications to radiotherapy')--->  ???Is this "complex" or _____?
+[terminal]
+isLeaf('active...or prior...')-->complex
+complex-->kingword('or')
+[split ...]
+isLeaf('active inflammatory bowel disease')-->condition
+condition-->  ???
+[terminal]
+isLeaf('prior pelvic XRT')--> ???Is this "test" or "procedure"???
+[terminal]
+[terminal]
+
+
+
+bugbug you are here
+
+          -  Inability to undergo anti-3-[18F]FACBC PET-CT
+
+          -  Age under 18
+
+          -  Metastatic disease outside of pelvis on any imaging or biopsy
+
+          -  Prior invasive malignancy (except non-melanomatous skin cancer) unless disease free
+             for a minimum of 3 years
+
+          -  Severe acute co-morbidity, defined as follows:
+
+               -  Unstable angina and/or congestive heart failure requiring hospitalization in the
+                  last 3 months
+
+               -  Transmural myocardial infarction within the last 6 months
+
+               -  Acute bacterial or fungal infection requiring intravenous antibiotics at the time
+                  of registration
+
+               -  Chronic Obstructive Pulmonary Disease exacerbation or other respiratory illness
+                  requiring hospitalization or precluding study therapy at the time of registration
+
+               -  Acquired Immune Deficiency Syndrome (AIDS) based upon current CDC definition;
+                  note, however, that HIV testing is not required for entry into this protocol. The
+                  need to exclude patients with AIDS from this protocol is necessary because the
+                  treatments involved in this protocol may be significantly immunosuppressive.
+                  Protocol-specific requirements may also exclude immunocompromised patients
+      
