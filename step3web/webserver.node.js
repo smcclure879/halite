@@ -29,57 +29,12 @@ const assert = (testCond, label) => {
 const dbx = new sqlite.Database('../halite.db');
 const db = sqa.promote(dbx);
 
-/*var okGame = /\w{3,8}/;   //is 3 to 8 word chars, ONLY !
-var serveGameFile = function(req,res,next) {
 
-    var gameName = req.params.gameName;  
-    if (!okGame.test(gameName)) {  //"test" does opposite of what you'd think!!
-	console.log("about to call next or throw or something...");
-	throw new Error('err1739o '+gameName);
-	//next();
-	//return;
-    }
-
-        
-    var absPath=path.join(__dirname,"game",gameName+".game");
-
-    forceExist(absPath,function() {    
-	serveStaticAbsPartial(res,absPath,'text/html',1000,1);   //4000 bytes, use whole lines
-    });
-
-}
-
-
-const touch = (filename, callback) => {
-    fs.open(filename, 'w', (err, fd) => {
-	if (err) 
-	    return callback(err);
-	else
-	    return fs.close(fd, callback);
-    });
-};
-
-var forceExist=function(absPath,thenFn) {
-    fs.exists(absPath,function(exists) {
-	if (exists) {
-	    thenFn();
-	} else {
-	    touch(absPath,thenFn);
-	}
-    });
-};
-*/
-
-
-
-
-
-
-const fileExist=function(p) {
+function fileExist(p) {
     return fs.existsSync(p);
 }
 
-var serveStaticAbs = function(res,absPath,mimeType) {
+function serveStaticAbs(res,absPath,mimeType) {
     console.log("serveStaticAbs:"+absPath);
     if (!fileExist(absPath))
 	res.status(404).end('error:'+ex);
@@ -89,54 +44,17 @@ var serveStaticAbs = function(res,absPath,mimeType) {
     console.log("ssa2:"+absPath);
 }
 
-/*
-
-//don't call this unless it's a verified allowedFile!!
-var serveStaticAbsPartial = function(res,absPath,mimeType,bytesMax,useWholeLines) {
-
-    var stats=fs.statSync(absPath);
-    var bytesToSkip = stats.size-bytesMax;
-    if (bytesToSkip<0) bytesToSkip=0;
-    
-    fs.createReadStream(absPath, { start:bytesToSkip })
-	.pipe(res);
-
-};
-
-var appendToFileAsync = function(absPath,text,next){
-    var fhw = fs.createWriteStream(absPath, {flags: 'a'});
-
-    var x = fhw.write(text,function(){
-	fhw.end();
-	next();
-    }, function() {
-	//bugbug anything goes here??
-    });
-}
-
-
-
-
-const allowedFiles = "view.js     view.htm   tinyview.htm".split(/[^\w\.]+/);
-assert(   allowedFiles.indexOf("view.js")>-1 , "quick test of allowed Files" );
-
-//var serveStaticDir = serveStatic(path.join(__dirname));  wasn't working so well
-
-*/
 function last(x) {  //x is array
     return x[x.length-1];
 }
-
 
 function getExtension(fileName) {
     var parts=fileName.split('.');
     return last(parts);
 }
 
-
 function typeFromExtension(fileName) {
     var ext=getExtension(fileName);
-
     switch(ext) {
     case 'js':  	return  'text/javascript';
     case 'htm':
@@ -155,29 +73,8 @@ function getIp(req){
 	(req.connection.socket ? req.connection.socket.remoteAddress : null);
 }
 
-/*
-var serveStaticDir_oldbugbug = function(req,res,next){
-    
-    var sought = req.params.sought || '';
-    console.log("sought="+sought);
-    if (sought=='/')  sought='index.html';
 
-    
-    /*if (  allowedFiles.indexOf(sought) < 0  ) {
-	console.log("bugbug038i:"+sought);
-	quip(res,"what the heck038i..."+sought);
-	res.end();
-	next();
-	return;
-    }* /
-    var absPath=path.join(__dirname,"../statics",sought);
-    var mimeType = typeFromExtension(sought);
-    serveStaticAbs(res,absPath,mimeType);
-    console.log("youve been served"+absPath);
-}
-; */
-
-var serveIconFile = function(req,res,next){
+function serveIconFile(req,res,next){
     var sought = "favicon.ico";
     var absPath=path.join(__dirname,"../statics",sought);
     var mimeType = typeFromExtension(sought);
@@ -185,14 +82,13 @@ var serveIconFile = function(req,res,next){
 }
 
 
-const validate = function(val,label,reg){
+function validate(val,label,reg){
     if (val.match(reg)) return;
-
     throw new Error("cannot validate "+label+"   "+reg);
 }
 
-
 var urlEncodedParser = bodyParser.urlencoded({ extended:true });
+
 
 //when you are turning back in a unit of work ("assignment")
 async function putAssignment(req,res,next) {
@@ -219,19 +115,26 @@ async function putAssignment(req,res,next) {
     
     res.status(200).end("plus 10 points for gryffindor");  //bugbug did this make it back...tell client to look for another assignment
 
-    
-    //make new problems out of new answer !!!  problems make assignments, assignments make problems
-    //base new problems on old one.
+    setImmediate(  ()=>{ buildNewProblems(assignmentId) }  );
+    return;
+}
+
+
+
+//make new problems out of new answer !!!  problems make assignments, assignments make problems
+//base new problems on old one.
+async function buildNewProblems(assignmentId) {
     var parent = await db.getAsync(
-	"        select * from assignment aa inner join problem pp on aa.problemid=pp.problemid  "+
-	    "    where assignmentId=$1;  ",
-	[assignmentId] 
-    );    
-    console.log("parent="+JSON.stringify(parent));
-    //process.exit();
+	"    select * from assignment aa       "+
+	    "    inner join problem pp         "+
+	    "    on aa.problemid=pp.problemid  "+
+	    "    where assignmentId=$1;        ",
+	[              assignmentId            ] 
+    );
+    
+    //these had to double encode to go into sql...fix'em
     parent.problemdata=JSON.parse(parent.problemdata);
     parent.result = JSON.parse(parent.result);
-    console.log("parent.result="+JSON.stringify(parent.result));
     
 /*    parent={
 	"assignmentid":30,"problemid":4,
@@ -240,18 +143,15 @@ async function putAssignment(req,res,next) {
 	"result":"{\"assignmentId\":\"30\",\"start\":\"6393\",\"end\":\"6393\",\"action\":\"AND\"}",
 	"gameid":1,"hashid":".2jw5-ujimg",
 	"problemdata":"{\"nct\":\"NCT02649439\",\"start\":0,\"end\":-1}","parentid":null}
-  */  
-
-    //bugbug you are above here
-
-
-
-/*bugbug update3 is showing:
+  bugbug update3 is showing:
 {"assignmentId":"16","start":"228","end":"228","action":"AND"}
  probRow=
 {"problemid":4,"gameid":1,"hashid":".2jw5-ujimg","problemdata":"{\"nct\":\"NCT02649439\",\"start\":0,\"end\":-1}","parentid":null}
 */
-
+    
+    const colsString = "gameid,hashid,problemdata,parentid";
+    const cols=colsString.split(',');
+    const sql = "insert into problem ("+colsString+") values (?,?,?,?)";
     
     var leafGameId = 2; //bugbug some lookup or enum??    
     //every answer generates two new questions (problems)
@@ -275,54 +175,22 @@ async function putAssignment(req,res,next) {
 	parentid: parent.problemid,
     };
 
-    //turn obj to array with column order specified
-    function proj(obj,arrPropNames){
-	console.log(arrPropNames);
-	return arrPropNames.map( function(x) { return obj[x] || 'stupidbugbug'; } );
-    }
-    
-    var colsString = "gameid,hashid,problemdata,parentid";
-    var cols=colsString.split(',');
-    var sql = "insert into problem ("+colsString+") values (?,?,?,?)";
     /*gameid integer references game,
     hashid varchar(20) not null,
     problemdata varchar(4000),
     parentid integer references problem,  --selfref is root indicator
     */
 
-
-    //bugbug did this work
     prob1.problemdata = JSON.stringify(prob1.problemdata);
     prob2.problemdata = JSON.stringify(prob2.problemdata);
     
-    //var params1 = newProblem1;
-    //var params2 = [newProblem2.problemData,leafGameId];
-    //console.log("prob1"+JSON.stringify(prob1));
-    //console.log(cols);
-    var p1=proj(prob1,cols);
-    var p2=proj(prob2,cols)
+    var p1=sqa.proj(prob1,cols);
+    var p2=sqa.proj(prob2,cols)
     db.runAsync(sql,p1);
     db.runAsync(sql,p2);
 }
-/*
-need to merge 2 sets of info....
-parent problem should have a start and end.
-
-parent: 4|1|.2jw5-ujimg|{"nct":"NCT02649439","start":0,"end":-1}|
-bugbug update3 is showing:{"assignmentId":"12","start":"546","end":"546","action":"AND"}
-
-    CREATE TABLE problem (  --game plus init data
-    problemid integer primary key autoincrement,
-    gameid integer references game,
-    hashid varchar(20) not null,
-    problemdata varchar(4000),
-    parentid integer references problem,  --selfref is root indicator
-    UNIQUE(hashid,gameid,problemdata)
-    
-  */  
 
 
-//bugbug you are here need body parser on this 
 var doNewAssignment=function(req,res,next /*,resultJustInserted*/ ) {
     req.apiCount=req.apiCount || 0;
     req.apiCount++;
@@ -397,67 +265,9 @@ var sendOldAssignment=function(result,req,res,next){
 
 
 
-
-/*    
-
-
-    
-    //bugbug options below do not work!!!
-    //var xamin = util.inspect(req.body,{breakLength:Infinity,compact:true});
-    //console.log("----------------"+xamin);
-    //return;
-    
-    
-    //bugbug validate, take apart, put back together HTMLEncoded etc etc
-    var who1=htmlEncode(req.body.who1);
-    var who2=htmlEncode(req.body.who2);
-    var c=htmlEncode(req.body.color);
-    var t=htmlEncode(req.body.t);
-    var timeCode= new Date().getTime();  //should be server time in UTC but verify
-    var ip = req.ip;
-    var ips = req.ips;
-    var ipx = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    if (ipx.substr(0, 7) == "::ffff:") {
-    	ipx = ipx.substr(7);
-    }
-    console.log("IP INFO:"+ip+"  --   "+ips+"  --   "+ipx);
-    return;
-    //**********   comb    ************bugbug you are here
-    
-    // try{
-    // 	validate(who1,"who1",/^\w{2,15}$/);
-    // 	validate(who2,"who2",/^\w{0,15}$/);
-    // 	validate(c,"color",/^black|red|$/);
-    // 	validate(t,"text", /^[^\\|]{2,140}$/);
-    // }catch(ex) {
-    // 	console.log(ex);
-    // 	res.status(422).end('error:'+ex);
-    // 	return;
-    // }
-
-    // var timeCodeAndIp = [timeCode,ip,ips,ipx].join(" ");
-    // var lineToPersist=[timeCodeAndIp,who1,who2,c,t].join("|") + "\n";
-    // console.log(lineToPersist);
-    
-    // var absPath=path.join(__dirname,"game",gameName+".game");
-    // appendToFileAsync(absPath,lineToPersist,function(){
-    // 	res.status(200).end();
-    // });
-    // //console.log("append to game="+absPath);
-    //console.log(''+t);
-    
-
-
-};
-*/
 				    
 var badHostApp = express();
 badHostApp.use(function(req,res,next){
-    console.log("err2656x: badhost start");
-    //if (req.vhost[0]=='rpg') {
-    //return next();
-    //}
-    
     console.log("err2033i: badhost:"+util.inspect(req.vhost));
     res.status(503).send();
 });
@@ -468,14 +278,6 @@ function quip(res,x) {
     res.setHeader('Content-Type', 'text/plain');
     res.end('quip....  '+x);
 }
-
-
-
-//var halFile = express();
-//halFile.use(morgan('tiny'));
-//bugbug http://expressjs.com/en/resources/middleware/serve-favicon.html ???
-//bugbug use express.static instead later??  cacheing??
-//bugbug did this work???  halFile.use('/:sought', serveStaticDir);
 
 
 //for debugging...
@@ -516,60 +318,3 @@ console.log("started");
 //DONE
 
 
-
-/*
-var appendGameFile = function(req,res,next) {
-    var gameName = req.params.gameName;
-
-    if (!okGame.test(gameName)) {  //"test" does opposite of what you'd think!!
-	console.log("about to call next or throw or something...");
-	throw new Error('err1739o '+gameName);
-    }
-
-    //bugbug options below do not work!!!
-    var xamin = util.inspect(req.body,{breakLength:Infinity,compact:true});
-    console.log(xamin);
-
-    //bugbug validate, take apart, put back together HTMLEncoded etc etc
-    var who1=htmlEncode(req.body.who1);
-    var who2=htmlEncode(req.body.who2);
-    var c=htmlEncode(req.body.color);
-    var t=htmlEncode(req.body.t);
-    var timeCode= new Date().getTime();  //should be server time in UTC but verify
-    var ip = req.ip;
-    var ips = req.ips;
-    var ipx = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    if (ipx.substr(0, 7) == "::ffff:") {
-	ipx = ipx.substr(7);
-    }
-    //console.log("IP INFO:"+ip+"  --   "+ips+"  --   "+ipx);
-
-    
-    try{
-	validate(who1,"who1",/^\w{2,15}$/);
-	validate(who2,"who2",/^\w{0,15}$/);
-	validate(c,"color",/^black|red|$/);
-	validate(t,"text", /^[^\\|]{2,140}$/);
-    }catch(ex) {
-	console.log(ex);
-	res.status(422).end('error:'+ex);
-	return;
-    }
-
-    var timeCodeAndIp = [timeCode,ip,ips,ipx].join(" ");
-    var lineToPersist=[timeCodeAndIp,who1,who2,c,t].join("|") + "\n";
-    console.log(lineToPersist);
-    
-    var absPath=path.join(__dirname,"game",gameName+".game");
-    appendToFileAsync(absPath,lineToPersist,function(){
-	res.status(200).end();
-    });
-    //console.log("append to game="+absPath);
-    //console.log(''+t);
-    
-}
-
-;
-
-
-*/
