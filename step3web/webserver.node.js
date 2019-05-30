@@ -14,6 +14,7 @@ const fs = require('fs');
 const sqlite = require('sqlite3');
 const sqa = require('./sqliteAsync.js');
 
+const SECONDS=1000;
 
 
 
@@ -21,10 +22,17 @@ const sqa = require('./sqliteAsync.js');
 //based on earlier work for ayvex rpg discussion board
 //copyright 2019 Ayvex Light Industries LLC and CancerFool Inc. 
 
-const assert = (testCond, label) => {
+function assert(testCond, label) {
     if (testCond) return;
-    throw new Error(label);
-};
+    console.log("assert fail:"+label);
+    throw("assert fail:"+label);
+}
+
+function show(x,y,z) {
+    var str=x+'='+JSON.stringify(y)+"-"+z
+    console.log(str);
+}
+
 
 const dbx = new sqlite.Database('../halite.db');
 const db = sqa.promote(dbx);
@@ -32,6 +40,10 @@ const db = sqa.promote(dbx);
 
 function fileExist(p) {
     return fs.existsSync(p);
+}
+
+function fileDelete(p) {
+    return fs.unlinkSync(p);
 }
 
 function serveStaticAbs(res,absPath,mimeType) {
@@ -115,27 +127,106 @@ async function putAssignment(req,res,next) {
     
     res.status(200).end("plus 10 points for gryffindor");  //bugbug did this make it back...tell client to look for another assignment
 
-    setImmediate(  ()=>{ buildNewProblems(assignmentId) }  );
+    //setImmediate(  ()=>{ buildNewProblems(assignmentId) }  );
+    //bugbug moved to main thread
+    //bugbug restore this   setInterval(  ()=>{ periodicJobs() } ,  60*SECONDS  );
     return;
 }
 
 
 
+
+async function periodicJobs(){
+    resultsBecomeAnswers();
+    answersBecomeSmallerProblems();
+}
+
+
+var answerCountThreshold = 1;  //bugbug should be 5
+async function resultsBecomeAnswers() {
+    var rows=
+	await db.runAsync(
+	    "  select pp.problemId, count(1) as c, aa.result    "+
+		"  from problem pp inner join assignment aa   "+
+		"  on aa.problemId=pp.problemId    "+
+		"  where aa.result is not null and"+
+		"      pp.answer is null   "+
+		"  group by  pp.problemId,aa.result   "+
+		"  having c >= $1  "+
+		"  order by pp.problemId ASC, aa.result ASC     "+
+		"  ;  ",
+	    [answerCountThreshold]
+	);
+
+    if (!rows || rows.length<1)
+	return;
+    for (var ii=0; ii<rows.length; ii++) {
+	show("ii",ii);
+	await db.runAsync(
+	    " update problem set answer=$1 where problemid=$2   ",
+	    [            row["result"],    row["problemid"]   ]
+	);
+    }
+
+    //bugbug you are here need to call...
+    
+    console.log("done with periodic");
+}
+
+
+
+
+
 //make new problems out of new answer !!!  problems make assignments, assignments make problems
 //base new problems on old one.
-async function buildNewProblems(assignmentId) {
-    var parent = await db.getAsync(
-	"    select * from assignment aa       "+
-	    "    inner join problem pp         "+
-	    "    on aa.problemid=pp.problemid  "+
-	    "    where assignmentId=$1;        ",
-	[              assignmentId            ] 
+async function answersBecomeSmallerProblems() {
+    var workItems = await db.allAsync(
+	`
+	select par.problemid as popid,kid.parentid,par.hashid,par.problemdata,kid.problemid as kidid,par.answer
+	from      problem par
+	left join problem kid
+	on        par.problemid=kid.parentid
+	where par.answer is not null
+	group by popid,kidid
+	having kidid is null;
+	`,[]
     );
+
+    const colsString = "gameid,hashid,problemdata,parentid";
+    const cols=colsString.split(',');
+    const sqlProbInsert = "insert into problem ("+colsString+") values (?,?,?,?)";
+    assert(workItems,'workitems');
+    assert(workItems.length,'workitem length');  //bugbug you are here this is failing
+    for(ii in workItems) {
+	var item=workItems[ii];
+	assert(item.popid,"bugbug0050u"+JSON.stringify(item));
+	show("parentItem",item,ii);
+	//bugbug hsould be games[item.gameid].spawn(item);
+	var newProblems = splitGame_dot_spawn(item);
+
+	for(kk in newProblems) {
+	    var kid=newProblems[kk]; //show("bugbug2237kid",kid);
+	    //flatten for DB   //bugbug should proj absorb object stringification?
+	    kid.problemdata=JSON.stringify(kid.problemdata);  
+	    var columnVals = sqa.proj(kid,cols); // "project out" the column V V -values we need from the kid 
+	    db.runAsync(sqlProbInsert,columnVals);  //[kid.gameid, kid.hashid, kid.problem1data, kid.parentid]
+	}
+    }
+    //bugbug return something???
+}
+
+
+function splitGame_dot_spawn(parent) { //of some game bugbugd
     
     //these had to double encode to go into sql...fix'em
+    show("bugbug2213 parent",parent,parent);
     parent.problemdata=JSON.parse(parent.problemdata);
-    parent.result = JSON.parse(parent.result);
-    
+    parent.result = JSON.parse(parent.answer);
+
+    assert(parent.result);
+    assert(parent.problemdata);
+    assert(parent.hashid);
+    assert(parent.popid,"no popid"+JSON.stringify(parent));
 /*    parent={
 	"assignmentid":30,"problemid":4,
 	"playerid":42,"sentat":"2019-05-27 05:40:46","sentip":"::1",
@@ -149,9 +240,6 @@ async function buildNewProblems(assignmentId) {
 {"problemid":4,"gameid":1,"hashid":".2jw5-ujimg","problemdata":"{\"nct\":\"NCT02649439\",\"start\":0,\"end\":-1}","parentid":null}
 */
     
-    const colsString = "gameid,hashid,problemdata,parentid";
-    const cols=colsString.split(',');
-    const sql = "insert into problem ("+colsString+") values (?,?,?,?)";
     
     var leafGameId = 2; //bugbug some lookup or enum??    
     //every answer generates two new questions (problems)
@@ -162,7 +250,7 @@ async function buildNewProblems(assignmentId) {
 	    start: parent.problemdata.start,
 	    end: parent.result.start
 	},
-	parentid: parent.problemid,
+	parentid: parent.popid
     };
     
     var prob2 = {
@@ -172,8 +260,9 @@ async function buildNewProblems(assignmentId) {
 	    start: parent.result.end,
 	    end: parent.problemdata.end
 	},
-	parentid: parent.problemid,
+	parentid: parent.popid
     };
+
 
     /*gameid integer references game,
     hashid varchar(20) not null,
@@ -181,14 +270,10 @@ async function buildNewProblems(assignmentId) {
     parentid integer references problem,  --selfref is root indicator
     */
 
-    prob1.problemdata = JSON.stringify(prob1.problemdata);
-    prob2.problemdata = JSON.stringify(prob2.problemdata);
-    
-    var p1=sqa.proj(prob1,cols);
-    var p2=sqa.proj(prob2,cols)
-    db.runAsync(sql,p1);
-    db.runAsync(sql,p2);
+    return [prob1,prob2];
 }
+
+	
 
 
 var doNewAssignment=function(req,res,next /*,resultJustInserted*/ ) {
@@ -315,6 +400,12 @@ app.use(vhost('hal.localhost', halApp));
 
 app.listen(3001);
 console.log("started");
+setInterval( ()=>{
+    const goFile="../go";
+    if (!fileExist(goFile)) return;
+    fileDelete(goFile);
+    periodicJobs();
+}, 15*SECONDS  );
 //DONE
 
 

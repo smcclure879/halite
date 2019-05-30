@@ -25,8 +25,8 @@ create table if not exists problem (  --game plus init data
        hashid varchar(20) not null,
        problemdata varchar(4000),
        parentid integer references problem,  --selfref is root indicator
+       answer varchar(4000),
        UNIQUE(hashid,gameid,problemdata)
-      
 );
 
 create table if not exists assignment( -- problem plus player

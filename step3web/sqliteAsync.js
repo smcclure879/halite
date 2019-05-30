@@ -6,7 +6,11 @@ module.exports = {
     //turn obj to array with column order specified
     proj: function(obj,arrPropNames){
 	console.log(arrPropNames);
-	return arrPropNames.map( function(x) { return obj[x] || 'stupidbugbug'; } );
+	return arrPropNames.map( function(x) {
+	    if (typeof obj[x] == 'undefined')
+		throw('bugbug-err0024m-undefined-'+x+JSON.stringify(obj));
+	    return obj[x];
+	});
     },
 
     promote: function(db) {
