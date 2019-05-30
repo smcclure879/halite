@@ -9,6 +9,7 @@ with recursive
     union all
     select treeOf.level+1 , problem.problemId
     from problem join treeOf on treeOf.problemId=problem.parentId
+    where hashid='.2k3q-elqiw'
     order by 1
 )
 select coalesce(substr('.................',1,treeOf.level*3),'X'),
