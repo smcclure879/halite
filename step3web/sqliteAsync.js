@@ -64,6 +64,18 @@ module.exports = {
 	    })
 	};
 
+
+	db.domainAsync = async function (sql,vals,lookupBy) {
+	    var rows = await db.allAsync(sql,vals);
+	    var retval = {};
+	    for(var row of rows) {
+		var key = row[lookupBy];
+		retval[key]=row;		
+	    }
+	    return retval;
+	}
+
+	
 	//RETURN THE "PROMOTED" DATABASE
 	return db; 
 	

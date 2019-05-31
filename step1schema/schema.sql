@@ -1,20 +1,20 @@
 pragma foreign_keys=ON;  --bugbug does this apply forever to the db or just this session of sqlite???
 
 create table if not exists game (
-       gameId integer primary key,   --mastered elsewhere, hence not autonum/serial ???
-       gameName varchar(20) not null,
+       gameid integer primary key,   --mastered elsewhere, hence not autonum/serial ???
+       gamename varchar(20) not null,
        n int not null,
        m int not null
 );
 
 create table if not exists player (
-       playerId integer primary key,  --mastered elsewhere???
-       uniqueName varchar(20) not null
+       playerid integer primary key,  --mastered elsewhere???
+       uniquename varchar(20) not null
 );
 
 create table if not exists playergame (  --can player play game, etc
-       playerId integer player,
-       gameId integer game references game,
+       playerid integer player,
+       gameid integer game references game,
        canPlay varchar(10) not null,
        primary key (playerId,gameId)
 );

@@ -37,6 +37,8 @@ function show(x,y,z) {
 const dbx = new sqlite.Database('../halite.db');
 const db = sqa.promote(dbx);
 
+//domain data from DB
+var games=null;
 
 function fileExist(p) {
     return fs.existsSync(p);
@@ -125,7 +127,7 @@ async function putAssignment(req,res,next) {
 	//return;  //bugbug later reinstate, for now we probably want to re-insure the 
     }
     
-    res.status(200).end("plus 10 points for gryffindor");  //bugbug did this make it back...tell client to look for another assignment
+    res.status(200).end("bugbug plus 10 points for gryffindor");  //bugbug did this make it back...tell client to look for another assignment
 
     //setImmediate(  ()=>{ buildNewProblems(assignmentId) }  );
     //bugbug moved to main thread
@@ -137,15 +139,17 @@ async function putAssignment(req,res,next) {
 
 
 async function periodicJobs(){
+    //bugbug need to await these??
     resultsBecomeAnswers();
     answersBecomeSmallerProblems();
+    console.log("done with periodic");
 }
 
 
 var answerCountThreshold = 1;  //bugbug should be 5
 async function resultsBecomeAnswers() {
     var rows=
-	await db.runAsync(
+	await db.allAsync(
 	    "  select pp.problemId, count(1) as c, aa.result    "+
 		"  from problem pp inner join assignment aa   "+
 		"  on aa.problemId=pp.problemId    "+
@@ -158,9 +162,12 @@ async function resultsBecomeAnswers() {
 	    [answerCountThreshold]
 	);
 
-    if (!rows || rows.length<1)
+    if (!rows || rows.length<1){
+	show("no rows for results to answers");
 	return;
+    }
     for (var ii=0; ii<rows.length; ii++) {
+	var row = rows[ii];
 	show("ii",ii);
 	await db.runAsync(
 	    " update problem set answer=$1 where problemid=$2   ",
@@ -168,9 +175,6 @@ async function resultsBecomeAnswers() {
 	);
     }
 
-    //bugbug you are here need to call...
-    
-    console.log("done with periodic");
 }
 
 
@@ -182,8 +186,11 @@ async function resultsBecomeAnswers() {
 async function answersBecomeSmallerProblems() {
     var workItems = await db.allAsync(
 	`
-	select par.problemid as popid,kid.parentid,par.hashid,par.problemdata,kid.problemid as kidid,par.answer
+	select  par.problemid as popid, kid.parentid, kid.problemid as kidid,
+	par.hashid,  par.problemdata,  par.answer,  par.gameid as gameid,  gg.gamename as gamename
 	from      problem par
+	inner join game gg
+	on        par.gameid=gg.gameid
 	left join problem kid
 	on        par.problemid=kid.parentid
 	where par.answer is not null
@@ -191,20 +198,24 @@ async function answersBecomeSmallerProblems() {
 	having kidid is null;
 	`,[]
     );
+    assert(workItems,'workitems');
+    if (workItems.length==0){
+	console.log("no workitems");
+	return;
+    }
 
     const colsString = "gameid,hashid,problemdata,parentid";
     const cols=colsString.split(',');
     const sqlProbInsert = "insert into problem ("+colsString+") values (?,?,?,?)";
-    assert(workItems,'workitems');
-    assert(workItems.length,'workitem length');  //bugbug you are here this is failing
-    for(ii in workItems) {
+    for(var ii in workItems) {
 	var item=workItems[ii];
-	assert(item.popid,"bugbug0050u"+JSON.stringify(item));
-	show("parentItem",item,ii);
-	//bugbug hsould be games[item.gameid].spawn(item);
-	var newProblems = splitGame_dot_spawn(item);
+	assert(item.popid,"err0050u"+JSON.stringify(item));
+	show("parentItem",item);
+	assert(item.gameid,'err0336i'+JSON.stringify(item));  //bugbug failing here you are here
 
-	for(kk in newProblems) {
+	var newProblems = spawn(item);  
+	//insert the new problem objects
+	for(var kk in newProblems) { //bugbug OF instead of IN ??
 	    var kid=newProblems[kk]; //show("bugbug2237kid",kid);
 	    //flatten for DB   //bugbug should proj absorb object stringification?
 	    kid.problemdata=JSON.stringify(kid.problemdata);  
@@ -215,11 +226,26 @@ async function answersBecomeSmallerProblems() {
     //bugbug return something???
 }
 
+function spawn(item) {
+    assert(item.gamename,JSON.stringify(item));
+    //gamesById[item.gameid].spawn(item);
+    switch(item.gamename) {  //toplevel,isleaf,kingword,test
+    case 'leafgame':     return isLeafGame(item);
+    case 'kingWord':     return kingWordSpawn(item);
+    case 'split': /*fallthru*/   //toplevel is actually split...consolidate? subclass?
+    case 'toplevel':     return splitGameSpawn(item);   
+	
+    default:             throw("game with no subgames yet.."+item.gamename);
+    }
+}
 
-function splitGame_dot_spawn(parent) { //of some game bugbugd
+
+function splitGameSpawn(parent) { //of some game bugbugd
+    show("bugbug2213 parent",parent,parent);
+    assert(parent.gamename,'gamename2351');
+    assert(parent.gameid,'gameid23jj');
     
     //these had to double encode to go into sql...fix'em
-    show("bugbug2213 parent",parent,parent);
     parent.problemdata=JSON.parse(parent.problemdata);
     parent.result = JSON.parse(parent.answer);
 
@@ -239,12 +265,12 @@ function splitGame_dot_spawn(parent) { //of some game bugbugd
  probRow=
 {"problemid":4,"gameid":1,"hashid":".2jw5-ujimg","problemdata":"{\"nct\":\"NCT02649439\",\"start\":0,\"end\":-1}","parentid":null}
 */
-    
-    
-    var leafGameId = 2; //bugbug some lookup or enum??    
+    //"toplevel":{"gameId":1,"gameName":"toplevel","n":1,"m":1},"isleaf":{"gameId":2,"gameName":"isleaf","n":1,"m":1},"kingword":{"gameId":3,"gameName":"kingword","n":1,"m":1},"test":{"gameId":4444,"gameName":"test","n":1,"m":1}}
+    var isLeafGame=games['isleaf']; //bugbug some lookup or enum??
+    assert(isLeafGame,'leafGame2353'+JSON.stringify(games));
     //every answer generates two new questions (problems)
     var prob1 = {
-	gameid: leafGameId,
+	gameid: isLeafGame.gameid,
 	hashid:parent.hashid,
 	problemdata: {
 	    start: parent.problemdata.start,
@@ -254,7 +280,7 @@ function splitGame_dot_spawn(parent) { //of some game bugbugd
     };
     
     var prob2 = {
-	gameid: leafGameId,
+	gameid: isLeafGame.gameid,
 	hashid:parent.hashid,
 	problemdata: {
 	    start: parent.result.end,
@@ -263,7 +289,7 @@ function splitGame_dot_spawn(parent) { //of some game bugbugd
 	parentid: parent.popid
     };
 
-
+    assert(prob2.gameid,'bugbug0023'+JSON.stringify(isLeafGame));
     /*gameid integer references game,
     hashid varchar(20) not null,
     problemdata varchar(4000),
@@ -341,12 +367,16 @@ var createNewAssignment=function(req,res,next){
     });
 }
 
-var sendOldAssignment=function(result,req,res,next){
+function sendOldAssignment(result,req,res,next){
     console.log("sendold bugbug result="+JSON.stringify(result));
     var mimeType = 'text/javascript';
     res.setHeader('Content-Type', mimeType);
     res.end(JSON.stringify(result));
 }
+
+
+
+
 
 
 
@@ -390,22 +420,43 @@ halApp.use('/crits',express.static('../crits'));
 halApp.use("/assignment/", halApi);
 
 
-//---------- main app---------------
-var app = express();
-app.use(morgan('combined'));  //or 'tiny'
-app.use(vhost('hal.localhost', halApp));
-
-//app.use(vhost('localhost', badHostApp));
-//app.use(vhost('*.localhost', badHostApp));
-
-app.listen(3001);
-console.log("started");
-setInterval( ()=>{
-    const goFile="../go";
-    if (!fileExist(goFile)) return;
-    fileDelete(goFile);
-    periodicJobs();
-}, 15*SECONDS  );
-//DONE
 
 
+async function main() {
+    var sql = "select gameid,gamename,n,m from game;"  //specifying columns lowercase for json customers
+    //global games //
+    games = await db.domainAsync(sql, [], "gamename");
+    assert(games,'err:no games');
+    gamesById = await db.domainAsync(sql, [], "gameid");
+    //bugbug just put this here ... did it run???
+    //bugbug there can be only one var for games to avoid the where to put the methods problem
+    
+
+    
+    //---------- main app---------------
+    var app = express();
+    app.use(morgan('combined'));  //or 'tiny'
+    app.use(vhost('hal.localhost', halApp));
+
+    //app.use(vhost('localhost', badHostApp));
+    //app.use(vhost('*.localhost', badHostApp));
+
+    app.listen(3001);
+    console.log("started");
+
+    
+    setInterval( ()=>{
+
+	//const goFile="../go";
+	//if (!fileExist(goFile)) return;
+	//fileDelete(goFile);
+
+	periodicJobs();
+    }, 15*SECONDS  );
+    //DONE
+
+
+
+}
+main();
+//bugbug did we get this far you are here
