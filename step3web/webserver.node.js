@@ -1,6 +1,14 @@
+//-------------bugbug todo list------------
+ 
+//file is too easy to erase..need to have something to copy the db off somewhere periodically for safety.
 
-//bugbug need to have something to copy the db off somewhere periodically for safety.
-//file is too easy to erase..
+//get away from thresholdcount=1
+
+//get away from all one user
+
+//isLeafGame 
+  //assigning game based on query   +356   createNewAssignment
+    //async-await the entire assignment pathway  +313 doNewAssignment  <<<<   you are here, working UP this list
 
 
 const express = require('express');
@@ -24,7 +32,7 @@ const SECONDS=1000;
 
 function assert(testCond, label) {
     if (testCond) return;
-    console.log("assert fail:"+label);
+    console.log(" !!! ---> assert fail:"+label);
     throw("assert fail:"+label);
 }
 
@@ -168,7 +176,7 @@ async function resultsBecomeAnswers() {
     }
     for (var ii=0; ii<rows.length; ii++) {
 	var row = rows[ii];
-	show("ii",ii);
+	//show("writing answer loc0026m..ii",ii);
 	await db.runAsync(
 	    " update problem set answer=$1 where problemid=$2   ",
 	    [            row["result"],    row["problemid"]   ]
@@ -301,41 +309,45 @@ function splitGameSpawn(parent) { //of some game bugbugd
 
 	
 
-
-var doNewAssignment=function(req,res,next /*,resultJustInserted*/ ) {
-    req.apiCount=req.apiCount || 0;
-    req.apiCount++;
-    if (req.apiCount>2)
-	throw("req.apiCount>2");
+//from post or recurse
+async function doNewAssignment(req,res,next) {
+    //req.apiCount=req.apiCount || 0;
+    //req.apiCount++;
+    //show("req.apiCount",req.apiCount);
+    //if (req.apiCount>2)
+	//throw("req.apiCount>2");
     var playerId = req.body.playerId;
     if (playerId==null)
 	throw("bad player id body..."+JSON.stringify(req.body));
     //first try to get current unworked assignment (they must hit "huh" or similar to skip it if unworkable)
     // then if result is exactly 1 send that row back
-    
-    var sql1 = "select * from myAssignment where playerid=$1 and resultat is null";
-    var params1 = [ playerId ];
 
-    var statement = db.prepare(sql1);
-
-    return db.all( sql1, params1, function(err,rows){
-	if (err!=null)
-	    throw("err0232i"+JSON.stringify(err));
-	if (rows.length==0)
-	    //if (resultJustInserted)
-	    //    throw("err2124j:insertedRowNotFound");
+    var apiCount=0;
+    while(apiCount<=2) {
+	apiCount++;
 	
-	    return createNewAssignment(req,res,next);
-	if (rows.length>1)
-	    throw("bugbug multiple assignments per use??");
+	var sql1 = "select * from myAssignment where playerid=$1 and resultat is null";
+	var params1 = [ playerId ];
+	var rows = await db.allAsync(sql1, params1);   //throw("bugbug0232i"
+	assert(rows,"rows");
 
-	//so...exactly 1 result, send it back intead
-	return sendOldAssignment(rows[0],req,res,next);
-    });
+	switch(rows.length) {
+	case 1:
+	    await sendOldAssignment(rows[0],req,res,next); 
+	    return; //DONE!   <-----------------NORMAL exit is here  <-----------------
+	case 0:
+	    await createNewAssignment(req,res,next);
+	    continue;  //try again
+	default:
+	    throw("bugbug multiple assignments per use??:"+rows.length);
+	}
+    }
+    throw("apiCount>2");
 };
 
 //bugbug need to retest this
-var createNewAssignment=function(req,res,next){
+async function createNewAssignment(req,res,next){
+    //assert(req.apiCount,'bugbug1640x');
     //who is sending it??
     var playerId=req.body.playerId;
     if (playerId==null)
@@ -343,31 +355,58 @@ var createNewAssignment=function(req,res,next){
     var sentIp = getIp(req);
 
     //get a problemid that is unassigned,assign it to user, and return that row
-    //bugbug should be from a query 
-    var goodProblemId = 4;  
+    //bugbug should be from a query     bugbug you are here
+    //bugbug var goodProblemId = 4;
+    var sql0=
+	`
+    select problem.problemId,problem.answer,assignment.playerId
+    from problem  left join  assignment  on  assignment.problemId=problem.problemId
+    inner join game on game.gameId=problem.gameId
+    inner join playergame on game.gameId=playergame.gameId
+    inner join player on player.playerId=playergame.playerId
+    where problem.answer is null
+    --where assignment.problemId is null
+    and player.playerId=$1
+    order by random()
+    limit 1;
+    `;
 
 
+
+    var bugbug_oldqq=`
+    select problem.problemId,problem.answer,assignment
+    from problem left join assignment on assignment.problemId=problem.problemId
+    inner join game on game.gameId=problem.gameId
+    inner join playergame on game.gameId=playergame.gameId
+    inner join player on player.playerId=playergame.playerId
+    where problem.answer is null
+    --and assignment.problemId is null
+    and player.playerId=$1
+    limit 1;
+    `;
+
+    var goodProblemId = (await db.getAsync(sql0,[playerId])).problemid;
+    
+    assert(goodProblemId>0,"bugbug1218,goodProblemId="+JSON.stringify(goodProblemId));
+    
     var sql1=""+
 	"insert into assignment ( playerid, problemId,   sentat, sentip     )"+
 	"     values            ( $1      , $2,      datetime(), $3         );"+
         ""; //needed?? bugbug "select last_insert_rowid();"  ;
-
-
     var params1 = [              playerId,goodProblemId,/*fromSql,*/  sentIp   ];
-    return db.run( sql1, params1, function(errObj){
-	//not yet...just run thru again...
-	//bugbug need infi loop detect here !
-	//sendOldAssignment(newResult,req,res,next);  //newResult is now "old" ?? is this correct bugbug verf
-	//console.log("db.run after insert newResult="+newResult);
-	if (errObj)
-	    throw("error on insert assignment: "+JSON.stringify(errObj));
+    var code=await db.runAsync( sql1, params1 )
+    assert(!code,"bugbug1731--insert complete");
 
-	doNewAssignment(req,res,next);  //   RECURSES HERE
-
-    });
+    //bugbug removeable??
+    //try again, via RECURSE...(next time thru this item'll be there !)
+    //if (errObj)
+    //    throw("error on insert assignment: "+JSON.stringify(errObj));
+    //assert(req.apiCount<=1,"bugbug1733u");
+    //doNewAssignment(req,res,next);
 }
 
-function sendOldAssignment(result,req,res,next){
+
+async function sendOldAssignment(result,req,res,next){
     console.log("sendold bugbug result="+JSON.stringify(result));
     var mimeType = 'text/javascript';
     res.setHeader('Content-Type', mimeType);
