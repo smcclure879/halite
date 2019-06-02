@@ -6,9 +6,8 @@
 
 //get away from all one user
 
-//isLeafGame 
-  //assigning game based on query   +356   createNewAssignment
-    //async-await the entire assignment pathway  +313 doNewAssignment  <<<<   you are here, working UP this list
+//isLeafGame <<<<   you are here, working UP this list
+
 
 
 const express = require('express');
@@ -132,7 +131,7 @@ async function putAssignment(req,res,next) {
     var rowsChanged = await db.getScalarAsync("  select changes();  ", [], "changes()");
     if (rowsChanged!=1) {
 	console.log("err1752t: rc="+rowsChanged);
-	//return;  //bugbug later reinstate, for now we probably want to re-insure the 
+	//return;  //bugbug later reinstate??, for now we probably want to re-insure the 
     }
     
     res.status(200).end("bugbug plus 10 points for gryffindor");  //bugbug did this make it back...tell client to look for another assignment
@@ -147,9 +146,9 @@ async function putAssignment(req,res,next) {
 
 
 async function periodicJobs(){
-    //bugbug need to await these??
-    resultsBecomeAnswers();
-    answersBecomeSmallerProblems();
+    //bugbug TRYING the await on these
+    await resultsBecomeAnswers();
+    await answersBecomeSmallerProblems();
     console.log("done with periodic");
 }
 
@@ -218,13 +217,12 @@ async function answersBecomeSmallerProblems() {
     for(var ii in workItems) {
 	var item=workItems[ii];
 	assert(item.popid,"err0050u"+JSON.stringify(item));
-	show("parentItem",item);
-	assert(item.gameid,'err0336i'+JSON.stringify(item));  //bugbug failing here you are here
-
+	//show("parentItem",item);
+	assert(item.gameid,'err0336i'+JSON.stringify(item));	
 	var newProblems = spawn(item);  
 	//insert the new problem objects
-	for(var kk in newProblems) { //bugbug OF instead of IN ??
-	    var kid=newProblems[kk]; //show("bugbug2237kid",kid);
+	for(var kk in newProblems) { 
+	    var kid=newProblems[kk]; 
 	    //flatten for DB   //bugbug should proj absorb object stringification?
 	    kid.problemdata=JSON.stringify(kid.problemdata);  
 	    var columnVals = sqa.proj(kid,cols); // "project out" the column V V -values we need from the kid 
@@ -238,7 +236,7 @@ function spawn(item) {
     assert(item.gamename,JSON.stringify(item));
     //gamesById[item.gameid].spawn(item);
     switch(item.gamename) {  //toplevel,isleaf,kingword,test
-    case 'leafgame':     return isLeafGame(item);
+    case 'leafgame':     return isLeafGameSpawn(item);
     case 'kingWord':     return kingWordSpawn(item);
     case 'split': /*fallthru*/   //toplevel is actually split...consolidate? subclass?
     case 'toplevel':     return splitGameSpawn(item);   
@@ -247,13 +245,16 @@ function spawn(item) {
     }
 }
 
+function isleafGameSpawn(parent) {
+    assert(false,"bugbug you are here");
+}
 
-function splitGameSpawn(parent) { //of some game bugbugd
-    show("bugbug2213 parent",parent,parent);
+function splitGameSpawn(parent) { 
+    //show("bugbug2213 parent",parent,parent);
     assert(parent.gamename,'gamename2351');
     assert(parent.gameid,'gameid23jj');
     
-    //these had to double encode to go into sql...fix'em
+    //these had to double encode to go into sql...fix'em  bugbug??
     parent.problemdata=JSON.parse(parent.problemdata);
     parent.result = JSON.parse(parent.answer);
 
@@ -261,20 +262,8 @@ function splitGameSpawn(parent) { //of some game bugbugd
     assert(parent.problemdata);
     assert(parent.hashid);
     assert(parent.popid,"no popid"+JSON.stringify(parent));
-/*    parent={
-	"assignmentid":30,"problemid":4,
-	"playerid":42,"sentat":"2019-05-27 05:40:46","sentip":"::1",
-	"resultat":"2019-05-27 05:40:49","resultip":"::1",
-	"result":"{\"assignmentId\":\"30\",\"start\":\"6393\",\"end\":\"6393\",\"action\":\"AND\"}",
-	"gameid":1,"hashid":".2jw5-ujimg",
-	"problemdata":"{\"nct\":\"NCT02649439\",\"start\":0,\"end\":-1}","parentid":null}
-  bugbug update3 is showing:
-{"assignmentId":"16","start":"228","end":"228","action":"AND"}
- probRow=
-{"problemid":4,"gameid":1,"hashid":".2jw5-ujimg","problemdata":"{\"nct\":\"NCT02649439\",\"start\":0,\"end\":-1}","parentid":null}
-*/
-    //"toplevel":{"gameId":1,"gameName":"toplevel","n":1,"m":1},"isleaf":{"gameId":2,"gameName":"isleaf","n":1,"m":1},"kingword":{"gameId":3,"gameName":"kingword","n":1,"m":1},"test":{"gameId":4444,"gameName":"test","n":1,"m":1}}
-    var isLeafGame=games['isleaf']; //bugbug some lookup or enum??
+
+    var isLeafGame=games['isleaf']; 
     assert(isLeafGame,'leafGame2353'+JSON.stringify(games));
     //every answer generates two new questions (problems)
     var prob1 = {
@@ -286,7 +275,7 @@ function splitGameSpawn(parent) { //of some game bugbugd
 	},
 	parentid: parent.popid
     };
-    
+    //gameid , hashid,    problemdata,    parentid    <----- req'd fields to proceed    
     var prob2 = {
 	gameid: isLeafGame.gameid,
 	hashid:parent.hashid,
@@ -297,25 +286,16 @@ function splitGameSpawn(parent) { //of some game bugbugd
 	parentid: parent.popid
     };
 
-    assert(prob2.gameid,'bugbug0023'+JSON.stringify(isLeafGame));
-    /*gameid integer references game,
-    hashid varchar(20) not null,
-    problemdata varchar(4000),
-    parentid integer references problem,  --selfref is root indicator
-    */
+    assert(prob2.gameid,'err0023r'+JSON.stringify(isLeafGame));
 
     return [prob1,prob2];
 }
 
 	
 
-//from post or recurse
+//from post
 async function doNewAssignment(req,res,next) {
-    //req.apiCount=req.apiCount || 0;
-    //req.apiCount++;
-    //show("req.apiCount",req.apiCount);
-    //if (req.apiCount>2)
-	//throw("req.apiCount>2");
+
     var playerId = req.body.playerId;
     if (playerId==null)
 	throw("bad player id body..."+JSON.stringify(req.body));
@@ -328,7 +308,7 @@ async function doNewAssignment(req,res,next) {
 	
 	var sql1 = "select * from myAssignment where playerid=$1 and resultat is null";
 	var params1 = [ playerId ];
-	var rows = await db.allAsync(sql1, params1);   //throw("bugbug0232i"
+	var rows = await db.allAsync(sql1, params1);   
 	assert(rows,"rows");
 
 	switch(rows.length) {
@@ -339,24 +319,21 @@ async function doNewAssignment(req,res,next) {
 	    await createNewAssignment(req,res,next);
 	    continue;  //try again
 	default:
-	    throw("bugbug multiple assignments per use??:"+rows.length);
+	    throw("err6120k: multiple assignments per use??:"+rows.length);
 	}
     }
-    throw("apiCount>2");
+    throw("err0116z:apiCount>2");
 };
 
-//bugbug need to retest this
+
 async function createNewAssignment(req,res,next){
-    //assert(req.apiCount,'bugbug1640x');
-    //who is sending it??
+
     var playerId=req.body.playerId;
     if (playerId==null)
-	throw("bad player id");
+	throw("err1171x:bad player id");
     var sentIp = getIp(req);
 
     //get a problemid that is unassigned,assign it to user, and return that row
-    //bugbug should be from a query     bugbug you are here
-    //bugbug var goodProblemId = 4;
     var sql0=
 	`
     select problem.problemId,problem.answer,assignment.playerId
@@ -371,44 +348,23 @@ async function createNewAssignment(req,res,next){
     limit 1;
     `;
 
-
-
-    var bugbug_oldqq=`
-    select problem.problemId,problem.answer,assignment
-    from problem left join assignment on assignment.problemId=problem.problemId
-    inner join game on game.gameId=problem.gameId
-    inner join playergame on game.gameId=playergame.gameId
-    inner join player on player.playerId=playergame.playerId
-    where problem.answer is null
-    --and assignment.problemId is null
-    and player.playerId=$1
-    limit 1;
-    `;
-
     var goodProblemId = (await db.getAsync(sql0,[playerId])).problemid;
     
-    assert(goodProblemId>0,"bugbug1218,goodProblemId="+JSON.stringify(goodProblemId));
+    assert(goodProblemId>0,"err1218c,goodProblemId="+JSON.stringify(goodProblemId));
     
     var sql1=""+
 	"insert into assignment ( playerid, problemId,   sentat, sentip     )"+
 	"     values            ( $1      , $2,      datetime(), $3         );"+
-        ""; //needed?? bugbug "select last_insert_rowid();"  ;
+        ""; 
     var params1 = [              playerId,goodProblemId,/*fromSql,*/  sentIp   ];
     var code=await db.runAsync( sql1, params1 )
-    assert(!code,"bugbug1731--insert complete");
-
-    //bugbug removeable??
-    //try again, via RECURSE...(next time thru this item'll be there !)
-    //if (errObj)
-    //    throw("error on insert assignment: "+JSON.stringify(errObj));
-    //assert(req.apiCount<=1,"bugbug1733u");
-    //doNewAssignment(req,res,next);
+    assert(!code,"err9731w--insert complete"+code);
 }
 
 
 async function sendOldAssignment(result,req,res,next){
-    console.log("sendold bugbug result="+JSON.stringify(result));
-    var mimeType = 'text/javascript';
+    //console.log("sendold bugbug result="+JSON.stringify(result));
+    const mimeType = 'text/javascript';
     res.setHeader('Content-Type', mimeType);
     res.end(JSON.stringify(result));
 }
@@ -465,10 +421,8 @@ async function main() {
     var sql = "select gameid,gamename,n,m from game;"  //specifying columns lowercase for json customers
     //global games //
     games = await db.domainAsync(sql, [], "gamename");
-    assert(games,'err:no games');
+    assert(games,'err0120v:no games');
     gamesById = await db.domainAsync(sql, [], "gameid");
-    //bugbug just put this here ... did it run???
-    //bugbug there can be only one var for games to avoid the where to put the methods problem
     
 
     
@@ -482,7 +436,6 @@ async function main() {
 
     app.listen(3001);
     console.log("started");
-
     
     setInterval( ()=>{
 
@@ -498,4 +451,4 @@ async function main() {
 
 }
 main();
-//bugbug did we get this far you are here
+
