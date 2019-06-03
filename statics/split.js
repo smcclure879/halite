@@ -2,7 +2,22 @@ function getPlayerId(){
     return 42;  //bugbug fake
 }
 
+function mySubstring(str,start,end){
+    var ll=str.length;
+    if (end<0)
+	end = end + ll + 1;
+    return str.substr(start,end-start);
+}
 
+function assert(fact,label) {
+    if (!fact)
+	alert(label);
+    
+}
+
+alert(mySubstring("abc",0,-1));
+assert(mySubstring("abc",0,-1)=="abc","bugbug2245i");
+assert(mySubstring("abc",0,1)=="a","bugbug0078j");
 
 function showAssignmentText(assignment) {  //from myAssignment view
     //   (assignmentId,    problemid,     playerid,   sentat,  resultat,
@@ -10,12 +25,18 @@ function showAssignmentText(assignment) {  //from myAssignment view
     //fullPath like...      /crits/2/v/j/o/2vjo-2367x.crit
     var fullPath=getPathFromHash(assignment.hashid);
     alert(JSON.stringify(assignment)+fullPath);
+
+
+    var problemData=JSON.parse(assignment.problemdata);
+    var start = problemData.start;
+    var end = problemData.end;
     
     $.ajax({
 	type: "GET",      //POST does a create, no id given. nothing really. gives back whole assignment
 	url: fullPath,
-	success: function(res){
-	    tt.value=res;
+	success: function(contents){
+	    alert("start="+start);
+	    tt.value=mySubstring(contents,start,end);
 	    runGame(assignment);
 	},
 	fail: function(err) {
@@ -65,59 +86,7 @@ function getAssignment(cb) {
     
 }
 
-function getData_the_fakeold_getAssignment() {
-    return {
-	assignId: '2cun-ounjc',
-	jobUri: '/NCT01666808/h.fsq0dai23x98/toplevel',
-	game: 'toplevel',
-	text: `        Inclusion Criteria:
 
-          -  Adenocarcinoma of the prostate, post radical-prostatectomy Detectable PSA
-
-          -  ECOG/Zubrod Performance Status of 0-2
-
-          -  Negative technetium 99-m MDP or F-18 PET bone scan for skeletal metastasis
-
-          -  CT or MR scan of abdomen and pelvis which does not suggest presence of metastatic
-             disease outside of the pelvis
-
-          -  Willingness to undergo pelvic radiotherapy.
-
-        Exclusion Criteria:
-
-          -  Contraindications to radiotherapy (including active inflammatory bowel disease or
-             prior pelvic XRT)
-
-          -  Inability to undergo anti-3-[18F]FACBC PET-CT
-
-          -  Age under 18
-
-          -  Metastatic disease outside of pelvis on any imaging or biopsy
-
-          -  Prior invasive malignancy (except non-melanomatous skin cancer) unless disease free
-             for a minimum of 3 years
-
-          -  Severe acute co-morbidity, defined as follows:
-
-               -  Unstable angina and/or congestive heart failure requiring hospitalization in the
-                  last 3 months
-
-               -  Transmural myocardial infarction within the last 6 months
-
-               -  Acute bacterial or fungal infection requiring intravenous antibiotics at the time
-                  of registration
-
-               -  Chronic Obstructive Pulmonary Disease exacerbation or other respiratory illness
-                  requiring hospitalization or precluding study therapy at the time of registration
-
-               -  Acquired Immune Deficiency Syndrome (AIDS) based upon current CDC definition;
-                  note, however, that HIV testing is not required for entry into this protocol. The
-                  need to exclude patients with AIDS from this protocol is necessary because the
-                  treatments involved in this protocol may be significantly immunosuppressive.
-                  Protocol-specific requirements may also exclude immunocompromised patients
-      
-`};
-}
 
 function last(arr) {
     return arr[arr.length-1];
@@ -140,9 +109,11 @@ window.onload=function() {
 function runGame(assignment) {
     window.assignment = assignment;  //for later, when submitting
     var game = assignment.gameName;  //not gameId
-    if (game=='toplevel') {
-	splitGame();
-    } else {
+
+    switch(game){
+    case 'toplevel':	splitGame();    return;
+    case 'isleaf':      isLeafGame();   return;
+    default:
 	alert("game "+game+" is NYI. err2014v");
 	alert(assignment);
     }
@@ -173,6 +144,17 @@ function splitGame() {
     
     alert("identify the toplevel split point.");
 }
+
+function isLeafGame() {
+    //bugbug you are here chopText()
+    addButtons([
+	['COMPLEX','COMPLEX'],
+	['LEAF','SIMPLE'],
+	['HUH','HUH']
+    ]);
+    alert("is this a COMPLEX statement or a SIMPLE statement?");
+}
+
 
 
 function addButtons(btns) {
