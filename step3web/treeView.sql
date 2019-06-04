@@ -5,21 +5,26 @@
 with recursive
     treeOf(level,problemId)
     as (
-    values(0,4)
+    values(0,11)
     union all
     select treeOf.level+1 , problem.problemId
     from problem join treeOf on treeOf.problemId=problem.parentId
-    where hashid='.2k3q-elqiw'
-    order by 1
+--    where hashid='.2k3q-elqiw'
+    order by 1 DESC
 )
 select coalesce(substr('.................',1,treeOf.level*3),'X'),
        problem.problemId,
+       game.gameName,
        problem.hashid,
-       problem.problemData
+       problem.problemData,
+       coalesce(       problem.answer, '  !!! WAITING !!!  ')
 from treeOf
 join problem
 on treeOf.problemId=problem.problemId
+join game
+on game.gameid=problem.gameid
 --select coalesce(substr('.................',1,level*3), problemId) FROM treeOf
+--order by hashid,treeOf.level,problem.problemId
 ;
 
 
