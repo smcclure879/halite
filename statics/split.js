@@ -15,7 +15,7 @@ function assert(fact,label) {
     
 }
 
-alert(mySubstring("abc",0,-1));
+
 assert(mySubstring("abc",0,-1)=="abc","bugbug2245i");
 assert(mySubstring("abc",0,1)=="a","bugbug0078j");
 
@@ -24,18 +24,20 @@ function showAssignmentText(assignment) {  //from myAssignment view
     //    gameid,  gameName, hashid, problemdata, parentProblemId)
     //fullPath like...      /crits/2/v/j/o/2vjo-2367x.crit
     var fullPath=getPathFromHash(assignment.hashid);
-    alert(JSON.stringify(assignment)+fullPath);
+    //alert(JSON.stringify(assignment)+fullPath);
 
 
     var problemData=JSON.parse(assignment.problemdata);
+    assert(problemData,"bugbug0138i");
     var start = problemData.start;
     var end = problemData.end;
+    assert(start>-1 ,"bugbug0123m"+JSON.stringify(problemData));
+    
     
     $.ajax({
 	type: "GET",      //POST does a create, no id given. nothing really. gives back whole assignment
 	url: fullPath,
 	success: function(contents){
-	    alert("start="+start);
 	    tt.value=mySubstring(contents,start,end);
 	    runGame(assignment);
 	},
@@ -113,55 +115,73 @@ function runGame(assignment) {
     switch(game){
     case 'toplevel':	splitGame();    return;
     case 'isleaf':      isLeafGame();   return;
+    case 'king':        kingGame();     return;
     default:
 	alert("game "+game+" is NYI. err2014v");
 	alert(assignment);
     }
-	
-    
 }
 
-/*function otherJunkbugbug() {
-    //do we retain notion of jobUri???  bugbug
-    var uri = assignment.jobUri;
-    var uriParts = uri.split('/');
-    var game2 = last(uriParts);
-
-    if (game2 != game) {
-	alert("errCode1812a: "+game2+"-----"+game);	
-    }
 
 
+const HUHButton=['HUH','HUH',' cannot do this one '];
+
+
+function addTitle(text){
+    var h = document.createElement("H5");
+    var t = document.createTextNode(text);
+    h.appendChild(t);
+    document.body.insertBefore(h,buttons);
 }
-*/
+
 
 //most games are like this...simple translations to the setup....
 function splitGame() {
+    addTitle("identify the toplevel split point.");
     addButtons([
 	['AND', 'SPLIT'],   //an AND button, labelled "split"
-	['HUH', 'HUH']      //
+	HUHButton
     ]);
     
-    alert("identify the toplevel split point.");
+
 }
 
 function isLeafGame() {
-    //bugbug you are here chopText()
+    addTitle("which is closest description of the text?");
     addButtons([
-	['COMPLEX','COMPLEX'],
-	['LEAF','SIMPLE'],
-	['HUH','HUH']
+	['COMPLEX','COMPLEX','made of several smaller statements that might be independently T/F'],
+	['KING','KING',      'a single phrase or word (eg INCLUDE) "rules" the rest'],
+	['LEAF','SIMPLE',    'a single isolated requirement eg  not taking medicine X  or has disease Y '],
+	HUHButton
     ]);
-    alert("is this a COMPLEX statement or a SIMPLE statement?");
+    //alert("is this a COMPLEX statement or a SIMPLE statement?");
 }
 
-
+function kingGame() {
+    addTitle("highlight just the king phrase or word");
+    addButtons([
+	['AND','AND',   'bugbug joined as AND'],
+	['OR','OR',     'bugbug joined as OR'],
+	HUHButton
+    ]);
+}
 
 function addButtons(btns) {
-    btns = new Map(btns);
-    btns.forEach( (v,k) => {
+    for(var ii in btns) {
+	var btn=btns[ii];
+	var txt=btn[2] || '';
+	var actionCode=btn[0];
+	var buttonText=btn[1];
 	buttons.innerHTML = buttons.innerHTML +
-	    '<input type="button" value="' + v + '" onclick="bb(this,\''+k+'\')" />   <br />';
+	    '<input type="button" value="' +buttonText+ '" onclick="bb(this,\''+actionCode+'\')" />  '+txt+' <br />';
+    }
+}
+
+function addButtons_oldbugbug(btns) {
+    btns = new Map(btns);
+    btns.forEach( (k,v) => {
+	buttons.innerHTML = buttons.innerHTML +
+	    '<input type="button" value="' + k + '" onclick="bb(this,\''+v+'\')" />   <br />';
     });
 }
 

@@ -7,8 +7,9 @@
 //get away from all one user
 
 //isLeafGame <<<<   you are here, working UP this list
-
-
+// and kingGame
+//  but found bug...inserts in createNewAssignment sometimes collide with unique constraint
+//probably because we used up all the problems.
 
 const express = require('express');
 const vhost = require('vhost');  //sorting on domain name virtual host
@@ -190,7 +191,7 @@ async function resultsBecomeAnswers() {
 
 //make new problems out of new answer !!!  problems make assignments, assignments make problems
 //base new problems on old one.
-async function answersBecomeSmallerProblems() {
+async function answersBecomeSmallerProblems() {  //bugbug this should be RESULTSbecomeSmallerProblems!!!!! you are here
     var workItems = await db.allAsync(
 	`
 	select  par.problemid as popid, kid.parentid, kid.problemid as kidid,
@@ -232,21 +233,99 @@ async function answersBecomeSmallerProblems() {
     //bugbug return something???
 }
 
-function spawn(item) {
+
+function spawn(item) {  //returns new problems to insert
+    item.problemdata=JSON.parse(item.problemdata);
+    item.answer = JSON.parse(item.answer);
+    
     assert(item.gamename,JSON.stringify(item));
-    //gamesById[item.gameid].spawn(item);
-    switch(item.gamename) {  //toplevel,isleaf,kingword,test
-    case 'leafgame':     return isLeafGameSpawn(item);
-    case 'kingWord':     return kingWordSpawn(item);
-    case 'split': /*fallthru*/   //toplevel is actually split...consolidate? subclass?
-    case 'toplevel':     return splitGameSpawn(item);   
+
+    //a big dispatch 
+    
+    //based first on overriding conditions found that are for many games
+    if (item.answer.action=='HUH')	return adminGameSpawn(item);
+    if (item.answer.action=='COMPLEX')  return adminGameSpawn(item);
+
+    //then based on which game WAS played (parent)
+    switch(item.gamename) { 
+    case 'isleaf':               return isLeafGameSpawn(item);
+    case 'kingword':             return kingWordSpawn(item);
+    //bugbug needed??? case 'split': /*fallthru*/   //toplevel is actually split...consolidate? subclass?
+    case 'toplevel':             return splitGameSpawn(item);   
 	
-    default:             throw("game with no subgames yet.."+item.gamename);
+    default:
+	console.log("game with no subgames yet.."+item.gamename);
+	process.exit(41);
     }
 }
 
-function isleafGameSpawn(parent) {
-    assert(false,"bugbug you are here");
+//bugbug insure admin game doesn't show a "HUH" button to avoid a slow infi loop
+function adminGameSpawn(parent) {
+    return [{
+	gameid: games['admin'].gameid,
+	hashid:parent.hashid,
+	problemdata:{start: parent.problemdata.start, end:parent.problemdata.end},
+	parentid: parent.popid	    
+    }];
+}
+
+function isLeafGameSpawn(parent) {
+    //these had to double encode to go into sql...fix'em  bugbug??
+    //parent.problemdata=JSON.parse(parent.problemdata);
+    //parent.result/answer = JSON.parse(parent.answer);
+
+    assert(parent.answer);
+    assert(parent.problemdata);
+    assert(parent.hashid);
+    assert(parent.popid,"no popid"+JSON.stringify(parent));
+
+    switch(parent.answer.action) {
+	//bugbug should handle HUH 3 levels up???
+    case 'KING': //return is array of only one child problem.  
+	return [{
+	    gameid: games['kingword'].gameid,
+	    hashid:parent.hashid,
+	    problemdata:{start: parent.problemdata.start, end:parent.problemdata.end},
+	    parentid: parent.popid	    
+	}];
+	
+    default:
+	show('bugbug1429i...parent was',parent);
+	process.exit(47);
+    }
+
+
+    /*    var prob1 = {
+	gameid: isLeafGame.gameid,
+	hashid:parent.hashid,
+	problemdata: {
+	    start: parent.problemdata.start,
+	    end: parent.answer.start
+	},
+	parentid: parent.popid
+    };
+    show("prob1",prob1);
+    //gameid , hashid,    problemdata,    parentid    <----- req'd fields to proceed    
+    var prob2 = {
+	gameid: isLeafGame.gameid,
+	hashid:parent.hashid,
+	problemdata: {
+	    start: parent.answer.end,
+	    end: parent.problemdata.end
+	},
+	parentid: parent.popid
+    };
+
+    assert(prob2.gameid,'err0023r'+JSON.stringify(isLeafGame));
+
+    return [prob1,prob2]; */
+    console.log("bugbug you are here");
+    process.exit(43);
+}
+
+function kingWordSpawn(parent) {
+    process.exit(44);
+
 }
 
 function splitGameSpawn(parent) { 
@@ -255,10 +334,10 @@ function splitGameSpawn(parent) {
     assert(parent.gameid,'gameid23jj');
     
     //these had to double encode to go into sql...fix'em  bugbug??
-    parent.problemdata=JSON.parse(parent.problemdata);
-    parent.result = JSON.parse(parent.answer);
+    //parent.problemdata=JSON.parse(parent.problemdata);
+    //parent.answer = JSON.parse(parent.answer);
 
-    assert(parent.result);
+    assert(parent.answer);
     assert(parent.problemdata);
     assert(parent.hashid);
     assert(parent.popid,"no popid"+JSON.stringify(parent));
@@ -271,7 +350,7 @@ function splitGameSpawn(parent) {
 	hashid:parent.hashid,
 	problemdata: {
 	    start: parent.problemdata.start,
-	    end: parent.result.start
+	    end: parent.answer.start
 	},
 	parentid: parent.popid
     };
@@ -280,7 +359,7 @@ function splitGameSpawn(parent) {
 	gameid: isLeafGame.gameid,
 	hashid:parent.hashid,
 	problemdata: {
-	    start: parent.result.end,
+	    start: parent.answer.end,
 	    end: parent.problemdata.end
 	},
 	parentid: parent.popid
@@ -342,7 +421,7 @@ async function createNewAssignment(req,res,next){
     inner join playergame on game.gameId=playergame.gameId
     inner join player on player.playerId=playergame.playerId
     where problem.answer is null
-    --where assignment.problemId is null
+    and assignment.problemId is null
     and player.playerId=$1
     order by random()
     limit 1;
@@ -447,6 +526,9 @@ async function main() {
     }, 15*SECONDS  );
     //DONE
 
+    setImmediate( ()=>{
+	periodicJobs();
+    });
 
 
 }
