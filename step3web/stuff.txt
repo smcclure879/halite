@@ -1,0 +1,26 @@
+sqlite> select * from assignment where result is null;
+153|231|42|2019-06-05 09:47:34|::1|||
+sqlite> select * from problem where problemid=231;
+231|2|.2lla-x3meo|{"start":"203","end":"271"}|203|
+sqlite> select * from problem where problemid=203;
+203|5|.2lla-x3meo|{"start":"028","end":"271"}|127|{"assignmentid":"149","start":"203","end":"203","action":"AND"}
+sqlite> select * from assignment where problemid=203;
+149|203|42|2019-06-05 09:43:50|::1|2019-06-05 09:44:02|::1|{"assignmentid":"149","start":"203","end":"203","action":"AND"}
+
+
+sqlite> select * from problem where hashid like ".2lla%";
+8|1|.2lla-x3meo|{"nct":"NCT01191099","start":0,"end":-1}||{"assignmentid":"52","start":"271","end":"271","action":"AND"}
+90|2|.2lla-x3meo|{"start":0,"end":"271"}|8|{"assignmentid":"76","start":"271","end":"271","action":"KING"}
+91|2|.2lla-x3meo|{"start":"271","end":-1}|8|{"assignmentid":"93","start":"506","end":"506","action":"KING"}
+127|3|.2lla-x3meo|{"start":0,"end":"271"}|90|{"assignmentid":"133","start":"0","end":"28","action":"AND"}
+132|3|.2lla-x3meo|{"start":"271","end":-1}|91|{"assignmentid":"116","start":"0","end":"20","action":"OR"}
+208|5|.2lla-x3meo|{"start":"27120","end":-1}|132|
+230|2|.2lla-x3meo|{"start":"028","end":"203"}|203|
+sqlite> delete from problem where problemid in (208,230);
+
+so basically, 91 shouldn't have been created?  or KING actions shouldn't have start==end !!
+start and end need to be their own columns. we need to enforce that the tree always spans the entire
+byte/char range
+
+
+
