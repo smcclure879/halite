@@ -1,0 +1,122 @@
+21-Gene signature (Oncotype DX)
+3D CT Angiography
+5-Protein signature (OVA1)
+70-Gene signature (Mammaprint)
+ALK gene rearrangements and overexpression
+Alpha-fetoprotein (AFP)
+Angiography
+Anoscopy
+Autofluorescence Bronchoscopy / Fluorescence Bronchoscopy
+Barium Enema
+BCR-ABL fusion gene
+Beta-2-microglobulin (B2M)
+Beta-human chorionic gonadotropin (Beta-hCG or HCG)
+Biopsy
+Biopsy with an endoscope - Excisional
+Biopsy with an endoscope - Incisional
+Biopsy with needle
+Biopsy with surgery
+Blood Cell Count - Platelets
+Blood Cell Count - Red
+Blood Cell Count - White
+Blood Cell Size - Red
+Blood Chemistry Testing
+Blood Urea Nitrogen (BUN)
+Bone Marrow Aspiration and Biopsy
+Bone Scan 
+BRAF V600 mutations
+BRCA1 gene mutations
+BRCA2 gene mutations
+Bronchoscopy
+C-kit/CD117
+CA-125
+CA15-3/CA27.29
+CA19-9
+Calcitonin
+Cancer Gene Mutation Testing
+Carcinoembryonic antigen (CEA)
+CD20
+Chest X-Ray
+Chromogranin A (CgA)
+Chromosomes 17
+Chromosomes 3
+Chromosomes 7
+Chromosomes 9p21
+Circulating Tumor Cell Tests
+Circulating tumor cells of epithelial origin (CELLSEARCH)
+Colonoscopy
+Complete Blood Count (CBC)
+Creatinine
+CT-Guided Biopsy
+CT Scan
+Cytogenetic Analysis
+Cytokeratin fragment 21-1
+DEXA Scan
+Digital Breast Tomosynthesis
+Digital Rectal Exam (DRE)
+Eastern Cooperative Oncology Group (ECOG)
+EGFR gene mutation analysis
+Electrocardiogram
+Electrolytes
+Electrophoresis
+Endobronchial Ultrasound
+Endoscopic retrograde cholangiopancreatography (ERCP)
+Endoscopic Ultrasound
+Endoscopy
+Estrogen receptor (ER)/progesterone receptor (PR)
+Fats
+Fecal Occult Blood Tests
+Fibrin/fibrinogen
+Flow Cytometry
+Full-Field Digital Mammography
+GE 16-Slice CT Scan
+GE Discovery PET/CT 600 Scan
+Gleason Score
+Guaiac-based FOBT
+HE4
+Hematocrit
+Hemoglobin
+HER2/neu gene amplification or protein overexpression
+Immunochemical FOBT
+Immunoglobulins
+Immunophenotyping
+Karnofsky Scoring
+KRAS gene mutation analysis
+Lactate dehydrogenase
+Lansky Score
+Large Bore CT Scan / RT with Simulation
+Lumbar Puncture
+Mammaprint+Blueprint Test
+Mammography
+Metabolites
+Miraluma Breast Imaging
+MRI
+MRI-Guided Breast Biopsy
+Multi-Detector CT Scan
+Multiple-Gated Acquisition (MUGA) Scan
+Navigational Bronchoscopy
+Neuron-specific enolase (NSE)
+Nuclear matrix protein 22
+Nuclear Scan
+Oncotype DX Test
+Pap Test
+Pelvic Exam
+PET-CT SCAN
+PET scan
+Plasminogen activator inhibitor (PAI-1)
+Programmed death ligand 1 (PD-L1)
+Prostate-specific antigen (PSA)
+Proteins & Enzymes
+Sentinel Lymph Node Biopsy
+Sigmoidoscopy
+Spiral CT
+Sputum cytology
+Testosterone
+Thyroglobulin
+Ultrasound
+Upper Endoscopy
+Urinalysis
+Urine cytology
+Urokinase plasminogen activator (uPA)
+Video Capsule Endoscopy
+X-ray

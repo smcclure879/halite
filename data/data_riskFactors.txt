@@ -1,0 +1,80 @@
+1,3-Butadiene
+Acrylamide
+Aflatoxins
+Age
+Alcohol
+Alpha particles
+Aristolochic Acids
+Arsenic
+Artificial sweeteners
+Asbestos
+Benzene
+Benzidine
+Beryllium
+Beta particles
+Breastfeeding
+Cadmium
+Calcium
+Cancer-Causing Substances
+Charred meat
+Childbearing
+Chronic Inflammation
+Coal Tar and Coal-Tar Pitch
+Coke-Oven Emissions
+Computed tomography (CT) scans
+Cruciferous vegetables
+Crystalline Silica (respirable size)
+Diet
+Epstein-Barr virus (EBV)
+Erionite
+Estrogen
+Ethylene Oxide
+Fluoride
+Formaldehyde
+Gamma rays
+Garlic
+Gender
+Genetics
+Helicobacter pylori (H. pylori)
+Hepatitis B virus (HBV)
+Hepatitis C virus (HCV)
+Hexavalent Chromium Compounds
+Hormone replacement therapy
+Hormones
+Human immunodeficiency virus (HIV)
+Human Papillomavirus (HPV)
+Human T-Cell Leukemia/Lymphoma Virus Type 1 (HTLV-1)
+Immunosuppression
+Indoor Emissions from the Household Combustion of Coal
+Infectious Agents
+Kaposi Sarcoma-Associated Herpesvirus (KSHV)
+Liver flukes
+Merkel Cell Polyomavirus (MCPyV)
+Mineral Oils: Untreated and Mildly Treated
+Neutrons
+Nickel Compounds
+Obesity
+Opisthorchis viverrini
+Oral contraceptives
+Positron emission tomography (PET) scans
+Race
+Radiation
+Radiation therapy
+Radon
+Radon
+Red wine
+Schistosoma hematobium
+Secondhand Tobacco Smoke (Environmental Tobacco Smoke)
+Soot
+Strong Inorganic Acid Mists Containing Sulfuric Acid
+Sun
+Sunlamps
+Sunlight
+Tanning booths
+Tea
+Thorium
+Tobacco
+Vinyl Chloride
+Vitamin D
+Wood Dust
+X-Rays

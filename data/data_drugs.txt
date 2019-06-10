@@ -1,0 +1,534 @@
+5-FU
+5-FU--Topical
+Abemaciclib
+Abiraterone Acetate
+Abitrexate
+Abraxane
+ABVD
+ABVE
+ABVE-PC
+AC
+AC-T
+Acalabrutinib
+Adcetris
+ADE
+Ado-Trastuzumab Emtansine
+Adriamycin
+Adriamycin PFS
+Adriamycin RDF
+Afatinib Dimaleate
+Afinitor
+Afinitor Disperz
+Akynzeo
+Aldara
+Aldesleukin
+Alecensa
+Alectinib
+Alemtuzumab
+Alimta
+Aliqopa
+Alkeran for Injection
+Alkeran Tablets
+Aloxi
+Alunbrig
+Ambochlorin
+Amboclorin
+Amifostine
+Aminolevulinic Acid
+Anastrozole
+Aprepitant
+Aredia
+Arimidex
+Aromasin
+Arranon
+Arsenic Trioxide
+Arzerra
+Asparaginase Erwinia chrysanthemi
+Atezolizumab
+Avastin
+Avelumab
+Axicabtagene Ciloleucel
+Axitinib
+Azacitidine
+Bavencio
+BEACOPP
+Becenum
+Beleodaq
+Belinostat
+Bendamustine Hydrochloride
+BEP
+Besponsa
+Bevacizumab
+Bexarotene
+Bicalutamide
+BiCNU
+Blenoxane
+Bleomycin
+Blinatumomab
+Blincyto
+Bortezomib
+Bosulif
+Bosutinib
+Brentuximab Vedotin
+Brigatinib
+BuMel
+Busulfan
+Busulfex
+Cabazitaxel
+Cabometyx
+Cabozantinib-S-Malate
+CAF
+Calquence
+Campath
+Camptosar
+Capecitabine
+CAPOX
+Caprelsa
+Carac
+Carboplatin
+CARBOPLATIN-TAXOL
+Carfilzomib
+Carmubris
+Carmustine
+Carmustine Implant
+Casodex
+CEM
+Ceritinib
+Cerubidine
+Cervarix
+Cetuximab
+CEV
+Chlorambucil
+CHLORAMBUCIL-PREDNISONE
+CHOP
+Cisplatin
+Cladribine
+Clafen
+Clofarabine
+Clofarex
+Clolar
+CMF
+Cobimetinib
+Cometriq
+Copanlisib Hydrochloride
+COPDAC
+COPP
+COPP-ABV
+Cosmegen
+Cotellic
+Crizotinib
+CVP
+Cyclophosphamide
+Cyfos
+Cyramza
+Cytarabine
+Cytarabine Liposome
+Cytosar-U
+Cytoxan
+Dabrafenib
+Dacarbazine
+Dacogen
+Dactinomycin
+Daratumumab
+Darzalex
+Dasatinib
+Daunorubicin Hydrochloride
+Daunorubicin Hydrochloride and Cytarabine Liposome
+Decitabine
+Defibrotide Sodium
+Defitelio
+Degarelix
+Denileukin Diftitox
+Denosumab
+DepoCyt
+Dexamethasone
+Dexrazoxane Hydrochloride
+Dinutuximab
+Docetaxel
+Dox-SL
+Doxil
+Doxorubicin Hydrochloride
+Doxorubicin Hydrochloride Liposome
+DTIC-Dome
+Durvalumab
+Efudex
+Elitek
+Ellence
+Elotuzumab
+Eloxatin
+Eltrombopag Olamine
+Emend
+Empliciti
+Enasidenib Mesylate
+Enzalutamide
+Epirubicin Hydrochloride
+EPOCH
+Erbitux
+Eribulin Mesylate
+Erivedge
+Erlotinib Hydrochloride
+Erwinaze
+Ethyol
+Etopophos
+Etoposide
+Etoposide Phosphate
+Evacet
+Everolimus
+Evista
+Evomela
+Exemestane
+Fareston
+Farydak
+Faslodex
+FEC
+Femara
+Filgrastim
+Fludara
+Fludarabine Phosphate
+Fluoroplex
+Fluorouracil
+Fluorouracil--Topical
+Fluorouracil Injection
+Flutamide
+Folex
+Folex PFS
+FOLFIRI
+FOLFIRI-BEVACIZUMAB
+FOLFIRI-CETUXIMAB
+FOLFIRINOX
+FOLFOX
+Folinic Acid
+Folotyn
+FU-LV
+Fulvestrant
+Gardasil
+Gardasil 9
+Gazyva
+Gefitinib
+GEMCITABINE-CISPLATIN
+GEMCITABINE-OXALIPLATIN
+Gemcitabine Hydrochloride
+Gemtuzumab Ozogamicin
+Gemzar
+Gilotrif
+Gleevec
+Gliadel
+Gliadel wafer
+Glucarpidase
+Goserelin Acetate
+Halaven
+Hemangeol
+Herceptin
+HPV Bivalent Vaccine, Recombinant
+HPV Nonavalent Vaccine, Recombinant
+HPV Quadrivalent Vaccine, Recombinant
+Hycamtin
+Hydrea
+Hydroxydaunomycin
+Hydroxydaunomycin
+Hydroxyurea
+Hyper-CVAD
+Ibrance
+Ibritumomab Tiuxetan
+Ibrutinib
+ICE
+Iclusig
+Idamycin
+Idarubicin Hydrochloride
+Idelalisib
+Idhifa
+Ifex
+Ifosfamide
+Ifosfamidum
+IL-2
+Imatinib Mesylate
+Imbruvica
+Imfinzi
+Imiquimod
+Imlygic
+Inlyta
+Inotuzumab Ozogamicin
+Interferon Alfa-2b, Recombinant
+Interleukin-2
+Intron A
+Ipilimumab
+Iressa
+Irinotecan Hydrochloride
+Irinotecan Hydrochloride Liposome
+Istodax
+Ixabepilone
+Ixazomib Citrate
+Ixempra
+Jakafi
+JEB
+Jevtana
+Kadcyla
+Keoxifene
+Kepivance
+Keytruda
+Kisqali
+Kymriah
+Kyprolis
+Lanreotide Acetate
+Lapatinib Ditosylate
+Lartruvo
+Lenalidomide
+Lenvatinib Mesylate
+Lenvima
+Letrozole
+Leucovorin Calcium
+Leukeran
+Leuprolide Acetate
+Leustatin
+Levulan
+Linfolizin
+LipoDox
+Lomustine
+Lonsurf
+Lupron
+Lupron Depot
+Lupron Depot-Ped
+Lutathera
+Lutetium
+Lynparza
+Marqibo
+Matulane
+Mechlorethamine Hydrochloride
+Megestrol Acetate
+Mekinist
+Melphalan
+Melphalan Hydrochloride
+Mercaptopurine
+Mesna
+Mesnex
+Methazolastone
+Methotrexate
+Methotrexate LPF
+Methylnaltrexone Bromide
+Mexate
+Mexate-AQ
+Midostaurin
+Mitomycin C
+Mitoxantrone Hydrochloride
+Mitozytrex
+MOPP
+Mozobil
+Mustargen
+Mutamycin
+Myleran
+Mylosar
+Mylotarg
+Nanoparticle Paclitaxel
+Navelbine
+Necitumumab
+Nelarabine
+Neosar
+Neratinib Maleate
+Nerlynx
+Netupitant and Palonosetron Hydrochloride
+Neulasta
+Neupogen
+Nexavar
+Nilandron
+Nilotinib
+Nilutamide
+Ninlaro
+Niraparib Tosylate Monohydrate
+Nivolumab
+Nolvadex
+Nplate
+Obinutuzumab
+Odomzo
+OEPA
+Ofatumumab
+OFF
+Olaparib
+Olaratumab
+Omacetaxine Mepesuccinate
+Oncaspar
+Oncovin
+Ondansetron Hydrochloride
+Onivyde
+Ontak
+Opdivo
+OPPA
+Osimertinib
+Oxaliplatin
+Paclitaxel
+Paclitaxel Albumin-stabilized Nanoparticle Formulation
+PAD
+Palbociclib
+Palifermin
+Palonosetron Hydrochloride
+Palonosetron Hydrochloride and Netupitant
+Pamidronate Disodium
+Panitumumab
+Panobinostat
+Paraplat
+Paraplatin
+Pazopanib Hydrochloride
+PCV
+PEB
+PEG-Intron
+Pegaspargase
+Pegfilgrastim
+Peginterferon Alfa-2b
+Pembrolizumab
+Pemetrexed Disodium
+Perjeta
+Pertuzumab
+Platinol
+Platinol-AQ
+Plerixafor
+Pomalidomide
+Pomalyst
+Ponatinib Hydrochloride
+Portrazza
+Pralatrexate
+Prednisone
+Procarbazine Hydrochloride
+Proleukin
+Prolia
+Promacta
+Propranolol Hydrochloride
+Provenge
+Purinethol
+Purixan
+R-CHOP
+R-CVP
+R-EPOCH
+R-ICE
+Radium 223 Dichloride
+Raloxifene Hydrochloride
+Ramucirumab
+Rasburicase
+Recombinant Human Papillomavirus (HPV) Bivalent Vaccine
+Recombinant Human Papillomavirus (HPV) Nonavalent Vaccine
+Recombinant Human Papillomavirus (HPV) Quadrivalent Vaccine
+Recombinant Interferon Alfa-2b
+Regorafenib
+Relistor
+Revlimid
+Rheumatrex
+Ribociclib
+Rituxan
+Rituxan Hycela
+Rituximab
+Rituximab and Hyaluronidase Human
+Rolapitant Hydrochloride
+Romidepsin
+Romiplostim
+Rubidomycin
+Rubraca
+Rucaparib Camsylate
+Ruxolitinib Phosphate
+Rydapt
+Sclerosol Intrapleural Aerosol
+Siltuximab
+Sipuleucel-T
+Somatuline Depot
+Sonidegib
+Sorafenib Tosylate
+Sprycel
+STANFORD V
+Sterile Talc Powder
+Steritalc
+Stivarga
+Sunitinib Malate
+Sutent
+Sylatron
+Sylvant
+Synribo
+Tabloid
+TAC
+Tafinlar
+Tagrisso
+Talc
+Talimogene Laherparepvec
+Tamoxifen Citrate
+Tarabine PFS
+Tarceva
+Targretin
+Tasigna
+Taxol
+Taxotere
+Tecentriq
+Temodar
+Temozolomide
+Temsirolimus
+Thalidomide
+Thalomid
+Thioguanine
+Thiotepa
+Tisagenlecleucel
+Tolak
+Topotecan Hydrochloride
+Toremifene
+Torisel
+Totect
+TPF
+Trabectedin
+Trametinib
+Trastuzumab
+Treanda
+Trifluridine and Tipiracil Hydrochloride
+Trisenox
+Tykerb
+Unituxin
+Uridine Triacetate
+VAC
+Valrubicin
+Valstar
+VAMP
+Vandetanib
+Varubi
+Vectibix
+VeIP
+Velban
+Velcade
+Velsar
+Vemurafenib
+Venclexta
+Venetoclax
+VePesid
+Verzenio
+Viadur
+Vidaza
+Vinblastine Sulfate
+Vincasar PFS
+Vincristine Sulfate
+Vincristine Sulfate Liposome
+Vinorelbine Tartrate
+VIP
+Vismodegib
+Vistogard
+Voraxaze
+Vorinostat
+Votrient
+Vyxeos
+Wellcovorin
+Xalkori
+XELIRI
+Xeloda
+XELOX
+Xgeva
+Xofigo
+Xtandi
+Yervoy
+Yescarta
+Yondelis
+Zaltrap
+Zarxio
+Zejula
+Zelboraf
+Zevalin
+Zinecard
+Ziv-Aflibercept
+Zofran
+Zoladex
+Zoledronic Acid
+Zolinza
+Zometa
+Zydelig
+Zykadia
+Zytiga
