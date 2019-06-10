@@ -6,10 +6,12 @@
 
 //get away from all one user
 
-//isLeafGame <<<<   you are here, working UP this list
-// and kingGame
-//  but found bug...inserts in createNewAssignment sometimes collide with unique constraint
-//probably because we used up all the problems.
+//actual leaf
+//sub bullet isLeaf
+//bullet splitoff via kingword
+// bullet split  <<<<   you are here, working UP this list (silent stop on submit to this file)
+// kingWordGame  (this was mostly working but hit the bullet split empty issue above, trying to catch it on write.
+
 
 const express = require('express');
 const vhost = require('vhost');  //sorting on domain name virtual host
@@ -33,12 +35,25 @@ const SECONDS=1000;
 function assert(testCond, label) {
     if (testCond) return;
     console.log(" !!! ---> assert fail:"+label);
-    throw("assert fail:"+label);
+    //throw("assert fail:"+label);
+    process.exit(88);
+}
+
+function stop(label,val) {
+    console.log(" !!!!!!   STOP   ="+label+"--"+JSON.stringify(val));
+    process.exit(89);
 }
 
 function show(x,y,z) {
     var str=x+'='+JSON.stringify(y)+"-"+z
     console.log(str);
+}
+
+function hasAll(item,cols) {
+    for (var col of cols) {
+	if (!item.hasOwnProperty(col)) return false;
+    }
+    return true;
 }
 
 
@@ -104,10 +119,10 @@ function serveIconFile(req,res,next){
 }
 
 
-function validate(val,label,reg){
+/*function validate(val,label,reg){
     if (val.match(reg)) return;
     throw new Error("cannot validate "+label+"   "+reg);
-}
+}*/
 
 var urlEncodedParser = bodyParser.urlencoded({ extended:true });
 
@@ -115,8 +130,11 @@ var urlEncodedParser = bodyParser.urlencoded({ extended:true });
 //when you are turning back in a unit of work ("assignment")
 async function putAssignment(req,res,next) {
     var assignmentId=""+req.params.assignmentid;
-    if (assignmentId != ""+req.body.assignmentid)
-	throw("err1834: params:"+JSON.stringify(req.params)+"!!!body:"+JSON.stringify(req.body));
+    if (assignmentId != ""+req.body.assignmentid) {
+	assert(false,"err1834: params:"+JSON.stringify(req.params)+"!!!body:"+JSON.stringify(req.body)  );
+	res.status(500).end("badly formed response");
+	return;
+    }
 
     var userAnswer=JSON.stringify(req.body);
     
@@ -171,7 +189,7 @@ async function resultsBecomeAnswers() {
 	);
 
     if (!rows || rows.length<1){
-	show("no rows for results to answers");
+	show("no rows for resultsBecomeAnswers");
 	return;
     }
     for (var ii=0; ii<rows.length; ii++) {
@@ -186,12 +204,24 @@ async function resultsBecomeAnswers() {
 }
 
 
-
+function verifyProblemList(problems) {  //bugbug improve. should fill the range given by parent.
+    var start = 0;
+    var end = 0;
+    for(var ii in problems) {
+	var pd = problems[ii].problemdata;
+	var newstart = pd.start;
+	var newend = pd.end;
+	show("start,end,newstart,newend",[start,end,newstart,newend]);
+	assert(start==0 || newstart == end, "vpl0107bugbug"+JSON.stringify(problems));
+	end = newend;
+	start = newstart;
+    }
+}
 
 
 //make new problems out of new answer !!!  problems make assignments, assignments make problems
 //base new problems on old one.
-async function answersBecomeSmallerProblems() {  //bugbug this should be RESULTSbecomeSmallerProblems!!!!! you are here
+async function answersBecomeSmallerProblems() {
     var workItems = await db.allAsync(
 	`
 	select  par.problemid as popid, kid.parentid, kid.problemid as kidid,
@@ -212,20 +242,26 @@ async function answersBecomeSmallerProblems() {  //bugbug this should be RESULTS
 	return;
     }
 
-    const colsString = "gameid,hashid,problemdata,parentid";
-    const cols=colsString.split(',');
-    const sqlProbInsert = "insert into problem ("+colsString+") values (?,?,?,?)";
+
     for(var ii in workItems) {
 	var item=workItems[ii];
 	assert(item.popid,"err0050u"+JSON.stringify(item));
-	//show("parentItem",item);
+	show("parentItem",item);
+	debugger;
 	assert(item.gameid,'err0336i'+JSON.stringify(item));	
-	var newProblems = spawn(item);  
+	var newProblems = spawn(item);
+	show("about to vpl");
+	verifyProblemList(newProblems);
 	//insert the new problem objects
 	for(var kk in newProblems) { 
-	    var kid=newProblems[kk]; 
+	    var kid=newProblems[kk];
+	    verifyProblemBeforeWrite(kid,item);
 	    //flatten for DB   //bugbug should proj absorb object stringification?
 	    kid.problemdata=JSON.stringify(kid.problemdata);  
+
+	    const colsString = "gameid,hashid,problemdata,parentid";
+	    const cols=colsString.split(',');
+	    const sqlProbInsert = "insert into problem ("+colsString+") values (?,?,?,?)";
 	    var columnVals = sqa.proj(kid,cols); // "project out" the column V V -values we need from the kid 
 	    db.runAsync(sqlProbInsert,columnVals);  //[kid.gameid, kid.hashid, kid.problem1data, kid.parentid]
 	}
@@ -233,14 +269,22 @@ async function answersBecomeSmallerProblems() {  //bugbug this should be RESULTS
     //bugbug return something???
 }
 
+function verifyProblemBeforeWrite(kid,parent) {
+    //stop("bugbug0209g");
+    assert(kid.problemdata.start!=kid.problemdata.end,"bugbug0135h"+JSON.stringify(parent));
+    
+    //bugbug0135h{"gameid":5,"hashid":".2cun-ounjc","problemdata":{"start":0,"end":"0"},"parentid":116}
+}
 
+
+const requiredCols='answer,problemdata,hashid,popid,gamename'.split(",");
 function spawn(item) {  //returns new problems to insert
     item.problemdata=JSON.parse(item.problemdata);
     item.answer = JSON.parse(item.answer);
-    
-    assert(item.gamename,JSON.stringify(item));
 
-    //a big dispatch 
+    assert( hasAll(item,requiredCols),  'bugbug2083j:'+JSON.stringify(item)  );
+    show("done 2083,item",item);
+    //----a big dispatch ------
     
     //based first on overriding conditions found that are for many games
     if (item.answer.action=='HUH')	return adminGameSpawn(item);
@@ -250,21 +294,34 @@ function spawn(item) {  //returns new problems to insert
     switch(item.gamename) { 
     case 'isleaf':               return isLeafGameSpawn(item);
     case 'kingword':             return kingWordSpawn(item);
-    //bugbug needed??? case 'split': /*fallthru*/   //toplevel is actually split...consolidate? subclass?
+    case 'split': /*fallthru*/   //toplevel is actually split...consolidate? subclass?
     case 'toplevel':             return splitGameSpawn(item);   
-	
+    case 'topic':                return topicGameSpawn(item);
     default:
 	console.log("game with no subgames yet.."+item.gamename);
 	process.exit(41);
     }
 }
 
+function topicGameSpawn(item) {
+
+    switch(item.answer.action) {
+    case 'CONDITION':
+	assert(false,"bugbug0031b",item);  //bugbug you are here...probably check this much in??
+    default:
+	assert(false,"bugbug0031c",item);
+    }
+    stop("0032x");
+
+}
+
+
 //bugbug insure admin game doesn't show a "HUH" button to avoid a slow infi loop
 function adminGameSpawn(parent) {
     return [{
 	gameid: games['admin'].gameid,
-	hashid:parent.hashid,
-	problemdata:{start: parent.problemdata.start, end:parent.problemdata.end},
+	hashid: parent.hashid,
+	problemdata: {start: parent.problemdata.start, end:parent.problemdata.end},
 	parentid: parent.popid	    
     }];
 }
@@ -274,21 +331,29 @@ function isLeafGameSpawn(parent) {
     //parent.problemdata=JSON.parse(parent.problemdata);
     //parent.result/answer = JSON.parse(parent.answer);
 
-    assert(parent.answer);
-    assert(parent.problemdata);
-    assert(parent.hashid);
-    assert(parent.popid,"no popid"+JSON.stringify(parent));
-
     switch(parent.answer.action) {
 	//bugbug should handle HUH 3 levels up???
     case 'KING': //return is array of only one child problem.  
 	return [{
 	    gameid: games['kingword'].gameid,
 	    hashid:parent.hashid,
-	    problemdata:{start: parent.problemdata.start, end:parent.problemdata.end},
+	    problemdata: parent.problemdata,
 	    parentid: parent.popid	    
 	}];
-	
+    case 'SPLITTABLE':
+	return [{
+	    gameid: games['split'].gameid,
+	    hashid:parent.hashid,
+	    problemdata: parent.problemdata,
+	    parentid: parent.popid
+	}];
+    case 'LEAF':
+	return [{
+	    gameid: games['topic'].gameid,
+	    hashid:parent.hashid,
+	    problemdata:parent.problemdata,
+	    parentid: parent.popid
+	}];
     default:
 	show('bugbug1429i...parent was',parent);
 	process.exit(47);
@@ -319,38 +384,76 @@ function isLeafGameSpawn(parent) {
     assert(prob2.gameid,'err0023r'+JSON.stringify(isLeafGame));
 
     return [prob1,prob2]; */
-    console.log("bugbug you are here");
+    assert(false,"bugbug394x");
     process.exit(43);
 }
 
-function kingWordSpawn(parent) {
-    process.exit(44);
+function int(x) {
+    return parseInt(x);
+}
 
+
+function kingWordSpawn(parent) {
+    var splitGame=games['split'];
+    var semanticNullGame=games['semanticnull'];
+    assert(splitGame && semanticNullGame,'bugbug2052h bad games table??');
+    //'answer,problemdata,hashid,popid,gamename'
+    var prob1={
+	gameid: semanticNullGame.gameid,
+	hashid:parent.hashid,  //bugbug move repetitive fields into a create method? or caller? or both??
+	problemdata:{ //bugbug did this new prob1 work?
+	    start: int(parent.problemdata.start),
+	    end: int(parent.problemdata.start) + int(parent.answer.start) 
+	    //bugbug you actually need 3 regions, two can be semantic null, but WHICH two?  probably the first two
+	},
+	parentid: parent.popid
+    };
+    var prob2={
+	gameid: semanticNullGame.gameid,
+	hashid:parent.hashid,
+	problemdata: {
+	    start: int(parent.problemdata.start) + int(parent.answer.start),
+	    end: int(parent.problemdata.start) + int(parent.answer.end)
+	},
+	parentid:parent.popid	    
+    };
+    var prob3={  //this is probably the list itself...the only child of interest going forward
+	gameid: splitGame.gameid,
+	hashid:parent.hashid,
+	problemdata: {  //bugbug ints move up....all the way to the data model !??
+	    start: int(parent.problemdata.start) + int(parent.answer.end),
+	    end: int(parent.problemdata.end),
+	    inside: parent.answer.actionCode
+	},
+	parentid: parent.popid	
+    };
+
+    if (prob1.problemdata.start==prob1.problemdata.end) //if the kingwords start the section under study..
+	return [prob2,prob3];  //then only 1 semanticnull instead of 2.
+    else
+	return [prob1,prob2,prob3];
+}
+
+function isNumeric(x) {
+    return !isNaN(parseFloat(x)) && isFinite(x);
 }
 
 function splitGameSpawn(parent) { 
-    //show("bugbug2213 parent",parent,parent);
-    assert(parent.gamename,'gamename2351');
-    assert(parent.gameid,'gameid23jj');
-    
-    //these had to double encode to go into sql...fix'em  bugbug??
-    //parent.problemdata=JSON.parse(parent.problemdata);
-    //parent.answer = JSON.parse(parent.answer);
-
-    assert(parent.answer);
-    assert(parent.problemdata);
-    assert(parent.hashid);
-    assert(parent.popid,"no popid"+JSON.stringify(parent));
-
     var isLeafGame=games['isleaf']; 
     assert(isLeafGame,'leafGame2353'+JSON.stringify(games));
+    assert(isNumeric(parent.problemdata.start));
+    assert(isNumeric(parent.answer.start));
     //every answer generates two new questions (problems)
+    //bugbug for now ignoring the 3 result case, where user didn't pick a point but a range.
+    //need to add it back in for "completeness" (checking the final result didn't skip stuff)
+    //to fix probably need to do it in the game itself, and in the answer-checker, NOT HERE
+    assert(parent.answer.start==parent.answer.end,"bugbug2128t");
     var prob1 = {
 	gameid: isLeafGame.gameid,
 	hashid:parent.hashid,
 	problemdata: {
-	    start: parent.problemdata.start,
-	    end: parent.answer.start
+	    start: int(parent.problemdata.start),
+	    end: int(parent.problemdata.start)+int(parent.answer.start)
 	},
 	parentid: parent.popid
     };
@@ -359,8 +462,8 @@ function splitGameSpawn(parent) {
 	gameid: isLeafGame.gameid,
 	hashid:parent.hashid,
 	problemdata: {
-	    start: parent.answer.end,
-	    end: parent.problemdata.end
+	    start: int(parent.problemdata.start)+int(parent.answer.end),
+	    end: int(parent.problemdata.end)
 	},
 	parentid: parent.popid
     };
@@ -427,8 +530,20 @@ async function createNewAssignment(req,res,next){
     limit 1;
     `;
 
-    var goodProblemId = (await db.getAsync(sql0,[playerId])).problemid;
     
+    var goodProblemId = null;
+    try {
+	var sqlRes = await db.getAsync(sql0,[playerId]);
+	if (sqlRes==null) {
+	    console.log("pnt1437u--no more problems");
+	    res.status(204).end("err1440x-no more problems right now");
+	    return;
+	}
+	goodProblemId = sqlRes.problemid;
+    } catch(ex) {
+	console.log("bugbug1110s:"+ex);
+	return;
+    };
     assert(goodProblemId>0,"err1218c,goodProblemId="+JSON.stringify(goodProblemId));
     
     var sql1=""+

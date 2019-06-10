@@ -2,22 +2,22 @@ function getPlayerId(){
     return 42;  //bugbug fake
 }
 
+
+function assert(fact,label) {
+    if (!fact)
+	alert(label);
+}
+
+
 function mySubstring(str,start,end){
     var ll=str.length;
     if (end<0)
 	end = end + ll + 1;
     return str.substr(start,end-start);
 }
-
-function assert(fact,label) {
-    if (!fact)
-	alert(label);
-    
-}
-
-
 assert(mySubstring("abc",0,-1)=="abc","bugbug2245i");
 assert(mySubstring("abc",0,1)=="a","bugbug0078j");
+
 
 function showAssignmentText(assignment) {  //from myAssignment view
     //   (assignmentId,    problemid,     playerid,   sentat,  resultat,
@@ -31,8 +31,8 @@ function showAssignmentText(assignment) {  //from myAssignment view
     assert(problemData,"bugbug0138i");
     var start = problemData.start;
     var end = problemData.end;
+    assert(end==-1 || end>start,"bugbug1913");
     assert(start>-1 ,"bugbug0123m"+JSON.stringify(problemData));
-    
     
     $.ajax({
 	type: "GET",      //POST does a create, no id given. nothing really. gives back whole assignment
@@ -45,9 +45,6 @@ function showAssignmentText(assignment) {  //from myAssignment view
 	    alert("ajax err="+err);
 	},
     });
-
-
-    
 
 }
 
@@ -71,7 +68,6 @@ function getPathFromHash(hashid) {
 }
 
 
-
 function getAssignment(cb) {
     $.ajax({
 	type: "POST",      //POST does a create, no id given. nothing really. gives back whole assignment
@@ -89,10 +85,10 @@ function getAssignment(cb) {
 }
 
 
-
 function last(arr) {
     return arr[arr.length-1];
 }
+
 
 var tt=null;
 window.onload=function() {
@@ -113,9 +109,11 @@ function runGame(assignment) {
     var game = assignment.gameName;  //not gameId
 
     switch(game){
-    case 'toplevel':	splitGame();    return;
-    case 'isleaf':      isLeafGame();   return;
-    case 'king':        kingGame();     return;
+    case 'toplevel':	splitGame();           return;
+    case 'split':       splitGame('simple');   return;
+    case 'isleaf':      isLeafGame();          return;
+    case 'kingword':    kingGame();            return;
+    case 'topic':       topicGame();           return;
     default:
 	alert("game "+game+" is NYI. err2014v");
 	alert(assignment);
@@ -136,10 +134,16 @@ function addTitle(text){
 
 
 //most games are like this...simple translations to the setup....
-function splitGame() {
-    addTitle("identify the toplevel split point.");
+function splitGame(subtype) {
+    if (!subtype)
+	addTitle("identify the toplevel split point.");
+    else if (subtype=='simple')
+	addTitle("identify a good split point");  //bugbug do we need to show the "context" or inherent joiner here AND/OR
+    else
+	stop('bugbug1847b');
+    
     addButtons([
-	['AND', 'SPLIT'],   //an AND button, labelled "split"
+	['JOIN', 'SPLIT'],   //an AND button, labelled "split"  //bugbug needs to take the inherent wrapper instead of AND/OR
 	HUHButton
     ]);
     
@@ -151,6 +155,7 @@ function isLeafGame() {
     addButtons([
 	['COMPLEX','COMPLEX','made of several smaller statements that might be independently T/F'],
 	['KING','KING',      'a single phrase or word (eg INCLUDE) "rules" the rest'],
+	['SPLITTABLE','SPLITTABLE',      'e.g. independent bullets in a list.'],  //bugbug make this work in webserver
 	['LEAF','SIMPLE',    'a single isolated requirement eg  not taking medicine X  or has disease Y '],
 	HUHButton
     ]);
@@ -162,6 +167,15 @@ function kingGame() {
     addButtons([
 	['AND','AND',   'bugbug joined as AND'],
 	['OR','OR',     'bugbug joined as OR'],
+	HUHButton
+    ]);
+}
+
+function topicGame() {
+    addTitle("which topic does the text relate to");
+    addButtons([
+	['DRUG','DRUG', 'drug'],
+	['CONDITION','CONDITION', 'condition'],
 	HUHButton
     ]);
 }
@@ -187,13 +201,13 @@ function addButtons_oldbugbug(btns) {
 
 //generic button handler...elem is the button that was clicked...
 function bb(elem,actionCode){
-    var aid =window.assignment.assignmentId;
+    var aid = window.assignment.assignmentId;
     $.ajax({
 	type: "PUT",
 	url: '/assignment/'+aid, 
 	data: {
 	    assignmentid: aid,
-	    start: tt.selectionStart,
+	    start: tt.selectionStart,  //server will add offsets back.
 	    end: tt.selectionEnd,
 	    action: actionCode
 	},

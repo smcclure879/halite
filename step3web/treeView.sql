@@ -5,7 +5,7 @@
 with recursive
     treeOf(level,problemId)
     as (
-    values(0,11)
+    values(0,1)
     union all
     select treeOf.level+1 , problem.problemId
     from problem join treeOf on treeOf.problemId=problem.parentId
@@ -17,7 +17,7 @@ select coalesce(substr('.................',1,treeOf.level*3),'X'),
        game.gameName,
        problem.hashid,
        problem.problemData,
-       coalesce(       problem.answer, '  !!! WAITING !!!  ')
+       coalesce(       problem.answer, '  ----NYA----  ')
 from treeOf
 join problem
 on treeOf.problemId=problem.problemId
