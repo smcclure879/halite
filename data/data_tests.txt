@@ -1,122 +1,123 @@
-21-Gene signature (Oncotype DX)
-3D CT Angiography
-5-Protein signature (OVA1)
-70-Gene signature (Mammaprint)
-ALK gene rearrangements and overexpression
-Alpha-fetoprotein (AFP)
-Angiography
-Anoscopy
-Autofluorescence Bronchoscopy / Fluorescence Bronchoscopy
-Barium Enema
-BCR-ABL fusion gene
-Beta-2-microglobulin (B2M)
-Beta-human chorionic gonadotropin (Beta-hCG or HCG)
-Biopsy
-Biopsy with an endoscope - Excisional
-Biopsy with an endoscope - Incisional
-Biopsy with needle
-Biopsy with surgery
-Blood Cell Count - Platelets
-Blood Cell Count - Red
-Blood Cell Count - White
-Blood Cell Size - Red
-Blood Chemistry Testing
-Blood Urea Nitrogen (BUN)
-Bone Marrow Aspiration and Biopsy
-Bone Scan 
-BRAF V600 mutations
-BRCA1 gene mutations
-BRCA2 gene mutations
-Bronchoscopy
-C-kit/CD117
-CA-125
-CA15-3/CA27.29
-CA19-9
-Calcitonin
-Cancer Gene Mutation Testing
-Carcinoembryonic antigen (CEA)
-CD20
-Chest X-Ray
-Chromogranin A (CgA)
-Chromosomes 17
-Chromosomes 3
-Chromosomes 7
-Chromosomes 9p21
-Circulating Tumor Cell Tests
-Circulating tumor cells of epithelial origin (CELLSEARCH)
-Colonoscopy
-Complete Blood Count (CBC)
-Creatinine
-CT-Guided Biopsy
-CT Scan
-Cytogenetic Analysis
-Cytokeratin fragment 21-1
-DEXA Scan
-Digital Breast Tomosynthesis
-Digital Rectal Exam (DRE)
-Eastern Cooperative Oncology Group (ECOG)
-EGFR gene mutation analysis
-Electrocardiogram
-Electrolytes
-Electrophoresis
-Endobronchial Ultrasound
-Endoscopic retrograde cholangiopancreatography (ERCP)
-Endoscopic Ultrasound
-Endoscopy
-Estrogen receptor (ER)/progesterone receptor (PR)
-Fats
-Fecal Occult Blood Tests
-Fibrin/fibrinogen
-Flow Cytometry
-Full-Field Digital Mammography
-GE 16-Slice CT Scan
-GE Discovery PET/CT 600 Scan
-Gleason Score
-Guaiac-based FOBT
-HE4
-Hematocrit
-Hemoglobin
-HER2/neu gene amplification or protein overexpression
-Immunochemical FOBT
-Immunoglobulins
-Immunophenotyping
-Karnofsky Scoring
-KRAS gene mutation analysis
-Lactate dehydrogenase
-Lansky Score
-Large Bore CT Scan / RT with Simulation
-Lumbar Puncture
-Mammaprint+Blueprint Test
-Mammography
-Metabolites
-Miraluma Breast Imaging
-MRI
-MRI-Guided Breast Biopsy
-Multi-Detector CT Scan
-Multiple-Gated Acquisition (MUGA) Scan
-Navigational Bronchoscopy
-Neuron-specific enolase (NSE)
-Nuclear matrix protein 22
-Nuclear Scan
-Oncotype DX Test
-Pap Test
-Pelvic Exam
-PET-CT SCAN
-PET scan
-Plasminogen activator inhibitor (PAI-1)
-Programmed death ligand 1 (PD-L1)
-Prostate-specific antigen (PSA)
-Proteins & Enzymes
-Sentinel Lymph Node Biopsy
-Sigmoidoscopy
-Spiral CT
-Sputum cytology
-Testosterone
-Thyroglobulin
-Ultrasound
-Upper Endoscopy
-Urinalysis
-Urine cytology
-Urokinase plasminogen activator (uPA)
-Video Capsule Endoscopy
-X-ray
+CODE	NAME	PARENT_CODE
+oncotypeDX	21-Gene signature (Oncotype DX)	
+3DCTAngiography	3D CT Angiography	ctScan
+OVA1	5-Protein signature (OVA1)	
+mammaprint	70-Gene signature (Mammaprint)	
+ALK	ALK gene rearrangements and overexpression	
+AFP	Alpha-fetoprotein (AFP)	
+angiography	Angiography	xray
+anoscopy	Anoscopy	endoscopy
+fluorescenceBronchoscopy	Autofluorescence Bronchoscopy / Fluorescence Bronchoscopy	endoscopy
+bariumEnema	Barium Enema	xray
+BCRABL	BCR-ABL fusion gene	
+B2M	Beta-2-microglobulin (B2M)	
+HCG	Beta-human chorionic gonadotropin (Beta-hCG or HCG)	
+biopsy	Biopsy	
+biopsyEndoscopeExcisional	Biopsy with an endoscope - Excisional	biopsy
+biopsyEndoscopeIncisional	Biopsy with an endoscope - Incisional	biopsy
+biopsyNeedle	Biopsy with needle	biopsy
+biopsySurgery	Biopsy with surgery	biopsy
+Blood Cell Count - Platelets	Blood Cell Count - Platelets	
+Blood Cell Count - Red	Blood Cell Count - Red	
+Blood Cell Count - White	Blood Cell Count - White	
+Blood Cell Size - Red	Blood Cell Size - Red	
+Blood Chemistry Testing	Blood Chemistry Testing	
+Blood Urea Nitrogen (BUN)	Blood Urea Nitrogen (BUN)	
+boneMarrowAspiration	Bone Marrow Aspiration and Biopsy	biopsy
+boneScan	Bone Scan 	nuclearScan
+BRAFV600	BRAF V600 mutations	
+BRCA1	BRCA1 gene mutations	cancerGeneMutation
+BRCA2	BRCA2 gene mutations	
+bronchoscopy	Bronchoscopy	endoscopy
+CD117	C-kit/CD117	
+CA125	CA-125	
+CA153	CA15-3/CA27.29	
+CA199	CA19-9	
+calcitonin	Calcitonin	
+cancerGeneMutation	Cancer Gene Mutation Testing	
+CEA	Carcinoembryonic antigen (CEA)	
+CD20	CD20	
+chestXray	Chest X-Ray	xray
+CgA	Chromogranin A (CgA)	
+chromosomes17	Chromosomes 17	
+chromosomes3	Chromosomes 3	
+chromosomes7	Chromosomes 7	
+chromosomes9p21	Chromosomes 9p21	
+Circulating Tumor Cell Tests	Circulating Tumor Cell Tests	
+cellsearch	Circulating tumor cells of epithelial origin (CELLSEARCH)	
+colonoscopy	Colonoscopy	endoscopy
+Blood Test - Complete Blood Count (CBC)	Complete Blood Count (CBC)	
+Blood Test - Creatinine	Creatinine	
+CTGuidedBiopsy	CT-Guided Biopsy	biopsy
+ctScan	CT Scan	
+cytogeneticAnalysis	Cytogenetic Analysis	
+cytokeratinFragment211	Cytokeratin fragment 21-1	
+DEXAScan	DEXA Scan	xray
+digitalBreastTomosynthesis	Digital Breast Tomosynthesis	xray
+digitalRectalExam	Digital Rectal Exam (DRE)	
+ecog	Eastern Cooperative Oncology Group (ECOG)	
+EGFR	EGFR gene mutation analysis	
+EKG	Electrocardiogram	
+Blood Test - Electrolytes	Electrolytes	
+Blood Test - Electrophoresis	Electrophoresis	
+endobronchialUltrasound	Endobronchial Ultrasound	ultrasound
+ercp	Endoscopic retrograde cholangiopancreatography (ERCP)	endoscopy
+endoscopicUltrasound	Endoscopic Ultrasound	ultrasound
+endoscopy	Endoscopy	
+ERPR	Estrogen receptor (ER)/progesterone receptor (PR)	
+Blood Test - Fats	Fats	
+Fecal Occult Blood Tests	Fecal Occult Blood Tests	
+fibrin	Fibrin/fibrinogen	
+flowCytometry	Flow Cytometry	
+fullFieldDigitalMammography	Full-Field Digital Mammography	xray
+ge16SliceCTscan	GE 16-Slice CT Scan	ctScan
+GEDiscoveryPETCT600Scan	GE Discovery PET/CT 600 Scan	petScan
+gleason	Gleason Score	
+Guaiac-based FOBT	Guaiac-based FOBT	
+HE4	HE4	
+Blood Test - Hematocrit	Hematocrit	
+bloodHemoglobin	Hemoglobin	
+HER2	HER2/neu gene amplification or protein overexpression	
+Immunochemical FOBT	Immunochemical FOBT	
+immunoglobulins	Immunoglobulins	
+immunophenotyping	Immunophenotyping	
+karnofsky	Karnofsky Scoring	
+KRAS	KRAS gene mutation analysis	
+lactateDehydrogenase	Lactate dehydrogenase	
+lansky	Lansky Score	
+largeBoreCTscan	Large Bore CT Scan / RT with Simulation	ctScan
+lumbarPuncture	Lumbar Puncture	
+mammaprintBlueprintTest	Mammaprint+Blueprint Test	
+mammography	Mammography	xray
+Blood Test - Metabolites	Metabolites	
+miralumaBreastImaging	Miraluma Breast Imaging	nuclearScan
+mri	MRI	
+MRIGuidedBreastBiopsy	MRI-Guided Breast Biopsy	biopsy
+multiDetectorCTscan	Multi-Detector CT Scan	ctScan
+mugaScan	Multiple-Gated Acquisition (MUGA) Scan	nuclearScan
+navigationalBronchoscopy	Navigational Bronchoscopy	endoscopy
+NSE	Neuron-specific enolase (NSE)	
+nuclearMatrixProtein22	Nuclear matrix protein 22	
+nuclearScan	Nuclear Scan	
+oncotypeDXTest	Oncotype DX Test	biopsy
+papTest	Pap Test	
+pelvicExam	Pelvic Exam	
+PETCTScan	PET-CT SCAN	petScan
+petScan	PET scan	
+PAI1	Plasminogen activator inhibitor (PAI-1)	
+PDL1	Programmed death ligand 1 (PD-L1)	
+PSA	Prostate-specific antigen (PSA)	
+Blood Test - Proteins & Enzymes	Proteins & Enzymes	
+sentinelLymphNodeBiopsy	Sentinel Lymph Node Biopsy	biopsy
+sigmoidoscopy	Sigmoidoscopy	endoscopy
+spiralCT	Spiral CT	ctScan
+sputumCytology	Sputum cytology	
+bloodTestosterone	Testosterone	
+thyroglobulin	Thyroglobulin	
+ultrasound	Ultrasound	
+upperEndoscopy	Upper Endoscopy	endoscopy
+urinalysis	Urinalysis	
+urineCytology	Urine cytology	
+uPA	Urokinase plasminogen activator (uPA)	
+videoCapsuleEndoscopy	Video Capsule Endoscopy	endoscopy
+xray	X-ray	
