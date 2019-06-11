@@ -1,170 +1,171 @@
-Acute Lymphoblastic Leukemia (ALL)
-Acute Myeloid Leukemia (AML)
-Adrenocortical Carcinoma
-AIDS-Related Lymphoma
-Anal Cancer
-Anaplastic Large Cell Lymphoma
-Appendix Cancer
-Astrocytomas, Childhood
-Atypical Teratoid/Rhabdoid Tumor, Childhood, Central Nervous System
-Basal Cell Carcinoma of the Skin
-Bile Duct Cancer
-Bladder Cancer
-Bone Cancer
-Brain Tumors
-Breast Cancer
-Bronchial Tumors, Childhood
-Burkitt Lymphoma
-Carcinoid Tumor
-Carcinoma of Unknown Primary
-Cardiac (Heart) Tumors, Childhood
-Castleman Disease
-Cervical Cancer
-Childhood Adrenocortical Carcinoma
-Childhood Bladder Cancer
-Childhood Breast Cancer
-Childhood Carcinoid Tumors
-Childhood Carcinoma of Unknown Primary
-Childhood Central Nervous System Germ Cell Tumors
-Childhood Cervical Cancer
-Childhood Colorectal Cancer
-Childhood Esophageal Cancer
-Childhood Extracranial Germ Cell Tumors
-Childhood Gastric (Stomach) Cancer
-Childhood Gastrointestinal Stromal Tumors
-Childhood Intraocular Melanoma
-Childhood Kidney Tumors
-Childhood Lung Cancer
-Childhood Melanoma
-Childhood Mesothelioma
-Childhood Ovarian Cancer
-Childhood Pancreatic Cancer
-Childhood Paraganglioma
-Childhood Pheochromocytoma
-Childhood Skin Cancer
-Childhood Stomach (Gastric) Cancer
-Childhood Testicular Cancer
-Childhood Vaginal Cancer
-Childhood Vascular Tumors (Soft Tissue Sarcoma)
-Chordoma, Childhood
-Choriocarcinoma
-Chronic Lymphocytic Leukemia (CLL)
-Chronic Myelogenous Leukemia (CML)
-Chronic Myeloproliferative Neoplasms
-Colon Cancer
-Colorectal Cancer
-Craniopharyngioma, Childhood
-Cutaneous T-Cell Lymphoma
-Ductal Carcinoma In Situ (DCIS)
-Embryonal Tumors, Central Nervous System, Childhood
-Embryonal Tumors, Childhood
-Endometrial Cancer
-Ependymoma, Childhood
-Esophageal Cancer
-Esthesioneuroblastoma
-Ewing Sarcoma
-Extracranial Germ Cell Tumor, Childhood
-Extragonadal Germ Cell Tumor
-Extragonadal Germ Cell Tumors
-Eye Cancer
-Fallopian Tube Cancer
-Fibrous Histiocytoma of Bone, Malignant
-Gallbladder Cancer
-Gastric (Stomach) Cancer
-Gastroenteropancreatic Neuroendocrine Tumors
-Gastroesophageal Junction Adenocarcinoma
-Gastrointestinal Carcinoid Tumor
-Gastrointestinal Stromal Tumors (GIST) (Soft Tissue Sarcoma)
-Germ Cell Tumor, Childhood
-Germ Cell Tumors
-Gestational Trophoblastic Disease
-Hairy Cell Leukemia
-Head and Neck Cancer
-Heart Tumors, Childhood
-Hepatocellular (Liver) Cancer
-Histiocytosis, Langerhans Cell
-Hodgkin Lymphoma
-Hypopharyngeal Cancer
-Intraocular Melanoma
-Kaposi Sarcoma (Soft Tissue Sarcoma)
-Kidney Cancer
-Langerhans Cell Histiocytosis
-Laryngeal Cancer
-Leukemia
-Lip and Oral Cavity Cancer
-Liver Cancer
-Lung Cancer
-Lymphoma
-Lymphoplasmacytic Lymphoma
-Male Breast Cancer
-Malignant Fibrous Histiocytoma
-Mast Cell Leukemia
-Medullary Thyroid Cancer
-Melanoma
-Meningeal Leukemia
-Merkel Cell Carcinoma
-Mesothelioma, Malignant
-Metastatic Cancer
-Midline Tract Carcinoma With NUT Gene Changes
-Mouth Cancer
-Mucosal Melanoma
-Multiple Endocrine Neoplasia Syndromes
-Multiple Myeloma
-Mycosis Fungoides (Lymphoma)
-Myelodysplastic Neoplasms
-Myelodysplastic Syndromes
-Myeloproliferative Neoplasms
-Nasal Cavity Cancer
-Nasopharyngeal Cancer
-Neuroblastoma
-Neuroendocrine Tumors
-Non-Hodgkin Lymphoma
-Non-Small Cell Lung Cancer
-Oral Cancer
-Oropharyngeal Cancer
-Osteosarcoma
-Ovarian Cancer
-Ovarian Germ Cell Tumors
-Pancreatic Cancer
-Pancreatic Neuroendocrine Tumors
-Papillomatosis (Childhood Laryngeal)
-Paraganglioma
-Paranasal Sinus Cancer
-Parathyroid Cancer
-Penile Cancer
-Pharyngeal Cancer
-Pheochromocytoma
-Pituitary Tumor
-Plasma Cell Neoplasms
-Pleuropulmonary Blastoma
-Primary Central Nervous System (CNS) Lymphoma
-Primary Peritoneal Cancer
-Prostate Cancer
-Rectal Cancer
-Renal Cell Cancer
-Retinoblastoma
-Rhabdomyosarcoma, Childhood (Soft Tissue Sarcoma)
-Salivary Gland Cancer
-Sézary Syndrome (Lymphoma)
-Skin Cancer
-Small Cell Lung Cancer
-Small Intestine Cancer
-Soft Tissue Sarcoma
-Squamous Cell Carcinoma of the Skin
-Squamous Neck Cancer with Occult Primary, Metastatic
-Stomach (Gastric) Cancer
-T-Cell Lymphoma, Cutaneous
-Testicular Cancer
-Throat Cancer
-Thymic Carcinoma
-Thymoma
-Thyroid Cancer
-Transitional Cell Cancer of the Renal Pelvis and Ureter
-Urethral Cancer
-Uterine Cancer, Endometrial
-Uterine Sarcoma
-Vaginal Cancer
-Vascular Tumors (Soft Tissue Sarcoma)
-Vulvar Cancer
-Waldenstrom Macroglobulinemia (WM)
-Wilms Tumor
+NAME	CODE	PARENT_CODE
+acuteLymphoblasticLeukemia	Acute Lymphoblastic Leukemia (ALL)	leukemia
+acuteMyeloidLeukemia	Acute Myeloid Leukemia (AML)	leukemia
+adrenocorticalCarcinoma	Adrenocortical Carcinoma	
+AIDSRelatedLymphoma	AIDS-Related Lymphoma	lymphoma
+analCancer	Anal Cancer	
+anaplasticLargeCellLymphoma	Anaplastic Large Cell Lymphoma	lymphoma
+appendixCancer	Appendix Cancer	
+astrocytomas	Astrocytomas, Childhood	brainTumors
+atypicalTeratoid	Atypical Teratoid/Rhabdoid Tumor, Childhood, Central Nervous System	brainTumors
+basalCellCarcinoma	Basal Cell Carcinoma of the Skin	skinCancer
+bileDuctCancer	Bile Duct Cancer	liverCancer
+bladderCancer	Bladder Cancer	
+boneCancer	Bone Cancer	
+brainTumors	Brain Tumors	
+breastCancer	Breast Cancer	
+bronchialTumors	Bronchial Tumors, Childhood	
+burkittLymphoma	Burkitt Lymphoma	nonHodgkinLymphoma
+carcinoidTumor	Carcinoid Tumor	
+carcinomaUnknownPrimary	Carcinoma of Unknown Primary	
+cardiacTumorsChildhood	Cardiac (Heart) Tumors, Childhood	
+castlemanDisease	Castleman Disease	lymphoma
+cervicalCancer	Cervical Cancer	
+childhoodAdrenocorticalCarcinoma	Childhood Adrenocortical Carcinoma	adrenocorticalCarcinoma
+childhoodBladderCancer	Childhood Bladder Cancer	bladderCancer
+childhoodBreastCancer	Childhood Breast Cancer	breastCancer
+childhoodCarcinoidTumors	Childhood Carcinoid Tumors	carcinoidTumor
+childhoodCarcinomaUnknownPrimary	Childhood Carcinoma of Unknown Primary	carcinomaUnknownPrimary
+childhoodCentralNervousSystemGermCellTumors	Childhood Central Nervous System Germ Cell Tumors	germCellTumors
+childhoodCervicalCancer	Childhood Cervical Cancer	cervicalCancer
+childhoodColorectalCancer	Childhood Colorectal Cancer	colorectalCancer
+childhoodEsophagealCancer	Childhood Esophageal Cancer	esophagealCancer
+childhoodExtracranialGermCellTumors	Childhood Extracranial Germ Cell Tumors	germCellTumors
+childhoodGastricCancer	Childhood Gastric (Stomach) Cancer	gastricCancer
+childhoodGastrointestinalStromalTumors	Childhood Gastrointestinal Stromal Tumors	gastrointestinalStromalTumors
+childhoodIntraocularMelanoma	Childhood Intraocular Melanoma	eyeCancer
+childhoodKidneyTumors	Childhood Kidney Tumors	kidneyCancer
+childhoodLungCancer	Childhood Lung Cancer	lungCancer
+childhoodMelanoma	Childhood Melanoma	skinCancer
+childhoodMesothelioma	Childhood Mesothelioma	mesothelioma
+childhoodOvarianCancer	Childhood Ovarian Cancer	ovarianCancer
+childhoodPancreaticCancer	Childhood Pancreatic Cancer	pancreaticCancer
+childhoodParaganglioma	Childhood Paraganglioma	paraganglioma
+childhoodPheochromocytoma	Childhood Pheochromocytoma	pheochromocytoma
+childhoodSkinCancer	Childhood Skin Cancer	skinCancer
+childhoodStomachCancer	Childhood Stomach (Gastric) Cancer	gastricCancer
+childhoodTesticularCancer	Childhood Testicular Cancer	testicularCancer
+childhoodVaginalCancer	Childhood Vaginal Cancer	vaginalCancer
+childhoodVascularTumors	Childhood Vascular Tumors (Soft Tissue Sarcoma)	softTissueSarcoma
+childhoodChordoma	Chordoma, Childhood	
+choriocarcinoma	Choriocarcinoma	uterineCancer
+chronicLymphocyticLeukemia	Chronic Lymphocytic Leukemia (CLL)	leukemia
+chronicMyelogenousLeukemia	Chronic Myelogenous Leukemia (CML)	leukemia
+chronicMyeloproliferativeNeoplasms	Chronic Myeloproliferative Neoplasms	
+colonCancer	Colon Cancer	colorectalCancer
+colorectalCancer	Colorectal Cancer	
+craniopharyngiomaChildhood	Craniopharyngioma, Childhood	brainTumors
+cutaneousTCellLymphoma	Cutaneous T-Cell Lymphoma	lymphoma
+ductalCarcinomaInSitu	Ductal Carcinoma In Situ (DCIS)	breastCancer
+embryonalTumorsChildhood	Embryonal Tumors, Central Nervous System, Childhood	brainTumors
+embryonalTumorsChildhood	Embryonal Tumors, Childhood	brainTumors
+endometrialCancer	Endometrial Cancer	uterineCancer
+ependymomaChildhood	Ependymoma, Childhood	brainTumors
+esophagealCancer	Esophageal Cancer	
+esthesioneuroblastoma	Esthesioneuroblastoma	headAndNeckCancer
+ewingSarcoma	Ewing Sarcoma	boneCancer
+extracranialGermCellTumorChildhood	Extracranial Germ Cell Tumor, Childhood	
+extragonadalGermCellTumor	Extragonadal Germ Cell Tumor	
+extragonadalGermCellTumors	Extragonadal Germ Cell Tumors	germCellTumors
+eyeCancer	Eye Cancer	
+fallopianTubeCancer	Fallopian Tube Cancer	
+fibrousHistiocytoma	Fibrous Histiocytoma of Bone, Malignant	boneCancer
+gallbladderCancer	Gallbladder Cancer	
+gastricCancer	Gastric (Stomach) Cancer	
+gastroenteropancreaticNeuroendocrineTumors	Gastroenteropancreatic Neuroendocrine Tumors	pancreaticCancer
+gastroesophagealJunctionAdenocarcinoma	Gastroesophageal Junction Adenocarcinoma	esophagealCancer
+gastrointestinalCarcinoidTumor	Gastrointestinal Carcinoid Tumor	
+gastrointestinalStromalTumors	Gastrointestinal Stromal Tumors (GIST) (Soft Tissue Sarcoma)	softTissueSarcoma
+germCellTumorChildhood	Germ Cell Tumor, Childhood	brainTumors
+germCellTumors	Germ Cell Tumors	
+gestationalTrophoblasticDisease	Gestational Trophoblastic Disease	
+hairyCellLeukemia	Hairy Cell Leukemia	leukemia
+headAndNeckCancer	Head and Neck Cancer	
+heartTumorsChildhood	Heart Tumors, Childhood	cardiacTumorsChildhood
+hepatocellularCancer	Hepatocellular (Liver) Cancer	liverCancer
+histiocytosisLangerhansCell	Histiocytosis, Langerhans Cell	
+hodgkinLymphoma	Hodgkin Lymphoma	lymphoma
+hypopharyngealCancer	Hypopharyngeal Cancer	headAndNeckCancer
+intraocularMelanoma	Intraocular Melanoma	eyeCancer
+kaposiSarcoma	Kaposi Sarcoma (Soft Tissue Sarcoma)	softTissueSarcoma
+kidneyCancer	Kidney Cancer	
+langerhansCellHistiocytosis	Langerhans Cell Histiocytosis	
+laryngealCancer	Laryngeal Cancer	headAndNeckCancer
+leukemia	Leukemia	
+lipAndOralCavityCancer	Lip and Oral Cavity Cancer	headAndNeckCancer
+liverCancer	Liver Cancer	
+lungCancer	Lung Cancer	
+lymphoma	Lymphoma	
+lymphoplasmacyticLymphoma	Lymphoplasmacytic Lymphoma	waldenstromMacroglobulinemia
+maleBreastCancer	Male Breast Cancer	breastCancer
+malignantFibrousHistiocytoma	Malignant Fibrous Histiocytoma	boneCancer
+mastCellLeukemia	Mast Cell Leukemia	leukemia
+medullaryThyroidCancer	Medullary Thyroid Cancer	thyroidCancer
+melanoma	Melanoma	skinCancer
+meningealLeukemia	Meningeal Leukemia	leukemia
+merkelCellCarcinoma	Merkel Cell Carcinoma	skinCancer
+mesothelioma	Mesothelioma, Malignant	
+metastaticCancer	Metastatic Cancer	
+midlineTractCarcinoma	Midline Tract Carcinoma With NUT Gene Changes	
+mouthCancer	Mouth Cancer	headAndNeckCancer
+mucosalMelanoma	Mucosal Melanoma	melanoma
+multipleEndocrineNeoplasiaSyndromes	Multiple Endocrine Neoplasia Syndromes	
+multipleMyeloma	Multiple Myeloma	
+mycosisFungoides	Mycosis Fungoides (Lymphoma)	lymphoma
+myelodysplasticNeoplasms	Myelodysplastic Neoplasms	myeloproliferativeNeoplasms
+myelodysplasticSyndromes	Myelodysplastic Syndromes	myeloproliferativeNeoplasms
+myeloproliferativeNeoplasms	Myeloproliferative Neoplasms	
+nasalCavityCancer	Nasal Cavity Cancer	headAndNeckCancer
+nasopharyngealCancer	Nasopharyngeal Cancer	headAndNeckCancer
+neuroblastoma	Neuroblastoma	
+neuroendocrineTumors	Neuroendocrine Tumors	carcinoidTumor
+nonHodgkinLymphoma	Non-Hodgkin Lymphoma	lymphoma
+nonSmallCellLungCancer	Non-Small Cell Lung Cancer	lungCancer
+oralCancer	Oral Cancer	headAndNeckCancer
+oropharyngealCancer	Oropharyngeal Cancer	headAndNeckCancer
+osteosarcoma	Osteosarcoma	boneCancer
+ovarianCancer	Ovarian Cancer	
+ovarianGermCellTumors	Ovarian Germ Cell Tumors	germCellTumors
+pancreaticCancer	Pancreatic Cancer	
+pancreaticNeuroendocrineTumors	Pancreatic Neuroendocrine Tumors	pancreaticCancer
+papillomatosis	Papillomatosis (Childhood Laryngeal)	laryngealCancer
+paraganglioma	Paraganglioma	
+paranasalSinusCancer	Paranasal Sinus Cancer	headAndNeckCancer
+parathyroidCancer	Parathyroid Cancer	
+penileCancer	Penile Cancer	
+pharyngealCancer	Pharyngeal Cancer	headAndNeckCancer
+pheochromocytoma	Pheochromocytoma	
+pituitaryTumor	Pituitary Tumor	
+plasmaCellNeoplasms	Plasma Cell Neoplasms	multipleMyeloma
+pleuropulmonaryBlastoma	Pleuropulmonary Blastoma	
+primaryCNSLymphoma	Primary Central Nervous System (CNS) Lymphoma	lymphoma
+primaryPeritonealCancer	Primary Peritoneal Cancer	
+prostateCancer	Prostate Cancer	
+rectalCancer	Rectal Cancer	
+renalCellCancer	Renal Cell Cancer	kidneyCancer
+retinoblastoma	Retinoblastoma	eyeCancer
+rhabdomyosarcomaChildhood	Rhabdomyosarcoma, Childhood (Soft Tissue Sarcoma)	softTissueSarcoma
+salivaryGlandCancer	Salivary Gland Cancer	headAndNeckCancer
+sézarySyndrome	Sézary Syndrome (Lymphoma)	lymphoma
+skinCancer	Skin Cancer	
+smallCellLungCancer	Small Cell Lung Cancer	lungCancer
+smallIntestineCancer	Small Intestine Cancer	
+softTissueSarcoma	Soft Tissue Sarcoma	
+squamousCellCarcinoma	Squamous Cell Carcinoma of the Skin	skinCancer
+squamousNeckCancer	Squamous Neck Cancer with Occult Primary, Metastatic	headAndNeckCancer
+stomachCancer	Stomach (Gastric) Cancer	gastricCancer
+tCellLymphoma	T-Cell Lymphoma, Cutaneous	lymphoma
+testicularCancer	Testicular Cancer	germCellTumors
+throatCancer	Throat Cancer	headAndNeckCancer
+thymicCarcinoma	Thymic Carcinoma	thymoma
+thymoma	Thymoma	
+thyroidCancer	Thyroid Cancer	
+ureterRenalPelvisCancer	Transitional Cell Cancer of the Renal Pelvis and Ureter	kidneyCancer
+urethralCancer	Urethral Cancer	
+uterineCancer	Uterine Cancer, Endometrial	
+uterineSarcoma	Uterine Sarcoma	
+vaginalCancer	Vaginal Cancer	
+vascularTumors	Vascular Tumors (Soft Tissue Sarcoma)	softTissueSarcoma
+vulvarCancer	Vulvar Cancer	
+waldenstromMacroglobulinemia	Waldenstrom Macroglobulinemia (WM)	nonHodgkinLymphoma
+wilmsTumor	Wilms Tumor	kidneyCancer

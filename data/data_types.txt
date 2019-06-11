@@ -1,0 +1,576 @@
+OBJECT	CODE	NAME	LABEL	PARENT_CODE
+condition	type_condition_autoimmune	Autoimmune	Autoimmune	
+condition	type_condition_allergies	Allergies & Asthma	Allergies & Asthma	
+condition	type_condition_bacterial	Bacterial Infections	Bacterial Infections	
+condition	type_condition_cancer	Cancer	Cancer	
+condition	type_condition_cancerAdolescent	Adolescent Cancers	Adolescent Cancers	type_condition_cancer
+condition	type_condition_cancerAIDSRelated	AIDS-Related Cancers	AIDS-Related Cancers	type_condition_cancer
+condition	type_condition_cancerChildhood	Childhood Cancers	Childhood Cancers	type_condition_cancer
+condition	type_condition_cardiovascular	Cardiovascular	Cardiovascular	
+condition	type_condition_congenital	Congenital	Congenital	
+condition	type_condition_digestive	Digestive	Digestive	
+condition	type_condition_endocrine	Endocrine System	Endocrine System	
+condition	type_condition_environmental	Environmental Origin	Environmental Origin	
+condition	type_condition_eye	Eye	Eye	
+condition	type_condition_urogenitalFemale	Female Urogenital	Female Urogenital	
+condition	type_condition_heartDisease	Heart Disease	Heart Disease	
+condition	type_condition_hematologic	Hematologic	Hematologic	
+condition	type_condition_hereditary	Hereditary	Hereditary	
+condition	type_condition_immuneSystem	Immune System	Immune System	
+condition	type_condition_lymphatic	Lymphatic	Lymphatic	
+condition	type_condition_infectious	Infectious	Infectious	
+condition	type_condition_urogenitalMale	Male Urogenital	Male Urogenital	
+condition	type_condition_metabolic	Metabolic	Metabolic	
+condition	type_condition_musculoskeletal	Musculoskeletal	Musculoskeletal	
+condition	type_condition_mycoses	Mycoses	Mycoses	
+condition	type_condition_neonatal	Neonatal	Neonatal	
+condition	type_condition_neoplasms	Neoplasms	Neoplasms	
+condition	type_condition_nervousSystem	Nervous System	Nervous System	
+condition	type_condition_nutritionDisorders	Nutrition Disorders	Nutrition Disorders	
+condition	type_condition_otorhinolaryngologic	Otorhinolaryngologic	Otorhinolaryngologic	
+condition	type_condition_parasitic	Parasitic	Parasitic	
+condition	type_condition_respiratoryTract	Respiratory Tract	Respiratory Tract	
+condition	type_condition_skin	Skin	Skin	
+condition	type_condition_stomatognathic	Stomatognathic	Stomatognathic	
+condition	type_condition_virus	Virus	Virus	
+drug	allergenics	Allergenics	Allergenics	
+drug	alternativeMedicines	Alternative Medicines	Alternative Medicines	
+drug	herbalProducts	Herbal Products	Alternative Medicines / Herbal Products	alternativeMedicines
+drug	nutraceuticalProducts	Nutraceutical Products	Alternative Medicines / Nutraceutical Products	alternativeMedicines
+drug	probiotics	Probiotics	Alternative Medicines / Probiotics	alternativeMedicines
+drug	antiInfectives	Anti-Infectives	Anti-Infectives	
+drug	amebicides	Amebicides	Anti-Infectives / Amebicides	antiInfectives
+drug	aminoglycosides	Aminoglycosides	Anti-Infectives / Aminoglycosides	antiInfectives
+drug	anthelmintics	Anthelmintics	Anti-Infectives / Anthelmintics	antiInfectives
+drug	antifungals	Antifungals	Anti-Infectives / Antifungals	antiInfectives
+drug	azoleAntifungals	Azole Antifungals	Anti-Infectives / Antifungals / Azole Antifungals	antifungals
+drug	echinocandins	Echinocandins	Anti-Infectives / Antifungals / Echinocandins	antifungals
+drug	miscellaneousAntifungals	Miscellaneous Antifungals	Anti-Infectives / Antifungals / Miscellaneous Antifungals	antifungals
+drug	polyenes	Polyenes	Anti-Infectives / Antifungals / Polyenes	antifungals
+drug	antimalarialAgents	Antimalarial Agents	Anti-Infectives / Antimalarial Agents	antiInfectives
+drug	antimalarialCombinations	Antimalarial Combinations	Anti-Infectives / Antimalarial Agents / Antimalarial Combinations	antimalarialAgents
+drug	antimalarialQuinolines	Antimalarial Quinolines	Anti-Infectives / Antimalarial Agents / Antimalarial Quinolines	antimalarialAgents
+drug	miscellaneousAntimalarials	Miscellaneous Antimalarials	Anti-Infectives / Antimalarial Agents / Miscellaneous Antimalarials	antimalarialAgents
+drug	antituberculosisAgents	Antituberculosis Agents	Anti-Infectives / Antituberculosis Agents	antiInfectives
+drug	aminosalicylates	Aminosalicylates	Anti-Infectives / Antituberculosis Agents / Aminosalicylates	antituberculosisAgents
+drug	antituberculosisCombinations	Antituberculosis Combinations	Anti-Infectives / Antituberculosis Agents / Antituberculosis Combinations	antituberculosisAgents
+drug	diarylquinolines	Diarylquinolines	Anti-Infectives / Antituberculosis Agents / Diarylquinolines	antituberculosisAgents
+drug	hydrazideDerivatives	Hydrazide Derivatives	Anti-Infectives / Antituberculosis Agents / Hydrazide Derivatives	antituberculosisAgents
+drug	miscellaneousAntituberculosisAgents	Miscellaneous Antituberculosis Agents	Anti-Infectives / Antituberculosis Agents / Miscellaneous Antituberculosis Agents	antituberculosisAgents
+drug	nicotinicAcidDerivatives	Nicotinic Acid Derivatives	Anti-Infectives / Antituberculosis Agents / Nicotinic Acid Derivatives	antituberculosisAgents
+drug	rifamycinDerivatives	Rifamycin Derivatives	Anti-Infectives / Antituberculosis Agents / Rifamycin Derivatives	antituberculosisAgents
+drug	streptomycesDerivatives	Streptomyces Derivatives	Anti-Infectives / Antituberculosis Agents / Streptomyces Derivatives	antituberculosisAgents
+drug	antiviralAgents	Antiviral Agents	Anti-Infectives / Antiviral Agents	antiInfectives
+drug	adamantaneAntivirals	Adamantane Antivirals	Anti-Infectives / Antiviral Agents / Adamantane Antivirals	antiviralAgents
+drug	antiviralBoosters	Antiviral Boosters	Anti-Infectives / Antiviral Agents / Antiviral Boosters	antiviralAgents
+drug	antiviralCombinations	Antiviral Combinations	Anti-Infectives / Antiviral Agents / Antiviral Combinations	antiviralAgents
+drug	antiviralInterferons	Antiviral Interferons	Anti-Infectives / Antiviral Agents / Antiviral Interferons	antiviralAgents
+drug	chemokineReceptorAntagonist	Chemokine Receptor Antagonist	Anti-Infectives / Antiviral Agents / Chemokine Receptor Antagonist	antiviralAgents
+drug	integraseStrandTransferInhibitor	Integrase Strand Transfer Inhibitor	Anti-Infectives / Antiviral Agents / Integrase Strand Transfer Inhibitor	antiviralAgents
+drug	miscellaneousAntivirals	Miscellaneous Antivirals	Anti-Infectives / Antiviral Agents / Miscellaneous Antivirals	antiviralAgents
+drug	neuraminidaseInhibitors	Neuraminidase Inhibitors	Anti-Infectives / Antiviral Agents / Neuraminidase Inhibitors	antiviralAgents
+drug	NNRTIs	NNRTIs	Anti-Infectives / Antiviral Agents / NNRTIs	antiviralAgents
+drug	NS5AInhibitors	NS5A Inhibitors	Anti-Infectives / Antiviral Agents / NS5A Inhibitors	antiviralAgents
+drug	NRTIs	Nucleoside Reverse Transcriptase Inhibitors (NRTIs)	Anti-Infectives / Antiviral Agents / Nucleoside Reverse Transcriptase Inhibitors (NRTIs)	antiviralAgents
+drug	proteaseInhibitors	Protease Inhibitors	Anti-Infectives / Antiviral Agents / Protease Inhibitors	antiviralAgents
+drug	purineNucleosides	Purine Nucleosides	Anti-Infectives / Antiviral Agents / Purine Nucleosides	antiviralAgents
+drug	carbapenems	Carbapenems	Anti-Infectives / Carbapenems	antiInfectives
+drug	carbapenemsBetaLactamaseInhibitors	Carbapenems/Beta-Lactamase Inhibitors	Anti-Infectives / Carbapenems/Beta-Lactamase Inhibitors	antiInfectives
+drug	cephalosporins	Cephalosporins	Anti-Infectives / Cephalosporins	antiInfectives
+drug	cephalosporinsBetaLactamaseInhibitors	Cephalosporins/Beta-Lactamase Inhibitors	Anti-Infectives / Cephalosporins / Cephalosporins/Beta-Lactamase Inhibitors	cephalosporins
+drug	firstGenerationCephalosporins	First Generation Cephalosporins	Anti-Infectives / Cephalosporins / First Generation Cephalosporins	cephalosporins
+drug	secondGenerationCephalosporins	Second Generation Cephalosporins	Anti-Infectives / Cephalosporins / Second Generation Cephalosporins	cephalosporins
+drug	thirdGenerationCephalosporins	Third Generation Cephalosporins	Anti-Infectives / Cephalosporins / Third Generation Cephalosporins	cephalosporins
+drug	fourthGenerationCephalosporins	Fourth Generation Cephalosporins	Anti-Infectives / Cephalosporins / Fourth Generation Cephalosporins	cephalosporins
+drug	nextGenerationCephalosporins	Next Generation Cephalosporins	Anti-Infectives / Cephalosporins / Next Generation Cephalosporins	cephalosporins
+drug	glycopeptideAntibiotics	Glycopeptide Antibiotics	Anti-Infectives / Glycopeptide Antibiotics	antiInfectives
+drug	glycylcyclines	Glycylcyclines	Anti-Infectives / Glycylcyclines	antiInfectives
+drug	Leprostatics	Leprostatics	Anti-Infectives / Leprostatics	antiInfectives
+drug	lincomycinDerivatives	Lincomycin Derivatives	Anti-Infectives / Lincomycin Derivatives	antiInfectives
+drug	macrolideDerivatives	Macrolide Derivatives	Anti-Infectives / Macrolide Derivatives	antiInfectives
+drug	ketolides	Ketolides	Anti-Infectives / Macrolide Derivatives / Ketolides	macrolideDerivatives
+drug	macrolides	Macrolides	Anti-Infectives / Macrolide Derivatives / Macrolides	macrolideDerivatives
+drug	miscellaneousAntibiotics	Miscellaneous Antibiotics	Anti-Infectives / Miscellaneous Antibiotics	antiInfectives
+drug	oxazolidinoneAntibiotics	Oxazolidinone Antibiotics	Anti-Infectives / Oxazolidinone Antibiotics	antiInfectives
+drug	penicillins	Penicillins	Anti-Infectives / Penicillins	antiInfectives
+drug	aminopenicillins	Aminopenicillins	Anti-Infectives / Penicillins / Aminopenicillins	penicillins
+drug	betaLactamaseInhibitors	Beta-Lactamase Inhibitors	Anti-Infectives / Penicillins / Beta-Lactamase Inhibitors	penicillins
+drug	naturalPenicillins	Natural Penicillins	Anti-Infectives / Penicillins / Natural Penicillins	penicillins
+drug	penicillinaseResistantPenicillins	Penicillinase Resistant Penicillins	Anti-Infectives / Penicillins / Penicillinase Resistant Penicillins	penicillins
+drug	quinolones	Quinolones	Anti-Infectives / Quinolones	antiInfectives
+drug	sulfonamides	Sulfonamides	Anti-Infectives / Sulfonamides	antiInfectives
+drug	tetracyclines	Tetracyclines	Anti-Infectives / Tetracyclines	antiInfectives
+drug	urinaryAntiInfectives	Urinary Anti-Infectives	Anti-Infectives / Urinary Anti-Infectives	antiInfectives
+drug	antineoplastics	Antineoplastics	Antineoplastics	
+drug	alkylatingAgents	Alkylating Agents	Antineoplastics / Alkylating Agents	antineoplastics
+drug	antiCTLA4MonoclonalAntibodies	Anti-CTLA-4 Monoclonal Antibodies	Antineoplastics / Anti-CTLA-4 Monoclonal Antibodies	antineoplastics
+drug	AntiPD1MonoclonalAntibodies	Anti-PD-1 Monoclonal Antibodies	Antineoplastics / Anti-PD-1 Monoclonal Antibodies	antineoplastics
+drug	antibioticsAntineoplastics	Antibiotics/Antineoplastics	Antineoplastics / Antibiotics/Antineoplastics	antineoplastics
+drug	antimetabolites	Antimetabolites	Antineoplastics / Antimetabolites	antineoplastics
+drug	antineoplasticCombinations	Antineoplastic Combinations	Antineoplastics / Antineoplastic Combinations	antineoplastics
+drug	antineoplasticDetoxifyingAgents	Antineoplastic Detoxifying Agents	Antineoplastics / Antineoplastic Detoxifying Agents	antineoplastics
+drug	antineoplasticInterferons	Antineoplastic Interferons	Antineoplastics / Antineoplastic Interferons	antineoplastics
+drug	BCRABLTyrosineKinaseInhibitors	BCR-ABL Tyrosine Kinase Inhibitors	Antineoplastics / BCR-ABL Tyrosine Kinase Inhibitors	antineoplastics
+drug	CD20MonoclonalAntibodies	CD20 Monoclonal Antibodies	Antineoplastics / CD20 Monoclonal Antibodies	antineoplastics
+drug	CD30MonoclonalAntibodies	CD30 Monoclonal Antibodies	Antineoplastics / CD30 Monoclonal Antibodies	antineoplastics
+drug	CD33MonoclonalAntibodies	CD33 Monoclonal Antibodies	Antineoplastics / CD33 Monoclonal Antibodies	antineoplastics
+drug	CD38MonoclonalAntibodies	CD38 Monoclonal Antibodies	Antineoplastics / CD38 Monoclonal Antibodies	antineoplastics
+drug	CD52MonoclonalAntibodies	CD52 Monoclonal Antibodies	Antineoplastics / CD52 Monoclonal Antibodies	antineoplastics
+drug	CDK46Inhibitors	CDK 4/6 Inhibitors	Antineoplastics / CDK 4/6 Inhibitors	antineoplastics
+drug	EGFRInhibitors	EGFR Inhibitors	Antineoplastics / EGFR Inhibitors	antineoplastics
+drug	hedgehogPathwayInhibitors	Hedgehog Pathway Inhibitors	Antineoplastics / Hedgehog Pathway Inhibitors	antineoplastics
+drug	HER2Inhibitors	HER2 Inhibitors	Antineoplastics / HER2 Inhibitors	antineoplastics
+drug	histoneDeacetylaseInhibitors	Histone Deacetylase Inhibitors	Antineoplastics / Histone Deacetylase Inhibitors	antineoplastics
+drug	hormonesAntineoplastics	Hormones/Antineoplastics	Antineoplastics / Hormones/Antineoplastics	antineoplastics
+drug	miscellaneousAntineoplastics	Miscellaneous Antineoplastics	Antineoplastics / Miscellaneous Antineoplastics	antineoplastics
+drug	mitoticInhibitors	Mitotic Inhibitors	Antineoplastics / Mitotic Inhibitors	antineoplastics
+drug	mTORInhibitors	mTOR Inhibitors	Antineoplastics / mTOR Inhibitors	antineoplastics
+drug	MultikinaseInhibitors	Multikinase Inhibitors	Antineoplastics / Multikinase Inhibitors	antineoplastics
+drug	PARPInhibitors	PARP Inhibitors	Antineoplastics / PARP Inhibitors	antineoplastics
+drug	PI3KInhibitors	PI3K Inhibitors	Antineoplastics / PI3K Inhibitors	antineoplastics
+drug	ProteasomeInhibitors	Proteasome Inhibitors	Antineoplastics / Proteasome Inhibitors	antineoplastics
+drug	VEGFVEGFRInhibitors	VEGF/VEGFR Inhibitors	Antineoplastics / VEGF/VEGFR Inhibitors	antineoplastics
+drug	biologicals	Biologicals	Biologicals	
+drug	antitoxinsAndAntivenins	Antitoxins and Antivenins	Biologicals / Antitoxins and Antivenins	biologicals
+drug	hematopoieticStemCellMobilizer	Hematopoietic Stem Cell Mobilizer	Biologicals / Hematopoietic Stem Cell Mobilizer	biologicals
+drug	inVivoDiagnosticBiologicals	In Vivo Diagnostic Biologicals	Biologicals / In Vivo Diagnostic Biologicals	biologicals
+drug	recombinantHumanErythropoietins	Recombinant Human Erythropoietins	Biologicals / Recombinant Human Erythropoietins	biologicals
+drug	cardiovascularAgents	Cardiovascular Agents	Cardiovascular Agents	
+drug	agentsForHypertensiveEmergencies	Agents for Hypertensive Emergencies	Cardiovascular Agents / Agents for Hypertensive Emergencies	cardiovascularAgents
+drug	agentsForPulmonaryHypertension	Agents for Pulmonary Hypertension	Cardiovascular Agents / Agents for Pulmonary Hypertension	cardiovascularAgents
+drug	aldosteroneReceptorAntagonists	Aldosterone Receptor Antagonists	Cardiovascular Agents / Aldosterone Receptor Antagonists	cardiovascularAgents
+drug	angiotensinConvertingEnzymeInhibitors	Angiotensin Converting Enzyme Inhibitors	Cardiovascular Agents / Angiotensin Converting Enzyme Inhibitors	cardiovascularAgents
+drug	angiotensinReceptorBlockers	Angiotensin Receptor Blockers	Cardiovascular Agents / Angiotensin Receptor Blockers	cardiovascularAgents
+drug	angiotensinReceptorBlockersAndNeprilysinInhibitors	Angiotensin Receptor Blockers and Neprilysin Inhibitors	Cardiovascular Agents / Angiotensin Receptor Blockers and Neprilysin Inhibitors	cardiovascularAgents
+drug	antiadrenergicAgentsCentrallyActing	Antiadrenergic Agents, Centrally Acting	Cardiovascular Agents / Antiadrenergic Agents, Centrally Acting	cardiovascularAgents
+drug	antiadrenergicAgentsPeripherallyActing	Antiadrenergic Agents, Peripherally Acting	Cardiovascular Agents / Antiadrenergic Agents, Peripherally Acting	cardiovascularAgents
+drug	antianginalAgents	Antianginal Agents	Cardiovascular Agents / Antianginal Agents	cardiovascularAgents
+drug	antiarrhythmicAgents	Antiarrhythmic Agents	Cardiovascular Agents / Antiarrhythmic Agents	cardiovascularAgents
+drug	groupIAntiarrhythmics	Group I Antiarrhythmics	Cardiovascular Agents / Antiarrhythmic Agents / Group I Antiarrhythmics	antiarrhythmicAgents
+drug	groupIIAntiarrhythmics	Group II Antiarrhythmics	Cardiovascular Agents / Antiarrhythmic Agents / Group II Antiarrhythmics	antiarrhythmicAgents
+drug	groupIIIAntiarrhythmics	Group III Antiarrhythmics	Cardiovascular Agents / Antiarrhythmic Agents / Group III Antiarrhythmics	antiarrhythmicAgents
+drug	groupIVAntiarrhythmics	Group IV Antiarrhythmics	Cardiovascular Agents / Antiarrhythmic Agents / Group IV Antiarrhythmics	antiarrhythmicAgents
+drug	groupVAntiarrhythmics	Group V Antiarrhythmics	Cardiovascular Agents / Antiarrhythmic Agents / Group V Antiarrhythmics	antiarrhythmicAgents
+drug	anticholinergicChronotropicAgents	Anticholinergic Chronotropic Agents	Cardiovascular Agents / Anticholinergic Chronotropic Agents	cardiovascularAgents
+drug	antihypertensiveCombinations	Antihypertensive Combinations	Cardiovascular Agents / Antihypertensive Combinations	cardiovascularAgents
+drug	ACEinhibitorsWithCalciumChannelBlockingAgents	ACE inhibitors with Calcium Channel Blocking Agents	Cardiovascular Agents / Antihypertensive Combinations / ACE inhibitors with Calcium Channel Blocking Agents	antihypertensiveCombinations
+drug	ACEinhibitorsWithThiazides	ACE inhibitors with Thiazides	Cardiovascular Agents / Antihypertensive Combinations / ACE inhibitors with Thiazides	antihypertensiveCombinations
+drug	angiotensinIIInhibitorsWithCalciumChannelBlockers	Angiotensin II Inhibitors with Calcium Channel Blockers	Cardiovascular Agents / Antihypertensive Combinations / Angiotensin II Inhibitors with Calcium Channel Blockers	antihypertensiveCombinations
+drug	angiotensinIIInhibitorsWithThiazides	Angiotensin II Inhibitors with Thiazides	Cardiovascular Agents / Antihypertensive Combinations / Angiotensin II Inhibitors with Thiazides	antihypertensiveCombinations
+drug	antiadrenergicAgentsCentralWithThiazides	Antiadrenergic Agents (Central) with Thiazides	Cardiovascular Agents / Antihypertensive Combinations / Antiadrenergic Agents (Central) with Thiazides	antihypertensiveCombinations
+drug	antiadrenergicAgentsPeripheralWithThiazides	Antiadrenergic Agents (Peripheral) with Thiazides	Cardiovascular Agents / Antihypertensive Combinations / Antiadrenergic Agents (Peripheral) with Thiazides	antihypertensiveCombinations
+drug	betaBlockersWithThiazides	Beta Blockers with Thiazides	Cardiovascular Agents / Antihypertensive Combinations / Beta Blockers with Thiazides	antihypertensiveCombinations
+drug	miscellaneousAntihypertensiveCombinations	Miscellaneous Antihypertensive Combinations	Cardiovascular Agents / Antihypertensive Combinations / Miscellaneous Antihypertensive Combinations	antihypertensiveCombinations
+drug	potassiumSparingDiureticsWithThiazides	Potassium Sparing Diuretics with Thiazides	Cardiovascular Agents / Antihypertensive Combinations / Potassium Sparing Diuretics with Thiazides	antihypertensiveCombinations
+drug	betaAdrenergicBlockingAgents	Beta-Adrenergic Blocking Agents	Cardiovascular Agents / Beta-Adrenergic Blocking Agents	cardiovascularAgents
+drug	cardioselectiveBetaBlockers	Cardioselective Beta Blockers	Cardiovascular Agents / Beta-Adrenergic Blocking Agents / Cardioselective Beta Blockers	betaAdrenergicBlockingAgents
+drug	nonCardioselectiveBetaBlockers	Non-Cardioselective Beta Blockers	Cardiovascular Agents / Beta-Adrenergic Blocking Agents / Non-Cardioselective Beta Blockers	betaAdrenergicBlockingAgents
+drug	calciumChannelBlockingAgents	Calcium Channel Blocking Agents	Cardiovascular Agents / Calcium Channel Blocking Agents	cardiovascularAgents
+drug	catecholamines	Catecholamines	Cardiovascular Agents / Catecholamines	cardiovascularAgents
+drug	diuretics	Diuretics	Cardiovascular Agents / Diuretics	cardiovascularAgents
+drug	carbonicAnhydraseInhibitors	Carbonic Anhydrase Inhibitors	Cardiovascular Agents / Diuretics / Carbonic Anhydrase Inhibitors	diuretics
+drug	loopDiuretics	Loop Diuretics	Cardiovascular Agents / Diuretics / Loop Diuretics	diuretics
+drug	miscellaneousDiuretics	Miscellaneous Diuretics	Cardiovascular Agents / Diuretics / Miscellaneous Diuretics	diuretics
+drug	potassiumSparingDiuretics	Potassium-Sparing Diuretics	Cardiovascular Agents / Diuretics / Potassium-Sparing Diuretics	diuretics
+drug	thiazideDiuretics	Thiazide Diuretics	Cardiovascular Agents / Diuretics / Thiazide Diuretics	diuretics
+drug	inotropicAgents	Inotropic Agents	Cardiovascular Agents / Inotropic Agents	cardiovascularAgents
+drug	miscellaneousCardiovascularAgents	Miscellaneous Cardiovascular Agents	Cardiovascular Agents / Miscellaneous Cardiovascular Agents	cardiovascularAgents
+drug	peripheralVasodilators	Peripheral Vasodilators	Cardiovascular Agents / Peripheral Vasodilators	cardiovascularAgents
+drug	reninInhibitors	Renin Inhibitors	Cardiovascular Agents / Renin Inhibitors	cardiovascularAgents
+drug	sclerosingAgents	Sclerosing Agents	Cardiovascular Agents / Sclerosing Agents	cardiovascularAgents
+drug	vasodilators	Vasodilators	Cardiovascular Agents / Vasodilators	cardiovascularAgents
+drug	vasopressinAntagonists	Vasopressin Antagonists	Cardiovascular Agents / Vasopressin Antagonists	cardiovascularAgents
+drug	vasopressors	Vasopressors	Cardiovascular Agents / Vasopressors	cardiovascularAgents
+drug	centralNervousSystemAgents	Central Nervous System Agents	Central Nervous System Agents	
+drug	analgesics	Analgesics	Central Nervous System Agents / Analgesics	centralNervousSystemAgents
+drug	analgesicCombinations	Analgesic Combinations	Central Nervous System Agents / Analgesics / Analgesic Combinations	analgesics
+drug	antimigraineAgents	Antimigraine Agents	Central Nervous System Agents / Analgesics / Antimigraine Agents	analgesics
+drug	COX2Inhibitors	COX-2 Inhibitors	Central Nervous System Agents / Analgesics / COX-2 Inhibitors	analgesics
+drug	miscellaneousAnalgesics	Miscellaneous Analgesics	Central Nervous System Agents / Analgesics / Miscellaneous Analgesics	analgesics
+drug	narcoticAnalgesicCombinations	Narcotic Analgesic Combinations	Central Nervous System Agents / Analgesics / Narcotic Analgesic Combinations	analgesics
+drug	narcoticAnalgesics	Narcotic Analgesics	Central Nervous System Agents / Analgesics / Narcotic Analgesics	analgesics
+drug	nonsteroidalAntiInflammatoryAgents	Nonsteroidal Anti-Inflammatory Agents	Central Nervous System Agents / Analgesics / Nonsteroidal Anti-Inflammatory Agents	analgesics
+drug	salicylates	Salicylates	Central Nervous System Agents / Analgesics / Salicylates	analgesics
+drug	anorexiants	Anorexiants	Central Nervous System Agents / Anorexiants	centralNervousSystemAgents
+drug	anticonvulsants	Anticonvulsants	Central Nervous System Agents / Anticonvulsants	centralNervousSystemAgents
+drug	AMPAReceptorAntagonists	AMPA Receptor Antagonists	Central Nervous System Agents / Anticonvulsants / AMPA Receptor Antagonists	anticonvulsants
+drug	barbiturateAnticonvulsants	Barbiturate Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Barbiturate Anticonvulsants	anticonvulsants
+drug	benzodiazepineAnticonvulsants	Benzodiazepine Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Benzodiazepine Anticonvulsants	anticonvulsants
+drug	carbamateAnticonvulsants	Carbamate Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Carbamate Anticonvulsants	anticonvulsants
+drug	carbonicAnhydraseInhibitorAnticonvulsants	Carbonic Anhydrase Inhibitor Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Carbonic Anhydrase Inhibitor Anticonvulsants	anticonvulsants
+drug	dibenzazepineAnticonvulsants	Dibenzazepine Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Dibenzazepine Anticonvulsants	anticonvulsants
+drug	fattyAcidDerivativeAnticonvulsants	Fatty Acid Derivative Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Fatty Acid Derivative Anticonvulsants	anticonvulsants
+drug	gammaAminobutyricAcidAnalogs	Gamma-Aminobutyric Acid Analogs	Central Nervous System Agents / Anticonvulsants / Gamma-Aminobutyric Acid Analogs	anticonvulsants
+drug	gammaAminobutyricAcidReuptakeInhibitors	Gamma-Aminobutyric Acid Reuptake Inhibitors	Central Nervous System Agents / Anticonvulsants / Gamma-Aminobutyric Acid Reuptake Inhibitors	anticonvulsants
+drug	hydantoinAnticonvulsants	Hydantoin Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Hydantoin Anticonvulsants	anticonvulsants
+drug	miscellaneousAnticonvulsants	Miscellaneous Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Miscellaneous Anticonvulsants	anticonvulsants
+drug	neuronalPotassiumChannelOpeners	Neuronal Potassium Channel Openers	Central Nervous System Agents / Anticonvulsants / Neuronal Potassium Channel Openers	anticonvulsants
+drug	oxazolidinedioneAnticonvulsants	Oxazolidinedione Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Oxazolidinedione Anticonvulsants	anticonvulsants
+drug	pyrrolidineAnticonvulsants	Pyrrolidine Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Pyrrolidine Anticonvulsants	anticonvulsants
+drug	succinimideAnticonvulsants	Succinimide Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Succinimide Anticonvulsants	anticonvulsants
+drug	triazineAnticonvulsants	Triazine Anticonvulsants	Central Nervous System Agents / Anticonvulsants / Triazine Anticonvulsants	anticonvulsants
+drug	antiemeticAntivertigoAgents	Antiemetic/Antivertigo Agents	Central Nervous System Agents / Antiemetic/Antivertigo Agents	centralNervousSystemAgents
+drug	5HT3ReceptorAntagonists	5HT3 Receptor Antagonists	Central Nervous System Agents / Antiemetic/Antivertigo Agents / 5HT3 Receptor Antagonists	antiemeticAntivertigoAgents
+drug	anticholinergicAntiemetics	Anticholinergic Antiemetics	Central Nervous System Agents / Antiemetic/Antivertigo Agents / Anticholinergic Antiemetics	antiemeticAntivertigoAgents
+drug	miscellaneousAntiemetics	Miscellaneous Antiemetics	Central Nervous System Agents / Antiemetic/Antivertigo Agents / Miscellaneous Antiemetics	antiemeticAntivertigoAgents
+drug	NK1ReceptorAntagonists	NK1 Receptor Antagonists	Central Nervous System Agents / Antiemetic/Antivertigo Agents / NK1 Receptor Antagonists	antiemeticAntivertigoAgents
+drug	phenothiazineAntiemetics	Phenothiazine Antiemetics	Central Nervous System Agents / Antiemetic/Antivertigo Agents / Phenothiazine Antiemetics	antiemeticAntivertigoAgents
+drug	antiparkinsonAgents	Antiparkinson Agents	Central Nervous System Agents / Antiparkinson Agents	centralNervousSystemAgents
+drug	anticholinergicAntiparkinsonAgents	Anticholinergic Antiparkinson Agents	Central Nervous System Agents / Antiparkinson Agents / Anticholinergic Antiparkinson Agents	antiparkinsonAgents
+drug	dopaminergicAntiparkinsonismAgents	Dopaminergic Antiparkinsonism Agents	Central Nervous System Agents / Antiparkinson Agents / Dopaminergic Antiparkinsonism Agents	antiparkinsonAgents
+drug	anxiolyticsSedativesAndHypnotics	Anxiolytics, Sedatives, and Hypnotics	Central Nervous System Agents / Anxiolytics, Sedatives, and Hypnotics	centralNervousSystemAgents
+drug	barbiturates	Barbiturates	Central Nervous System Agents / Anxiolytics, Sedatives, and Hypnotics / Barbiturates	anxiolyticsSedativesAndHypnotics
+drug	benzodiazepines	Benzodiazepines	Central Nervous System Agents / Anxiolytics, Sedatives, and Hypnotics / Benzodiazepines	anxiolyticsSedativesAndHypnotics
+drug	miscellaneousAnxiolyticsSedativesAndHypnotics	Miscellaneous Anxiolytics, Sedatives and Hypnotics	Central Nervous System Agents / Anxiolytics, Sedatives, and Hypnotics / Miscellaneous Anxiolytics, Sedatives and Hypnotics	anxiolyticsSedativesAndHypnotics
+drug	cholinergicAgonists	Cholinergic Agonists	Central Nervous System Agents / Cholinergic Agonists	centralNervousSystemAgents
+drug	cholinesteraseInhibitors	Cholinesterase Inhibitors	Central Nervous System Agents / Cholinesterase Inhibitors	centralNervousSystemAgents
+drug	CNSStimulants	CNS Stimulants	Central Nervous System Agents / CNS Stimulants	centralNervousSystemAgents
+drug	drugsUsedInAlcoholDependence	Drugs Used in Alcohol Dependence	Central Nervous System Agents / Drugs Used in Alcohol Dependence	centralNervousSystemAgents
+drug	generalAnesthetics	General Anesthetics	Central Nervous System Agents / General Anesthetics	centralNervousSystemAgents
+drug	miscellaneousCentralNervousSystemAgents	Miscellaneous Central Nervous System Agents	Central Nervous System Agents / Miscellaneous Central Nervous System Agents	centralNervousSystemAgents
+drug	muscleRelaxants	Muscle Relaxants	Central Nervous System Agents / Muscle Relaxants	centralNervousSystemAgents
+drug	neuromuscularBlockingAgents	Neuromuscular Blocking Agents	Central Nervous System Agents / Muscle Relaxants / Neuromuscular Blocking Agents	muscleRelaxants
+drug	skeletalMuscleRelaxantCombinations	Skeletal Muscle Relaxant Combinations	Central Nervous System Agents / Muscle Relaxants / Skeletal Muscle Relaxant Combinations	muscleRelaxants
+drug	skeletalMuscleRelaxants	Skeletal Muscle Relaxants	Central Nervous System Agents / Muscle Relaxants / Skeletal Muscle Relaxants	muscleRelaxants
+drug	VMAT2Inhibitors	VMAT2 Inhibitors	Central Nervous System Agents / VMAT2 Inhibitors	centralNervousSystemAgents
+drug	chemotherapy	Chemotherapy	Chemotherapy	
+drug	coagulationModifiers	Coagulation Modifiers	Coagulation Modifiers	
+drug	anticoagulantReversalAgents	Anticoagulant Reversal Agents	Coagulation Modifiers / Anticoagulant Reversal Agents	coagulationModifiers
+drug	anticoagulants	Anticoagulants	Coagulation Modifiers / Anticoagulants	coagulationModifiers
+drug	coumarinsAndIndandiones	Coumarins and Indandiones	Coagulation Modifiers / Anticoagulants / Coumarins and Indandiones	anticoagulants
+drug	factorXaInhibitors	Factor Xa Inhibitors	Coagulation Modifiers / Anticoagulants / Factor Xa Inhibitors	anticoagulants
+drug	heparins	Heparins	Coagulation Modifiers / Anticoagulants / Heparins	anticoagulants
+drug	thrombinInhibitors	Thrombin Inhibitors	Coagulation Modifiers / Anticoagulants / Thrombin Inhibitors	anticoagulants
+drug	antiplateletAgents	Antiplatelet Agents	Coagulation Modifiers / Antiplatelet Agents	coagulationModifiers
+drug	glycoproteinPlateletInhibitors	Glycoprotein Platelet Inhibitors	Coagulation Modifiers / Antiplatelet Agents / Glycoprotein Platelet Inhibitors	antiplateletAgents
+drug	plateletAggregationInhibitors	Platelet Aggregation Inhibitors	Coagulation Modifiers / Antiplatelet Agents / Platelet Aggregation Inhibitors	antiplateletAgents
+drug	proteaseActivatedReceptor1Antagonists	Protease-Activated Receptor-1 Antagonists	Coagulation Modifiers / Antiplatelet Agents / Protease-Activated Receptor-1 Antagonists	antiplateletAgents
+drug	heparinAntagonists	Heparin Antagonists	Coagulation Modifiers / Heparin Antagonists	coagulationModifiers
+drug	miscellaneousCoagulationModifiers	Miscellaneous Coagulation Modifiers	Coagulation Modifiers / Miscellaneous Coagulation Modifiers	coagulationModifiers
+drug	plateletStimulatingAgents	Platelet-Stimulating Agents	Coagulation Modifiers / Platelet-Stimulating Agents	coagulationModifiers
+drug	thrombolytics	Thrombolytics	Coagulation Modifiers / Thrombolytics	coagulationModifiers
+drug	gastrointestinalAgents	Gastrointestinal Agents	Gastrointestinal Agents	
+drug	5aminosalicylates	5-Aminosalicylates	Gastrointestinal Agents / 5-Aminosalicylates	gastrointestinalAgents
+drug	antacids	Antacids	Gastrointestinal Agents / Antacids	gastrointestinalAgents
+drug	antidiarrheals	Antidiarrheals	Gastrointestinal Agents / Antidiarrheals	gastrointestinalAgents
+drug	digestiveEnzymes	Digestive Enzymes	Gastrointestinal Agents / Digestive Enzymes	gastrointestinalAgents
+drug	functionalBowelDisorderAgents	Functional Bowel Disorder Agents	Gastrointestinal Agents / Functional Bowel Disorder Agents	gastrointestinalAgents
+drug	anticholinergicsAntispasmodics	Anticholinergics/Antispasmodics	Gastrointestinal Agents / Functional Bowel Disorder Agents / Anticholinergics/Antispasmodics	functionalBowelDisorderAgents
+drug	chlorideChannelActivators	Chloride Channel Activators	Gastrointestinal Agents / Functional Bowel Disorder Agents / Chloride Channel Activators	functionalBowelDisorderAgents
+drug	guanylateCyclaseCAgonists	Guanylate Cyclase-C Agonists	Gastrointestinal Agents / Functional Bowel Disorder Agents / Guanylate Cyclase-C Agonists	functionalBowelDisorderAgents
+drug	peripheralOpioidReceptorAntagonists	Peripheral Opioid Receptor Antagonists	Gastrointestinal Agents / Functional Bowel Disorder Agents / Peripheral Opioid Receptor Antagonists	functionalBowelDisorderAgents
+drug	peripheralOpioidReceptorMixedAgonistsAntagonists	Peripheral Opioid Receptor Mixed Agonists/Antagonists	Gastrointestinal Agents / Functional Bowel Disorder Agents / Peripheral Opioid Receptor Mixed Agonists/Antagonists	functionalBowelDisorderAgents
+drug	serotoninergicNeuroentericModulators	Serotoninergic Neuroenteric Modulators	Gastrointestinal Agents / Functional Bowel Disorder Agents / Serotoninergic Neuroenteric Modulators	functionalBowelDisorderAgents
+drug	gallstoneSolubilizingAgents	Gallstone Solubilizing Agents	Gastrointestinal Agents / Gallstone Solubilizing Agents	gastrointestinalAgents
+drug	GIStimulants	GI Stimulants	Gastrointestinal Agents / GI Stimulants	gastrointestinalAgents
+drug	HPyloriEradicationAgents	H. Pylori Eradication Agents	Gastrointestinal Agents / H. Pylori Eradication Agents	gastrointestinalAgents
+drug	H2Antagonists	H2 Antagonists	Gastrointestinal Agents / H2 Antagonists	gastrointestinalAgents
+drug	laxatives	Laxatives	Gastrointestinal Agents / Laxatives	gastrointestinalAgents
+drug	miscellaneousGIAgents	Miscellaneous GI Agents	Gastrointestinal Agents / Miscellaneous GI Agents	gastrointestinalAgents
+drug	protonPumpInhibitors	Proton Pump Inhibitors	Gastrointestinal Agents / Proton Pump Inhibitors	gastrointestinalAgents
+drug	genitourinaryTractAgents	Genitourinary Tract Agents	Genitourinary Tract Agents	
+drug	impotenceAgents	Impotence Agents	Genitourinary Tract Agents / Impotence Agents	genitourinaryTractAgents
+drug	miscellaneousGenitourinaryTractAgents	Miscellaneous Genitourinary Tract Agents	Genitourinary Tract Agents / Miscellaneous Genitourinary Tract Agents	genitourinaryTractAgents
+drug	tocolyticAgents	Tocolytic Agents	Genitourinary Tract Agents / Tocolytic Agents	genitourinaryTractAgents
+drug	urinaryAntispasmodics	Urinary Antispasmodics	Genitourinary Tract Agents / Urinary Antispasmodics	genitourinaryTractAgents
+drug	urinarypHModifiers	Urinary pH Modifiers	Genitourinary Tract Agents / Urinary pH Modifiers	genitourinaryTractAgents
+drug	uterotonicAgents	Uterotonic Agents	Genitourinary Tract Agents / Uterotonic Agents	genitourinaryTractAgents
+drug	hormones	Hormones	Hormones	
+drug	5AlphaReductaseInhibitors	5-Alpha-Reductase Inhibitors	Hormones / 5-Alpha-Reductase Inhibitors	hormones
+drug	adrenalCorticalSteroids	Adrenal Cortical Steroids	Hormones / Adrenal Cortical Steroids	hormones
+drug	corticotropin	Corticotropin	Hormones / Adrenal Cortical Steroids / Corticotropin	adrenalCorticalSteroids
+drug	glucocorticoids	Glucocorticoids	Hormones / Adrenal Cortical Steroids / Glucocorticoids	adrenalCorticalSteroids
+drug	mineralocorticoids	Mineralocorticoids	Hormones / Adrenal Cortical Steroids / Mineralocorticoids	adrenalCorticalSteroids
+drug	adrenalCorticosteroidInhibitors	Adrenal Corticosteroid Inhibitors	Hormones / Adrenal Corticosteroid Inhibitors	hormones
+drug	antiandrogens	Antiandrogens	Hormones / Antiandrogens	hormones
+drug	antidiureticHormones	Antidiuretic Hormones	Hormones / Antidiuretic Hormones	hormones
+drug	antigonadotropicAgents	Antigonadotropic Agents	Hormones / Antigonadotropic Agents	hormones
+drug	antithyroidAgents	Antithyroid Agents	Hormones / Antithyroid Agents	hormones
+drug	aromataseInhibitors	Aromatase Inhibitors	Hormones / Aromatase Inhibitors	hormones
+drug	calcimimetics	Calcimimetics	Hormones / Calcimimetics	hormones
+drug	calcitonin	Calcitonin	Hormones / Calcitonin	hormones
+drug	estrogenReceptorAntagonists	Estrogen Receptor Antagonists	Hormones / Estrogen Receptor Antagonists	hormones
+drug	gonadotropinReleasingHormoneAntagonists	Gonadotropin-Releasing Hormone Antagonists	Hormones / Gonadotropin-Releasing Hormone Antagonists	hormones
+drug	growthHormoneReceptorBlockers	Growth Hormone Receptor Blockers	Hormones / Growth Hormone Receptor Blockers	hormones
+drug	growthHormones	Growth Hormones	Hormones / Growth Hormones	hormones
+drug	insulinLikeGrowthFactors	Insulin-like Growth Factors	Hormones / Insulin-like Growth Factors	hormones
+drug	parathyroidHormoneAndAnalogs	Parathyroid Hormone and Analogs	Hormones / Parathyroid Hormone and Analogs	hormones
+drug	progesteroneReceptorModulators	Progesterone Receptor Modulators	Hormones / Progesterone Receptor Modulators	hormones
+drug	prolactinInhibitors	Prolactin Inhibitors	Hormones / Prolactin Inhibitors	hormones
+drug	selectiveEstrogenReceptorModulators	Selective Estrogen Receptor Modulators	Hormones / Selective Estrogen Receptor Modulators	hormones
+drug	sexHormones	Sex Hormones	Hormones / Sex Hormones	hormones
+drug	androgensAndAnabolicSteroids	Androgens and Anabolic Steroids	Hormones / Sex Hormones / Androgens and Anabolic Steroids	sexHormones
+drug	contraceptives	Contraceptives	Hormones / Sex Hormones / Contraceptives	sexHormones
+drug	estrogens	Estrogens	Hormones / Sex Hormones / Estrogens	sexHormones
+drug	gonadotropinReleasingHormones	Gonadotropin Releasing Hormones	Hormones / Sex Hormones / Gonadotropin Releasing Hormones	sexHormones
+drug	gonadotropins	Gonadotropins	Hormones / Sex Hormones / Gonadotropins	sexHormones
+drug	progestins	Progestins	Hormones / Sex Hormones / Progestins	sexHormones
+drug	sexHormoneCombinations	Sex Hormone Combinations	Hormones / Sex Hormones / Sex Hormone Combinations	sexHormones
+drug	somatostatinAndSomatostatinAnalogs	Somatostatin and Somatostatin Analogs	Hormones / Somatostatin and Somatostatin Analogs	hormones
+drug	syntheticOvulationStimulants	Synthetic Ovulation Stimulants	Hormones / Synthetic Ovulation Stimulants	hormones
+drug	thyroidDrugs	Thyroid Drugs	Hormones / Thyroid Drugs	hormones
+drug	immunologicAgents	Immunologic Agents	Immunologic Agents	
+drug	immuneGlobulins	Immune Globulins	Immunologic Agents / Immune Globulins	immunologicAgents
+drug	immunostimulants	Immunostimulants	Immunologic Agents / Immunostimulants	immunologicAgents
+drug	bacterialVaccines	Bacterial Vaccines	Immunologic Agents / Immunostimulants / Bacterial Vaccines	immunostimulants
+drug	colonyStimulatingFactors	Colony Stimulating Factors	Immunologic Agents / Immunostimulants / Colony Stimulating Factors	immunostimulants
+drug	interferons	Interferons	Immunologic Agents / Immunostimulants / Interferons	immunostimulants
+drug	interleukins	Interleukins	Immunologic Agents / Immunostimulants / Interleukins	immunostimulants
+drug	otherImmunostimulants	Other Immunostimulants	Immunologic Agents / Immunostimulants / Other Immunostimulants	immunostimulants
+drug	therapeuticVaccines	Therapeutic Vaccines	Immunologic Agents / Immunostimulants / Therapeutic Vaccines	immunostimulants
+drug	vaccineCombinations	Vaccine Combinations	Immunologic Agents / Immunostimulants / Vaccine Combinations	immunostimulants
+drug	viralVaccines	Viral Vaccines	Immunologic Agents / Immunostimulants / Viral Vaccines	immunostimulants
+drug	immunosuppressiveAgents	Immunosuppressive Agents	Immunologic Agents / Immunosuppressive Agents	immunologicAgents
+drug	calcineurinInhibitors	Calcineurin Inhibitors	Immunologic Agents / Immunosuppressive Agents / Calcineurin Inhibitors	immunosuppressiveAgents
+drug	interleukinInhibitors	Interleukin Inhibitors	Immunologic Agents / Immunosuppressive Agents / Interleukin Inhibitors	immunosuppressiveAgents
+drug	otherImmunosuppressants	Other Immunosuppressants	Immunologic Agents / Immunosuppressive Agents / Other Immunosuppressants	immunosuppressiveAgents
+drug	selectiveImmunosuppressants	Selective Immunosuppressants	Immunologic Agents / Immunosuppressive Agents / Selective Immunosuppressants	immunosuppressiveAgents
+drug	TNFAlfaInhibitors	TNF Alfa Inhibitors	Immunologic Agents / Immunosuppressive Agents / TNF Alfa Inhibitors	immunosuppressiveAgents
+drug	medicalGas	Medical Gas	Medical Gas	
+drug	metabolicAgents	Metabolic Agents	Metabolic Agents	
+drug	antidiabeticAgents	Antidiabetic Agents	Metabolic Agents / Antidiabetic Agents	metabolicAgents
+drug	alphaGlucosidaseInhibitors	Alpha-Glucosidase Inhibitors	Metabolic Agents / Antidiabetic Agents / Alpha-Glucosidase Inhibitors	antidiabeticAgents
+drug	amylinAnalogs	Amylin Analogs	Metabolic Agents / Antidiabetic Agents / Amylin Analogs	antidiabeticAgents
+drug	antidiabeticCombinations	Antidiabetic Combinations	Metabolic Agents / Antidiabetic Agents / Antidiabetic Combinations	antidiabeticAgents
+drug	dipeptidylPeptidase4Inhibitors	Dipeptidyl Peptidase 4 Inhibitors	Metabolic Agents / Antidiabetic Agents / Dipeptidyl Peptidase 4 Inhibitors	antidiabeticAgents
+drug	incretinMimetics	Incretin Mimetics	Metabolic Agents / Antidiabetic Agents / Incretin Mimetics	antidiabeticAgents
+drug	insulin	Insulin	Metabolic Agents / Antidiabetic Agents / Insulin	antidiabeticAgents
+drug	meglitinides	Meglitinides	Metabolic Agents / Antidiabetic Agents / Meglitinides	antidiabeticAgents
+drug	nonSulfonylureas	Non-Sulfonylureas	Metabolic Agents / Antidiabetic Agents / Non-Sulfonylureas	antidiabeticAgents
+drug	SGLT2Inhibitors	SGLT-2 Inhibitors	Metabolic Agents / Antidiabetic Agents / SGLT-2 Inhibitors	antidiabeticAgents
+drug	sulfonylureas	Sulfonylureas	Metabolic Agents / Antidiabetic Agents / Sulfonylureas	antidiabeticAgents
+drug	thiazolidinediones	Thiazolidinediones	Metabolic Agents / Antidiabetic Agents / Thiazolidinediones	antidiabeticAgents
+drug	antigoutAgents	Antigout Agents	Metabolic Agents / Antigout Agents	metabolicAgents
+drug	antihyperlipidemicAgents	Antihyperlipidemic Agents	Metabolic Agents / Antihyperlipidemic Agents	metabolicAgents
+drug	antihyperlipidemicCombinations	Antihyperlipidemic Combinations	Metabolic Agents / Antihyperlipidemic Agents / Antihyperlipidemic Combinations	antihyperlipidemicAgents
+drug	bileAcidSequestrants	Bile Acid Sequestrants	Metabolic Agents / Antihyperlipidemic Agents / Bile Acid Sequestrants	antihyperlipidemicAgents
+drug	cholesterolAbsorptionInhibitors	Cholesterol Absorption Inhibitors	Metabolic Agents / Antihyperlipidemic Agents / Cholesterol Absorption Inhibitors	antihyperlipidemicAgents
+drug	fibricAcidDerivatives	Fibric Acid Derivatives	Metabolic Agents / Antihyperlipidemic Agents / Fibric Acid Derivatives	antihyperlipidemicAgents
+drug	miscellaneousAntihyperlipidemicAgents	Miscellaneous Antihyperlipidemic Agents	Metabolic Agents / Antihyperlipidemic Agents / Miscellaneous Antihyperlipidemic Agents	antihyperlipidemicAgents
+drug	PCSK9Inhibitors	PCSK9 Inhibitors	Metabolic Agents / Antihyperlipidemic Agents / PCSK9 Inhibitors	antihyperlipidemicAgents
+drug	statins	Statins	Metabolic Agents / Antihyperlipidemic Agents / Statins	antihyperlipidemicAgents
+drug	antihyperuricemicAgents	Antihyperuricemic Agents	Metabolic Agents / Antihyperuricemic Agents	metabolicAgents
+drug	boneResorptionInhibitors	Bone Resorption Inhibitors	Metabolic Agents / Bone Resorption Inhibitors	metabolicAgents
+drug	bisphosphonates	Bisphosphonates	Metabolic Agents / Bone Resorption Inhibitors / Bisphosphonates	boneResorptionInhibitors
+drug	miscellaneousBoneResorptionInhibitors	Miscellaneous Bone Resorption Inhibitors	Metabolic Agents / Bone Resorption Inhibitors / Miscellaneous Bone Resorption Inhibitors	boneResorptionInhibitors
+drug	CFTRCombinations	CFTR Combinations	Metabolic Agents / CFTR Combinations	metabolicAgents
+drug	CFTRPotentiators	CFTR Potentiators	Metabolic Agents / CFTR Potentiators	metabolicAgents
+drug	glucoseElevatingAgents	Glucose Elevating Agents	Metabolic Agents / Glucose Elevating Agents	metabolicAgents
+drug	lysosomalEnzymes	Lysosomal Enzymes	Metabolic Agents / Lysosomal Enzymes	metabolicAgents
+drug	miscellaneousMetabolicAgents	Miscellaneous Metabolic Agents	Metabolic Agents / Miscellaneous Metabolic Agents	metabolicAgents
+drug	peripherallyActingAntiobesityAgents	Peripherally Acting Antiobesity Agents	Metabolic Agents / Peripherally Acting Antiobesity Agents	metabolicAgents
+drug	ureaCycleDisorderAgents	Urea Cycle Disorder Agents	Metabolic Agents / Urea Cycle Disorder Agents	metabolicAgents
+drug	miscellaneousAgents	Miscellaneous Agents	Miscellaneous Agents	
+drug	antidotes	Antidotes	Miscellaneous Agents / Antidotes	miscellaneousAgents
+drug	antipsoriatics	Antipsoriatics	Miscellaneous Agents / Antipsoriatics	miscellaneousAgents
+drug	antirheumatics	Antirheumatics	Miscellaneous Agents / Antirheumatics	miscellaneousAgents
+drug	cationExchangeResins	Cation Exchange Resins	Miscellaneous Agents / Cation Exchange Resins	miscellaneousAgents
+drug	chelatingAgents	Chelating Agents	Miscellaneous Agents / Chelating Agents	miscellaneousAgents
+drug	cholinergicMuscleStimulants	Cholinergic Muscle Stimulants	Miscellaneous Agents / Cholinergic Muscle Stimulants	miscellaneousAgents
+drug	illicitDrugs	Illicit (Street) Drugs	Miscellaneous Agents / Illicit (Street) Drugs	miscellaneousAgents
+drug	localInjectableAnesthetics	Local Injectable Anesthetics	Miscellaneous Agents / Local Injectable Anesthetics	miscellaneousAgents
+drug	localInjectableAnestheticsWithCorticosteroids	Local Injectable Anesthetics with Corticosteroids	Miscellaneous Agents / Local Injectable Anesthetics with Corticosteroids	miscellaneousAgents
+drug	miscellaneousUncategorizedAgents	Miscellaneous Uncategorized Agents	Miscellaneous Agents / Miscellaneous Uncategorized Agents	miscellaneousAgents
+drug	phosphateBinders	Phosphate Binders	Miscellaneous Agents / Phosphate Binders	miscellaneousAgents
+drug	psoralens	Psoralens	Miscellaneous Agents / Psoralens	miscellaneousAgents
+drug	smokingCessationAgents	Smoking Cessation Agents	Miscellaneous Agents / Smoking Cessation Agents	miscellaneousAgents
+drug	viscosupplementationAgents	Viscosupplementation Agents	Miscellaneous Agents / Viscosupplementation Agents	miscellaneousAgents
+drug	nutritionalProducts	Nutritional Products	Nutritional Products	
+drug	intravenousNutritionalProducts	Intravenous Nutritional Products	Nutritional Products / Intravenous Nutritional Products	nutritionalProducts
+drug	ironProducts	Iron Products	Nutritional Products / Iron Products	nutritionalProducts
+drug	mineralsAndElectrolytes	Minerals and Electrolytes	Nutritional Products / Minerals and Electrolytes	nutritionalProducts
+drug	oralNutritionalSupplements	Oral Nutritional Supplements	Nutritional Products / Oral Nutritional Supplements	nutritionalProducts
+drug	vitaminAndMineralCombinations	Vitamin and Mineral Combinations	Nutritional Products / Vitamin and Mineral Combinations	nutritionalProducts
+drug	vitamins	Vitamins	Nutritional Products / Vitamins	nutritionalProducts
+drug	plasmaExpanders	Plasma Expanders	Plasma Expanders	
+drug	psychotherapeuticAgents	Psychotherapeutic Agents	Psychotherapeutic Agents	
+drug	antidepressants	Antidepressants	Psychotherapeutic Agents / Antidepressants	psychotherapeuticAgents
+drug	miscellaneousAntidepressants	Miscellaneous Antidepressants	Psychotherapeutic Agents / Antidepressants / Miscellaneous Antidepressants	antidepressants
+drug	monoamineOxidaseInhibitors	Monoamine Oxidase Inhibitors	Psychotherapeutic Agents / Antidepressants / Monoamine Oxidase Inhibitors	antidepressants
+drug	phenylpiperazineAntidepressants	Phenylpiperazine Antidepressants	Psychotherapeutic Agents / Antidepressants / Phenylpiperazine Antidepressants	antidepressants
+drug	selectiveSerotoninReuptakeInhibitors	Selective Serotonin Reuptake Inhibitors	Psychotherapeutic Agents / Antidepressants / Selective Serotonin Reuptake Inhibitors	antidepressants
+drug	serotoninNorepinephrineReuptakeInhibitors	Serotonin-Norepinephrine Reuptake Inhibitors	Psychotherapeutic Agents / Antidepressants / Serotonin-Norepinephrine Reuptake Inhibitors	antidepressants
+drug	tetracyclicAntidepressants	Tetracyclic Antidepressants	Psychotherapeutic Agents / Antidepressants / Tetracyclic Antidepressants	antidepressants
+drug	tricyclicAntidepressants	Tricyclic Antidepressants	Psychotherapeutic Agents / Antidepressants / Tricyclic Antidepressants	antidepressants
+drug	antipsychotics	Antipsychotics	Psychotherapeutic Agents / Antipsychotics	psychotherapeuticAgents
+drug	atypicalAntipsychotics	Atypical Antipsychotics	Psychotherapeutic Agents / Antipsychotics / Atypical Antipsychotics	antipsychotics
+drug	miscellaneousAntipsychoticAgents	Miscellaneous Antipsychotic Agents	Psychotherapeutic Agents / Antipsychotics / Miscellaneous Antipsychotic Agents	antipsychotics
+drug	phenothiazineAntipsychotics	Phenothiazine Antipsychotics	Psychotherapeutic Agents / Antipsychotics / Phenothiazine Antipsychotics	antipsychotics
+drug	thioxanthenes	Thioxanthenes	Psychotherapeutic Agents / Antipsychotics / Thioxanthenes	antipsychotics
+drug	psychotherapeuticCombinations	Psychotherapeutic Combinations	Psychotherapeutic Agents / Psychotherapeutic Combinations	psychotherapeuticAgents
+drug	radiologicAgents	Radiologic Agents	Radiologic Agents	
+drug		Radiocontrast Agents	Radiologic Agents / Radiocontrast Agents	radiologicAgents
+drug	iodinatedContrastMedia	Iodinated Contrast Media	Radiologic Agents / Radiocontrast Agents / Iodinated Contrast Media	
+drug	ionicIodinatedContrastMedia	Ionic Iodinated Contrast Media	Radiologic Agents / Radiocontrast Agents / Ionic Iodinated Contrast Media	
+drug	lymphaticStainingAgents	Lymphatic Staining Agents	Radiologic Agents / Radiocontrast Agents / Lymphatic Staining Agents	
+drug	mriContrastMedia	Magnetic Resonance Imaging Contrast Media	Radiologic Agents / Radiocontrast Agents / Magnetic Resonance Imaging Contrast Media	
+drug	miscellaneousDiagnosticDyes	Miscellaneous Diagnostic Dyes	Radiologic Agents / Radiocontrast Agents / Miscellaneous Diagnostic Dyes	
+drug	nonIodinatedContrastMedia	Non-Iodinated Contrast Media	Radiologic Agents / Radiocontrast Agents / Non-Iodinated Contrast Media	
+drug	nonIonicIodinatedContrastMedia	Non-Ionic Iodinated Contrast Media	Radiologic Agents / Radiocontrast Agents / Non-Ionic Iodinated Contrast Media	
+drug	ultrasoundContrastMedia	Ultrasound Contrast Media	Radiologic Agents / Radiocontrast Agents / Ultrasound Contrast Media	
+drug	radiologicAdjuncts	Radiologic Adjuncts	Radiologic Agents / Radiologic Adjuncts	radiologicAgents
+drug	cardiacStressingAgents	Cardiac Stressing Agents	Radiologic Agents / Radiologic Adjuncts / Cardiac Stressing Agents	radiologicAdjuncts
+drug	radiologicConjugatingAgents	Radiologic Conjugating Agents	Radiologic Agents / Radiologic Adjuncts / Radiologic Conjugating Agents	radiologicAdjuncts
+drug	radiopharmaceuticals	Radiopharmaceuticals	Radiologic Agents / Radiopharmaceuticals	radiologicAgents
+drug	diagnosticRadiopharmaceuticals	Diagnostic Radiopharmaceuticals	Radiologic Agents / Radiopharmaceuticals / Diagnostic Radiopharmaceuticals	radiopharmaceuticals
+drug	therapeuticRadiopharmaceuticals	Therapeutic Radiopharmaceuticals	Radiologic Agents / Radiopharmaceuticals / Therapeutic Radiopharmaceuticals	radiopharmaceuticals
+drug	respiratoryAgents	Respiratory Agents	Respiratory Agents	
+drug	antiasthmaticCombinations	Antiasthmatic Combinations	Respiratory Agents / Antiasthmatic Combinations	respiratoryAgents
+drug	antihistamines	Antihistamines	Respiratory Agents / Antihistamines	respiratoryAgents
+drug	antitussives	Antitussives	Respiratory Agents / Antitussives	respiratoryAgents
+drug	bronchodilators	Bronchodilators	Respiratory Agents / Bronchodilators	respiratoryAgents
+drug	adrenergicBronchodilators	Adrenergic Bronchodilators	Respiratory Agents / Bronchodilators / Adrenergic Bronchodilators	bronchodilators
+drug	anticholinergicBronchodilators	Anticholinergic Bronchodilators	Respiratory Agents / Bronchodilators / Anticholinergic Bronchodilators	bronchodilators
+drug	bronchodilatorCombinations	Bronchodilator Combinations	Respiratory Agents / Bronchodilators / Bronchodilator Combinations	bronchodilators
+drug	methylxanthines	Methylxanthines	Respiratory Agents / Bronchodilators / Methylxanthines	bronchodilators
+drug	decongestants	Decongestants	Respiratory Agents / Decongestants	respiratoryAgents
+drug	expectorants	Expectorants	Respiratory Agents / Expectorants	respiratoryAgents
+drug	leukotrieneModifiers	Leukotriene Modifiers	Respiratory Agents / Leukotriene Modifiers	respiratoryAgents
+drug	lungSurfactants	Lung Surfactants	Respiratory Agents / Lung Surfactants	respiratoryAgents
+drug	miscellaneousRespiratoryAgents	Miscellaneous Respiratory Agents	Respiratory Agents / Miscellaneous Respiratory Agents	respiratoryAgents
+drug	respiratoryInhalantProducts	Respiratory Inhalant Products	Respiratory Agents / Respiratory Inhalant Products	respiratoryAgents
+drug	inhaledAntiInfectives	Inhaled Anti-Infectives	Respiratory Agents / Respiratory Inhalant Products / Inhaled Anti-Infectives	respiratoryInhalantProducts
+drug	inhaledCorticosteroids	Inhaled Corticosteroids	Respiratory Agents / Respiratory Inhalant Products / Inhaled Corticosteroids	respiratoryInhalantProducts
+drug	mastCellStabilizers	Mast Cell Stabilizers	Respiratory Agents / Respiratory Inhalant Products / Mast Cell Stabilizers	respiratoryInhalantProducts
+drug	mucolytics	Mucolytics	Respiratory Agents / Respiratory Inhalant Products / Mucolytics	respiratoryInhalantProducts
+drug	selectivePhosphodiesterase4Inhibitors	Selective Phosphodiesterase-4 Inhibitors	Respiratory Agents / Selective Phosphodiesterase-4 Inhibitors	respiratoryAgents
+drug	upperRespiratoryCombinations	Upper Respiratory Combinations	Respiratory Agents / Upper Respiratory Combinations	respiratoryAgents
+drug	topicalAgents	Topical Agents	Topical Agents	
+drug	anorectalPreparations	Anorectal Preparations	Topical Agents / Anorectal Preparations	topicalAgents
+drug	antisepticAndGermicides	Antiseptic and Germicides	Topical Agents / Antiseptic and Germicides	topicalAgents
+drug	dermatologicalAgents	Dermatological Agents	Topical Agents / Dermatological Agents	topicalAgents
+drug	miscellaneousTopicalAgents	Miscellaneous Topical Agents	Topical Agents / Dermatological Agents / Miscellaneous Topical Agents	dermatologicalAgents
+drug	topicalAcneAgents	Topical Acne Agents	Topical Agents / Dermatological Agents / Topical Acne Agents	dermatologicalAgents
+drug	topicalAnesthetics	Topical Anesthetics	Topical Agents / Dermatological Agents / Topical Anesthetics	dermatologicalAgents
+drug	topicalAntiInfectives	Topical Anti-Infectives	Topical Agents / Dermatological Agents / Topical Anti-Infectives	dermatologicalAgents
+drug	topicalAntiRosaceaAgents	Topical Anti-Rosacea Agents	Topical Agents / Dermatological Agents / Topical Anti-Rosacea Agents	dermatologicalAgents
+drug	topicalAntibiotics	Topical Antibiotics	Topical Agents / Dermatological Agents / Topical Antibiotics	dermatologicalAgents
+drug	topicalAntifungals	Topical Antifungals	Topical Agents / Dermatological Agents / Topical Antifungals	dermatologicalAgents
+drug	topicalAntihistamines	Topical Antihistamines	Topical Agents / Dermatological Agents / Topical Antihistamines	dermatologicalAgents
+drug	topicalAntineoplastics	Topical Antineoplastics	Topical Agents / Dermatological Agents / Topical Antineoplastics	dermatologicalAgents
+drug	topicalAntipsoriatics	Topical Antipsoriatics	Topical Agents / Dermatological Agents / Topical Antipsoriatics	dermatologicalAgents
+drug	topicalAntivirals	Topical Antivirals	Topical Agents / Dermatological Agents / Topical Antivirals	dermatologicalAgents
+drug	topicalAstringents	Topical Astringents	Topical Agents / Dermatological Agents / Topical Astringents	dermatologicalAgents
+drug	topicalDebridingAgents	Topical Debriding Agents	Topical Agents / Dermatological Agents / Topical Debriding Agents	dermatologicalAgents
+drug	topicalDepigmentingAgents	Topical Depigmenting Agents	Topical Agents / Dermatological Agents / Topical Depigmenting Agents	dermatologicalAgents
+drug	topicalEmollients	Topical Emollients	Topical Agents / Dermatological Agents / Topical Emollients	dermatologicalAgents
+drug	topicalKeratolytics	Topical Keratolytics	Topical Agents / Dermatological Agents / Topical Keratolytics	dermatologicalAgents
+drug	topicalNonSteroidalAntiInflammatories	Topical Non-Steroidal Anti-Inflammatories	Topical Agents / Dermatological Agents / Topical Non-Steroidal Anti-Inflammatories	dermatologicalAgents
+drug	topicalPhotochemotherapeutics	Topical Photochemotherapeutics	Topical Agents / Dermatological Agents / Topical Photochemotherapeutics	dermatologicalAgents
+drug	topicalRubefacient	Topical Rubefacient	Topical Agents / Dermatological Agents / Topical Rubefacient	dermatologicalAgents
+drug	topicalSteroids	Topical Steroids	Topical Agents / Dermatological Agents / Topical Steroids	dermatologicalAgents
+drug	topicalSteroidsWithAntiInfectives	Topical Steroids with Anti-Infectives	Topical Agents / Dermatological Agents / Topical Steroids with Anti-Infectives	dermatologicalAgents
+drug	mouthAndThroatProducts	Mouth and Throat Products	Topical Agents / Mouth and Throat Products	topicalAgents
+drug	nasalPreparations	Nasal Preparations	Topical Agents / Nasal Preparations	topicalAgents
+drug	nasalAntihistaminesAndDecongestants	Nasal Antihistamines and Decongestants	Topical Agents / Nasal Preparations / Nasal Antihistamines and Decongestants	nasalPreparations
+drug	nasalLubricantsAndIrrigations	Nasal Lubricants and Irrigations	Topical Agents / Nasal Preparations / Nasal Lubricants and Irrigations	nasalPreparations
+drug	nasalSteroids	Nasal Steroids	Topical Agents / Nasal Preparations / Nasal Steroids	nasalPreparations
+drug	ophthalmicPreparations	Ophthalmic Preparations	Topical Agents / Ophthalmic Preparations	topicalAgents
+drug	antiAngiogenicOphthalmicAgents	Anti-Angiogenic Ophthalmic Agents	Topical Agents / Ophthalmic Preparations / Anti-Angiogenic Ophthalmic Agents	ophthalmicPreparations
+drug	miscellaneousOphthalmicAgents	Miscellaneous Ophthalmic Agents	Topical Agents / Ophthalmic Preparations / Miscellaneous Ophthalmic Agents	ophthalmicPreparations
+drug	mydriatics	Mydriatics	Topical Agents / Ophthalmic Preparations / Mydriatics	ophthalmicPreparations
+drug	ophthalmicAnesthetics	Ophthalmic Anesthetics	Topical Agents / Ophthalmic Preparations / Ophthalmic Anesthetics	ophthalmicPreparations
+drug	ophthalmicAntiInfectives	Ophthalmic Anti-Infectives	Topical Agents / Ophthalmic Preparations / Ophthalmic Anti-Infectives	ophthalmicPreparations
+drug	ophthalmicAntiInflammatoryAgents	Ophthalmic Anti-Inflammatory Agents	Topical Agents / Ophthalmic Preparations / Ophthalmic Anti-Inflammatory Agents	ophthalmicPreparations
+drug	ophthalmicAntihistaminesAndDecongestants	Ophthalmic Antihistamines and Decongestants	Topical Agents / Ophthalmic Preparations / Ophthalmic Antihistamines and Decongestants	ophthalmicPreparations
+drug	ophthalmicDiagnosticAgents	Ophthalmic Diagnostic Agents	Topical Agents / Ophthalmic Preparations / Ophthalmic Diagnostic Agents	ophthalmicPreparations
+drug	ophthalmicGlaucomaAgents	Ophthalmic Glaucoma Agents	Topical Agents / Ophthalmic Preparations / Ophthalmic Glaucoma Agents	ophthalmicPreparations
+drug	ophthalmicLubricantsAndIrrigations	Ophthalmic Lubricants and Irrigations	Topical Agents / Ophthalmic Preparations / Ophthalmic Lubricants and Irrigations	ophthalmicPreparations
+drug	ophthalmicSteroids	Ophthalmic Steroids	Topical Agents / Ophthalmic Preparations / Ophthalmic Steroids	ophthalmicPreparations
+drug	ophthalmicSteroidsWithAntiInfectives	Ophthalmic Steroids with Anti-Infectives	Topical Agents / Ophthalmic Preparations / Ophthalmic Steroids with Anti-Infectives	ophthalmicPreparations
+drug	ophthalmicSurgicalAgents	Ophthalmic Surgical Agents	Topical Agents / Ophthalmic Preparations / Ophthalmic Surgical Agents	ophthalmicPreparations
+drug	oticPreparations	Otic Preparations	Topical Agents / Otic Preparations	topicalAgents
+drug	cerumenolytics	Cerumenolytics	Topical Agents / Otics Preparations / Cerumenolytics	oticPreparations
+drug	miscellaneousOticAgents	Miscellaneous Otic Agents	Topical Agents / Otics Preparations / Miscellaneous Otic Agents	oticPreparations
+drug	oticAnesthetics	Otic Anesthetics	Topical Agents / Otics Preparations / Otic Anesthetics	oticPreparations
+drug	oticAntiInfectives	Otic Anti-Infectives	Topical Agents / Otics Preparations / Otic Anti-Infectives	oticPreparations
+drug	oticSteroids	Otic Steroids	Topical Agents / Otics Preparations / Otic Steroids	oticPreparations
+drug	oticSteroidsWithAntiInfectives	Otic Steroids with Anti-Infectives	Topical Agents / Otics Preparations / Otic Steroids with Anti-Infectives	oticPreparations
+drug	sterileIrrigatingSolutions	Sterile Irrigating Solutions	Topical Agents / Sterile Irrigating Solutions	topicalAgents
+drug	vaginalPreparations	Vaginal Preparations	Topical Agents / Vaginal Preparations	topicalAgents
+drug	miscellaneousVaginalAgents	Miscellaneous Vaginal Agents	Topical Agents / Vaginal Preparations / Miscellaneous Vaginal Agents	vaginalPreparations
+drug	vaginalAntiInfectives	Vaginal Anti-Infectives	Topical Agents / Vaginal Preparations / Vaginal Anti-Infectives	vaginalPreparations
+organ	type_organ_circulatory	Circulatory	Circulatory	
+organ	type_organ_digestive	Digestive / Excretory	Digestive / Excretory	
+organ	type_organ_endocrine	Endocrine	Endocrine	
+organ	type_organ_exocrine	Integumentary / Exocrine	Integumentary / Exocrine	
+organ	type_organ_immune	Lymphatic / Immune	Lymphatic / Immune	
+organ	type_organ_muscular	Muscular	Muscular	
+organ	type_organ_nervous	Nervous	Nervous	
+organ	type_organ_nervousPeripheral	Peripheral	Peripheral Nervous system	type_organ_nervous
+organ	type_organ_nervousSensory	Sensory organs	Sensory organs	type_organ_nervous
+organ	type_organ_renal	Renal / Urinary	Renal / Urinary	
+organ	type_organ_reproductive	Reproductive	Reproductive	
+organ	type_organ_reproductiveFemale	Female	Female Reproductive System	type_organ_reproductive
+organ	type_organ_reproductiveMale	Male	Male Reproductive System	type_organ_reproductive
+organ	type_organ_respiratory	Respiratory	Respiratory	
+organ	type_organ_skeletal	Skeletal	Skeletal	
+organ	type_organ_other	Other Body Parts	Other Body Parts	
+source	type_source_blog	Blog	Blog	
+source	type_source_book	Book	Book	
+source	type_source_discussion	Discussion Forum	Discussion Forum	
+source	type_source_image	Image	Image	
+source	type_source_interview	Interview	Interview	
+source	type_source_magazine	Magazine Source	Magazine Source	
+source	type_source_news	News Source	News Source	
+source	type_source_other	Other	Other	
+source	type_source_podcast	Podcast	Podcast	
+source	type_source_presentation	Presentation	Presentation	
+source	type_source_researchPaper	Research Paper	Research Paper	
+source	type_source_treatmentGuide	Treatment Guide	Treatment Guide	
+source	type_source_tv	TV	TV	
+source	type_source_video	Video	Video	
+source	type_source_webpage	Web page	Web page	
+source	type_source_whitePaper	White Paper	White Paper	
+symptom	type_symptom_blood	Blood	Blood	
+symptom	type_symptom_breast	Breast	Breast	
+symptom	type_symptom_respiratory	Respiratory	Respiratory	
+symptom	type_symptom_digestive	Digestive	Digestive	
+symptom	type_symptom_energy	Energy & Balance	Energy & Balance	
+symptom	type_symptom_excretory	Excretory	Excretory	
+symptom	type_symptom_genital	Genital	Genital	
+symptom	type_symptom_mouth	Mouth	Mouth	
+symptom	type_symptom_pain	Pain	Pain	
+symptom	type_symptom_skin	Skin	Skin	
+symptom	type_symptom_unexpected	Unexpected	Unexpected	
+symptom	type_symptom_other	Other	Other	
+test	type_test_fluids	Analysis of Body Fluids	Analysis of Body Fluids	
+test	type_test_laboratory	Laboratory Tests	Laboratory Tests	
+test	type_test_genetic	Analysis of Genetic Material	Analysis of Genetic Material	
+test	type_test_biopsy	Biopsy	Biopsy	
+test	type_test_endoscopy	Endoscopy	Endoscopy	
+test	type_test_scores	Score	Scores	
+test	type_test_imaging	Imaging Procedures	Imaging	
+test	type_test_tumorMarkers	Tumor Marker Tests	Tumor Marker Tests	
+test	type_test_functions	Measurement of Body Functions	Measurement of Body Functions	
+test	type_test_other	Other Tests	Other Tests	
+treatment	type_treatment_surgery	Surgery	Surgery	
+treatment	type_treatment_neurosurgery	Neurosurgery	Neurosurgery	type_treatment_surgery
+treatment	type_treatment_chemotherapy	Chemotherapy	Chemotherapy	
+treatment	type_treatment_radiationTherapy	Radiation Therapy	Radiation Therapy	
+treatment	type_treatment_neoadjuvantChemotherapy	Neoadjuvant Chemotherapy	Neoadjuvant Chemotherapy	type_treatment_chemotherapy
+treatment	type_treatment_adjuvantChemotherapy	Adjuvant Chemotherapy	Adjuvant Chemotherapy	type_treatment_chemotherapy
+treatment	type_treatment_oralChemotherapy	Oral Chemotherapy	Oral Chemotherapy	type_treatment_chemotherapy
+treatment	type_treatment_intravenousChemotherapy	Intravenous (IV) Chemotherapy	Intravenous (IV) Chemotherapy	type_treatment_chemotherapy
+treatment	type_treatment_injectionChemotherapy	Injection Chemotherapy	Injection Chemotherapy	type_treatment_chemotherapy
+treatment	type_treatment_topicalChemotherapy	Topical Chemotherapy	Topical Chemotherapy	type_treatment_chemotherapy
+treatment	type_treatment_immunotherapy	Immunotherapy	Immunotherapy	
+treatment	type_treatment_Immunotherapy	Intravenous (IV) Immunotherapy	 Immunotherapy	type_treatment_immunotherapy
+treatment	type_treatment_oralImmunotherapy	Oral Immunotherapy	Oral Immunotherapy	type_treatment_immunotherapy
+treatment	type_treatment_topicalImmunotherapy	Topical Immunotherapy	Topical Immunotherapy	type_treatment_immunotherapy
+treatment	type_treatment_intravesicalImmunotherapy	Intravesical Immunotherapy	Intravesical Immunotherapy	type_treatment_immunotherapy
+treatment	type_treatment_targetedTherapy	Targeted Therapy	Targeted Therapy	
+treatment	type_treatment_hormoneTherapy	Hormone Therapy	Hormone Therapy	
+treatment	type_treatment_hormoneTherapyOral	Hormone Therapy - Oral	Hormone Therapy - Oral	type_treatment_hormoneTherapy
+treatment	type_treatment_hormoneTherapyInjection	Hormone Therapy - Injection	Hormone Therapy - Injection	type_treatment_hormoneTherapy
+treatment	type_treatment_hormoneTherapySurgery	Hormone Therapy - Surgery	Hormone Therapy - Surgery	type_treatment_hormoneTherapy
+treatment	type_treatment_stemCellTransplant	Stem Cell Transplant	Stem Cell Transplant	
+treatment	type_treatment_precision	Precision Medicine	Precision Medicine	
+treatment	type_treatment_genetics	Genetics	Genetics	
+treatment	type_treatment_gastroenterology	Gastroenterology	Gastroenterology	
+treatment	type_treatment_interventionalPulmonology	Interventional Pulmonology	Interventional Pulmonology	
+treatment	type_treatment_interventionalRadiology	Interventional Radiology	Interventional Radiology	
+treatment	type_treatment_naturopathicMedicine	Naturopathic Medicine	Naturopathic Medicine	
+treatment	type_treatment_oncologyRehabilitation	Oncology Rehabilitation	Oncology Rehabilitation	
+treatment	type_treatment_painManagement	Pain Management	Pain Management	
+treatment	type_treatment_other	Other	Other	

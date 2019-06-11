@@ -1,82 +1,83 @@
-Abdominal pain
-Back pain
-Bloating
-Blood-tinged saliva
-Blood in stool
-Blood in urine
-Breast discharge
-Breast lump
-Burning sensation
-Change in bowel habits
-Change in size or shape of breast
-Change in size or shape of nipple
-Change in texture of breast skin
-Change in urination
-Changes in appetite
-Chest pain
-Chills
-Constipation
-Continued itching in anal area
-Continued itching in genital area
-Darker looking skin (hyperpigmentation)
-Diarrhea
-Difficulty swallowing
-Discolored skin patches
-Dizziness
-Excessive hair growth
-Excessive Yawning
-Fatigue
-Feeling weak
-Fluid accumulation (edema)
-Foot pain
-Frequent urination
-Gas
-Hair loss
-Headaches
-Heartburn
-Hiccups
-Hip pain
-Hoarseness
-Increase in blood pressure
-Indigestion
-Insomnia
-Itching
-Joint pain
-Knee pain
-Loss of appetite
-Low blood pressure
-Lumps in testicles
-Muscle pain
-Nausea
-Neck pain
-New mole
-Nonhealing sores
-Nosebleed
-Obvious change in a wart or mole
-Painful urination
-Pelvic pain
-Persistent cough
-Persistent lumps
-Personality change
-Rash
-Reddened skin (erythema)
-Ringing in the ears (tinnitus)
-Shortness of breath
-Shoulder pain
-Sneezing
-Sore throat
-Stuffy nose
-Swollen glands
-Tingling
-Unexpected fever
-Unexpected night sweats
-Unexpected weight gain
-Unexpected weight loss
-Unexplained anemia
-Unusual vaginal bleeding
-Unusual vaginal discharge
-Vertigo
-Vomiting
-White patches inside the mouth
-White spots on the tongue
-Yellowish skin and eyes (jaundice)
+CODE	NAME
+painAbdominal	Abdominal pain
+painBack	Back pain
+bloating	Bloating
+salivaBlood	Blood-tinged saliva
+stoolBlood	Blood in stool
+urineBlood	Blood in urine
+breastDischarge	Breast discharge
+breastLump	Breast lump
+burning	Burning sensation
+bowelHabitChange	Change in bowel habits
+breastShapeChange	Change in size or shape of breast
+nippleShapeChange	Change in size or shape of nipple
+breastSkinChange	Change in texture of breast skin
+urinationChange	Change in urination
+appetiteChange	Changes in appetite
+painChest	Chest pain
+chills	Chills
+constipation	Constipation
+analItching	Continued itching in anal area
+genitalItching	Continued itching in genital area
+hyperpigmentation	Darker looking skin (hyperpigmentation)
+diarrhea	Diarrhea
+difficultySwallowing	Difficulty swallowing
+skinDiscolored	Discolored skin patches
+dizziness	Dizziness
+skinExcessiveHair	Excessive hair growth
+yawning	Excessive Yawning
+fatigue	Fatigue
+weak	Feeling weak
+edema	Fluid accumulation (edema)
+painFoot	Foot pain
+urinationFrequent	Frequent urination
+gas	Gas
+hairLoss	Hair loss
+headache	Headaches
+heartburn	Heartburn
+hiccups	Hiccups
+painHip	Hip pain
+hoarseness	Hoarseness
+bloodPressureIncrease	Increase in blood pressure
+indigestion	Indigestion
+insomnia	Insomnia
+itching	Itching
+painJoint	Joint pain
+painKnee	Knee pain
+appetiteLoss	Loss of appetite
+lowBloodPressure	Low blood pressure
+testiclesLumps	Lumps in testicles
+painMuscle	Muscle pain
+nausea	Nausea
+painNeck	Neck pain
+moleNew	New mole
+nonhealingSores	Nonhealing sores
+nosebleed	Nosebleed
+moleChange	Obvious change in a wart or mole
+urinationPainful	Painful urination
+painPelvic	Pelvic pain
+persistentCough	Persistent cough
+lumpsPersistent	Persistent lumps
+personalityChange	Personality change
+rash	Rash
+erythema	Reddened skin (erythema)
+tinnitus	Ringing in the ears (tinnitus)
+shortnessOfBreath	Shortness of breath
+painShoulder	Shoulder pain
+sneezing	Sneezing
+soreThroat	Sore throat
+stuffyNose	Stuffy nose
+glandsSwollen	Swollen glands
+tingling	Tingling
+feverUnexpected	Unexpected fever
+nightSweatsUnexpected	Unexpected night sweats
+weightGainUnexpected	Unexpected weight gain
+weightLossUnexpected	Unexpected weight loss
+anemia	Unexplained anemia
+vaginalBleeding	Unusual vaginal bleeding
+vaginalDischarge	Unusual vaginal discharge
+vertigo	Vertigo
+vomiting	Vomiting
+mouthWhitePatches	White patches inside the mouth
+tongueWhiteSpots	White spots on the tongue
+jaundice	Yellowish skin and eyes (jaundice)

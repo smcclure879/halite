@@ -1,62 +1,63 @@
-Anemia
-Appetite Loss
-Bleeding
-Bleeding and Bruising (Thrombocytopenia)
-Blurry Vision
-Changes in your Periods
-Chills
-Constipation
-Cough
-Delirium
-Diarrhea
-Dizziness
-Dry Mouth
-Dry Skin
-Edema
-Enlarged and Tender Breasts
-Fatigue
-Fertility Issues in Boys and Men
-Fertility Issues in Girls and Women
-Fever
-Graft-Versus-Host Disease
-Hair Color Loss
-Hair Loss (Alopecia)
-Headache
-Heart Palpitations
-High Blood Pressure
-Hole thru digestion tract
-Hot Flashes
-Itchiness
-Less Active Thyroid Gland
-Liver Problems
-Loss of Interest in Sex
-Low Blood Pressure
-Lymphedema
-Memory or Concentration Problems
-Mood Changes
-Mouth problems/changes
-Mouth Sores
-Muscle or Joint Aches
-Nail Changes
-Nausea and Vomiting
-Nerve Problems (Peripheral Neuropathy)
-Pain
-Rash
-Redness
-Risk of Infection (Neutropenia)
-Sexual Health Issues in Men
-Sexual Health Issues in Women
-Shortness of Breath
-Sinus Congestion
-Skin Changes
-Sleep Problems / Insomnia
-Soreness
-Swelling
-Taste Changes
-Tenderness
-Throat changes
-Urinary and Bladder Problems
-Vaginal Dryness
-Weakened Bones
-Weakness
-Weight Gain
+CODE	NAME	PARENT_CODE
+anemia	Anemia	
+appetiteLoss	Appetite Loss	
+bleeding	Bleeding	
+thrombocytopenia	Bleeding and Bruising (Thrombocytopenia)	
+blurryVision	Blurry Vision	
+changesInPeriods	Changes in your Periods	
+chills	Chills	
+constipation	Constipation	
+cough	Cough	
+delirium	Delirium	
+diarrhea	Diarrhea	
+dizziness	Dizziness	
+dryMouth	Dry Mouth	
+drySkin	Dry Skin	
+edema	Edema	
+enlargedTenderBreasts	Enlarged and Tender Breasts	
+fatigue	Fatigue	
+fertilityIssuesMale	Fertility Issues in Boys and Men	
+fertilityIssuesFemale	Fertility Issues in Girls and Women	
+fever	Fever	
+graftVersusHostDisease	Graft-Versus-Host Disease	
+hairColorLoss	Hair Color Loss	
+hairLoss	Hair Loss (Alopecia)	
+headache	Headache	
+heartPalpitations	Heart Palpitations	
+highBloodPressure	High Blood Pressure	
+holeThruDigestionTract	Hole thru digestion tract	
+hotFlashes	Hot Flashes	
+itchiness	Itchiness	
+hypothyroidism	Less Active Thyroid Gland	
+liverProblems	Liver Problems	
+lossOfInterestInSex	Loss of Interest in Sex	
+lowBloodPressure	Low Blood Pressure	
+lymphedema	Lymphedema	
+memory	Memory or Concentration Problems	
+moodChanges	Mood Changes	
+mouthProblems	Mouth problems/changes	
+mouthSores	Mouth Sores	
+muscleJointAches	Muscle or Joint Aches	
+nailChanges	Nail Changes	
+nausea	Nausea and Vomiting	
+peripheralNeuropathy	Nerve Problems (Peripheral Neuropathy)	
+pain	Pain	
+rash	Rash	
+redness	Redness	
+infection	Risk of Infection (Neutropenia)	
+sexualHealthMale	Sexual Health Issues in Men	
+sexualHealthFemale	Sexual Health Issues in Women	
+shortnessOfBreath	Shortness of Breath	
+sinusCongestion	Sinus Congestion	
+skinChanges	Skin Changes	
+insomnia	Sleep Problems / Insomnia	
+soreness	Soreness	
+swelling	Swelling	
+tasteChanges	Taste Changes	
+tenderness	Tenderness	
+throatChanges	Throat changes	
+urinary	Urinary and Bladder Problems	
+vaginalDryness	Vaginal Dryness	
+weakenedBones	Weakened Bones	
+weakness	Weakness	
+weightGain	Weight Gain	

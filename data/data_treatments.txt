@@ -1,169 +1,170 @@
-3D Conformal Radiation
-Ablation
-Abscess Drainage and Fluid Collection Management
-Accelerated Fractionation
-Accuboost
-Acupressure
-Acupuncture
-Adoptive Cell Transfer
-Advanced Genomic Testing
-Allogeneic Stem Cell Transplant
-Amifostine
-Amputation
-Angiography
-Animal-Assisted Therapy - Pet Therapy
-Appendix Surgery
-Argon Plasma Coagulation (APC)
-Aromatherapy
-Auriculotherapy
-Autofluorescence Bronchoscopy
-Autologous Fat Grafting
-Autologous Stem Cell Transplant
-Bacillus Calmette-Guérin (BCG)
-Bilateral Salpingo-Oophorectomy
-Bowel Resection
-Brachytherapy
-Bronchoscopy
-Calypso 4D Localization System
-Celiac Plexus Neurolysis (CPN)/Celiac Plexus Block
-Checkpoint Inhibitors
-Chemoembolization
-Chiropractic Care
-Civasheet
-Contura Multi-Lumen Balloon
-Cryoablation
-Cryosurgery
-CyberKnife
-Cytokines
-Dietary supplements
-Discogrpahy
-Effleurage Massage
-Embolization
-Endobronchial Brachytherapy
-Enteral Nutrition
-Episcleral Brachytherapy
-ErbeJet 2
-Esophagogastroduodenoscopy (EGD)
-Exercise Therapy
-External Beam Radiation Therapy
-Flexible Robotic Surgery (Flex Robotic System)
-Fluorescence Bronchoscopy
-Friction
-Genetic Counseling
-Genetic Testing
-Hemorrhoid Treatment
-Herbal and Botanical Preparations
-High-Dose Rate Brachytherapy
-Hip Replacement
-HIPEC Intensity-Modulated Radiation Therapy (IMRT)
-Homeopathic Remedies
-Hormone Therapy
-Hydrotherapy
-Hyperfractionation
-Hyperthermia
-Hyperthermic Intraperitoneal Chemotherapy
-Hypofractionation
-Hysterectomy
-Image-Guided Radiation Therapy (IGRT)
-Image Enhancement
-Indwelling Pleural Catheter
-Inferior Vena Cava (IVC) Filter Placement
-Intensity-Modulated Radiation Therapy (IMRT)
-Internal Radiation Therapy
-Interstital Brachytherapy
-Intra-Arterial Chemotherapy
-Intracavity Brachytherapy
-Intraoperative Radiation Therapy (IORT)
-Intraperitoneal Chemotherapy
-Intrathecal Chemotherapy
-Intratumoral Chemotherapy
-Kyphoplasty
-Kyphoplasty/Vertebroplasty
-Laparoscopic Radical Nephrectomy
-Laparoscopic Surgery
-Laparoscopie Salpingo-Oophorectomy
-Large Bore CT Scanner / RT With Simulation
-Lasers
-Laughter Therapy
-Lifestyle Counseling
-Limb Salvage Surgery
-Local Hyperthermia
-Local Hyperthermia: Endocavitary
-Local Hyperthermia: External
-Local Hyperthermia: Interstitial
-Local Hyperthermia: Intraluminal
-Low-Dose Rate Brachytherapy
-Lymphadenectomy
-Lymphedema Prevention and Treatment
-Lymphedema Surgery
-Mammosite RTS
-Manual Therapy
-Massage Therapy
-Medical Pleuroscopy
-Monoclonal Antibodies
-Music Therapy
-Myofacial Release
-NanoKnife
-Navigational Bronchoscopy
-ND YAG Laser
-Needle-Based Ablation
-Nerve Block
-Nutrition Therapy
-Occupational therapy
-Oncoplastic and Reconstructive Surgery
-Optune Six Pillar Approach for Brain Tumors
-Orthopedic Implants
-Ovarian Cortex Cryopreservation
-Paracentesis
-Partial Vulvectomy
-Photodynamic Therapy
-Physical therapy
-Pleurodesis
-Pneumonectomy
-Radiation Therapy
-Radical Prostatectomy
-Radioactive Iodine Ablation Therapy
-Radioembolization
-Radiofrequency Ablation
-Rapidarc
-Reconstructive Microsurgery
-Reflexology
-Regional Hyperthermia
-Regional Hyperthermia: Continuous Hyperthermic Peritoneal Perfusion (CHPP)
-Regional Hyperthermia: Deep Tissue
-Regional Hyperthermia: Regional Perfusion
-Respiratory Gating
-Robotic Surgery
-Robotic Surgery (Da Vinci Surgical System)
-Small-molecule drugs
-Soft-Tissue Manipulation with passive stretching
-SpaceOar System
-Speech and language pathology
-Spiral Computed Tomography (CT)
-Spy Elite
-Spyglass
-Stereotactic Body Radiation Therapy
-Stereotactic Radiosurgery
-Stone Therapy
-Syngeneic Stem Cell Transplant
-Systemic Radiation Therapy
-TheraSphere
-Thoracentesis
-Thoracic Surgery
-Thoracotomy
-Thyroidectomy
-Tomotherapy
-Total Body Irradiation (TBI)
-Total Marrow Irradiation (TMI)
-Tracheoesophageal Puncture
-Traditional Massage
-Trigger Point Injection
-Trigger Point Therapy
-Trilogy
-TrueBeam
-Tumor Molecular Profiling
-Vaccines
-Vaginal Hysterectomy
-Video-Assisted Thoracic Surgery (VATS)
-Wedge Resection
-Whole-body Hyperthermia
+CODE	NAME	PARENT_CODE
+3DConformalRadiation	3D Conformal Radiation	
+ablation	Ablation	
+abscessDrainage	Abscess Drainage and Fluid Collection Management	
+acceleratedFractionation	Accelerated Fractionation	externalBeamRadiationTherapy
+accuboost	Accuboost	
+acupressure	Acupressure	manualTherapy
+acupuncture	Acupuncture	
+adoptiveCellTransfer	Adoptive Cell Transfer	
+advancedGenomicTesting	Advanced Genomic Testing	
+allogeneicStemCellTransplant	Allogeneic Stem Cell Transplant	
+amifostine	Amifostine	
+amputation	Amputation	
+angiography	Angiography	
+petTherapy	Animal-Assisted Therapy - Pet Therapy	
+appendixSurgery	Appendix Surgery	
+argonPlasmaCoagulation	Argon Plasma Coagulation (APC)	
+aromatherapy	Aromatherapy	manualTherapy
+auriculotherapy	Auriculotherapy	
+autofluorescenceBronchoscopy	Autofluorescence Bronchoscopy	
+autologousFatGrafting	Autologous Fat Grafting	
+autologousStemCellTransplant	Autologous Stem Cell Transplant	
+bacillusCalmetteGuerin	Bacillus Calmette-Guérin (BCG)	
+bilateralSalpingoOophorectomy	Bilateral Salpingo-Oophorectomy	
+bowelResection	Bowel Resection	
+brachytherapy	Brachytherapy	internalRadiationTherapy
+bronchoscopy	Bronchoscopy	
+calypso4DLocalizationSystem	Calypso 4D Localization System	
+celiacPlexusNeurolysis	Celiac Plexus Neurolysis (CPN)/Celiac Plexus Block	
+checkpointInhibitors	Checkpoint Inhibitors	
+chemoembolization	Chemoembolization	
+chiropractic	Chiropractic Care	manualTherapy
+civasheet	Civasheet	
+conturaMultiLumenBalloon	Contura Multi-Lumen Balloon	
+cryoablation	Cryoablation	
+cryosurgery	Cryosurgery	
+cyberKnife	CyberKnife	
+cytokines	Cytokines	
+dietarySupplements	Dietary supplements	
+discogrpahy	Discogrpahy	
+effleurageMassage	Effleurage Massage	manualTherapy
+embolization	Embolization	
+endobronchial Brachytherapy	Endobronchial Brachytherapy	
+enteralNutrition	Enteral Nutrition	
+episcleralBrachytherapy	Episcleral Brachytherapy	brachytherapy
+erbeJet2	ErbeJet 2	
+esophagogastroduodenoscopy	Esophagogastroduodenoscopy (EGD)	
+exerciseTherapy	Exercise Therapy	
+externalBeamRadiationTherapy	External Beam Radiation Therapy	
+flexRoboticSystem	Flexible Robotic Surgery (Flex Robotic System)	
+fluorescenceBronchoscopy	Fluorescence Bronchoscopy	
+friction	Friction	manualTherapy
+geneticCounseling	Genetic Counseling	
+geneticTesting	Genetic Testing	
+hemorrhoidTreatment	Hemorrhoid Treatment	
+herbalAndBotanical	Herbal and Botanical Preparations	
+highDoseRateBrachytherapy	High-Dose Rate Brachytherapy	
+hipReplacement	Hip Replacement	
+HIPECIMRT	HIPEC Intensity-Modulated Radiation Therapy (IMRT)	
+homeopathicRemedies	Homeopathic Remedies	
+androgen_deprivation_therapy	Hormone Therapy	
+hydrotherapy	Hydrotherapy	
+hyperfractionation	Hyperfractionation	externalBeamRadiationTherapy
+hyperthermia	Hyperthermia	
+HIPEC	Hyperthermic Intraperitoneal Chemotherapy	
+hypofractionation	Hypofractionation	externalBeamRadiationTherapy
+hysterectomy	Hysterectomy	
+imageGuidedRadiationTherapy	Image-Guided Radiation Therapy (IGRT)	
+imageEnhancement	Image Enhancement	
+indwellingPleuralCatheter	Indwelling Pleural Catheter	
+inferiorVenaCavaFilterPlacement	Inferior Vena Cava (IVC) Filter Placement	
+intensityModulatedRadiationTherapy	Intensity-Modulated Radiation Therapy (IMRT)	
+internalRadiationTherapy	Internal Radiation Therapy	
+interstitalBrachytherapy	Interstital Brachytherapy	brachytherapy
+intraArterialChemotherapy	Intra-Arterial Chemotherapy	
+intracavityBrachytherapy	Intracavity Brachytherapy	brachytherapy
+intraoperativeRadiationTherapy	Intraoperative Radiation Therapy (IORT)	
+intraperitonealChemotherapy	Intraperitoneal Chemotherapy	
+intrathecalChemotherapy	Intrathecal Chemotherapy	
+intratumoralChemotherapy	Intratumoral Chemotherapy	
+kyphoplasty	Kyphoplasty	
+kyphoplastyVertebroplasty	Kyphoplasty/Vertebroplasty	
+laparoscopicRadicalNephrectomy	Laparoscopic Radical Nephrectomy	
+laparoscopicSurgery	Laparoscopic Surgery	
+laparoscopieSalpingoOophorectomy	Laparoscopie Salpingo-Oophorectomy	
+largeBoreCTRTSimulation	Large Bore CT Scanner / RT With Simulation	
+laserSurgery	Lasers	
+laughterTherapy	Laughter Therapy	
+lifestyleCounseling	Lifestyle Counseling	
+limbSalvageSurgery	Limb Salvage Surgery	
+localHyperthermia	Local Hyperthermia	hyperthermia
+localHyperthermiaEndocavitary	Local Hyperthermia: Endocavitary	localHyperthermia
+localHyperthermiaExternal	Local Hyperthermia: External	localHyperthermia
+localHyperthermiaInterstitial	Local Hyperthermia: Interstitial	localHyperthermia
+localHyperthermiaExternal	Local Hyperthermia: Intraluminal	localHyperthermia
+lowDoseRateBrachytherapy	Low-Dose Rate Brachytherapy	
+lymphadenectomy	Lymphadenectomy	
+lymphedemaPreventionAndTreatment	Lymphedema Prevention and Treatment	
+lymphedemaSurgery	Lymphedema Surgery	
+mammositeRTS	Mammosite RTS	
+manualTherapy	Manual Therapy	
+massageTherapy	Massage Therapy	
+medicalPleuroscopy	Medical Pleuroscopy	
+monoclonalAntibodies	Monoclonal Antibodies	
+musicTherapy	Music Therapy	
+myofacialRelease	Myofacial Release	manualTherapy
+nanoKnife	NanoKnife	
+navigationalBronchoscopy	Navigational Bronchoscopy	
+NDYAGLaser	ND YAG Laser	
+needleBasedAblation	Needle-Based Ablation	
+nerveBlock	Nerve Block	
+nutritionTherapy	Nutrition Therapy	
+occupationalTherapy	Occupational therapy	
+oncoplasticAndReconstructiveSurgery	Oncoplastic and Reconstructive Surgery	
+optuneSixPillarApproach	Optune Six Pillar Approach for Brain Tumors	
+orthopedicImplants	Orthopedic Implants	
+ovarianCortexCryopreservation	Ovarian Cortex Cryopreservation	
+paracentesis	Paracentesis	
+partialVulvectomy	Partial Vulvectomy	
+photodynamicTherapy	Photodynamic Therapy	
+physicalTherapy	Physical therapy	
+pleurodesis	Pleurodesis	
+pneumonectomy	Pneumonectomy	
+radiation_therapy	Radiation Therapy	
+radical_prostatectomy	Radical Prostatectomy	
+radioactiveIodineAblationTherapy	Radioactive Iodine Ablation Therapy	
+radioembolization	Radioembolization	
+radiofrequencyAblation	Radiofrequency Ablation	
+rapidarc	Rapidarc	
+reconstructiveMicrosurgery	Reconstructive Microsurgery	
+reflexology	Reflexology	manualTherapy
+regionalHyperthermia	Regional Hyperthermia	hyperthermia
+regionalHyperthermiaCHPP	Regional Hyperthermia: Continuous Hyperthermic Peritoneal Perfusion (CHPP)	regionalHyperthermia
+regionalHyperthermiaDeepTissue	Regional Hyperthermia: Deep Tissue	regionalHyperthermia
+regionalHyperthermiaPerfusion	Regional Hyperthermia: Regional Perfusion	regionalHyperthermia
+respiratoryGating	Respiratory Gating	
+roboticSurgery	Robotic Surgery	
+DaVinciSurgicalSystem	Robotic Surgery (Da Vinci Surgical System)	
+smallMoleculeDrugs	Small-molecule drugs	
+softTissueManipulation	Soft-Tissue Manipulation with passive stretching	manualTherapy
+spaceOarSystem	SpaceOar System	
+speechPathology	Speech and language pathology	
+spiralCT	Spiral Computed Tomography (CT)	
+spyElite	Spy Elite	
+spyglass	Spyglass	
+stereotacticBodyRadiationTherapy	Stereotactic Body Radiation Therapy	
+stereotacticRadiosurgery	Stereotactic Radiosurgery	
+stoneTherapy	Stone Therapy	manualTherapy
+syngeneicStemCellTransplant	Syngeneic Stem Cell Transplant	
+systemicRadiationTherapy	Systemic Radiation Therapy	internalRadiationTherapy
+theraSphere	TheraSphere	
+thoracentesis	Thoracentesis	
+thoracicSurgery	Thoracic Surgery	
+thoracotomy	Thoracotomy	
+thyroidectomy	Thyroidectomy	
+tomotherapy	Tomotherapy	
+totalBodyIrradiation	Total Body Irradiation (TBI)	
+totalMarrowIrradiation	Total Marrow Irradiation (TMI)	
+tracheoesophagealPuncture	Tracheoesophageal Puncture	
+traditionalMassage	Traditional Massage	manualTherapy
+triggerPointInjection	Trigger Point Injection	
+triggerPointTherapy	Trigger Point Therapy	manualTherapy
+trilogy	Trilogy	
+trueBeam	TrueBeam	
+tumorMolecularProfiling	Tumor Molecular Profiling	
+vaccines	Vaccines	
+vaginalHysterectomy	Vaginal Hysterectomy	
+videoAssistedThoracicSurgery	Video-Assisted Thoracic Surgery (VATS)	
+wedgeResection	Wedge Resection	
+wholeBodyHyperthermia	Whole-body Hyperthermia	hyperthermia

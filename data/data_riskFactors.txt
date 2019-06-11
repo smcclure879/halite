@@ -1,80 +1,81 @@
-1,3-Butadiene
-Acrylamide
-Aflatoxins
-Age
-Alcohol
-Alpha particles
-Aristolochic Acids
-Arsenic
-Artificial sweeteners
-Asbestos
-Benzene
-Benzidine
-Beryllium
-Beta particles
-Breastfeeding
-Cadmium
-Calcium
-Cancer-Causing Substances
-Charred meat
-Childbearing
-Chronic Inflammation
-Coal Tar and Coal-Tar Pitch
-Coke-Oven Emissions
-Computed tomography (CT) scans
-Cruciferous vegetables
-Crystalline Silica (respirable size)
-Diet
-Epstein-Barr virus (EBV)
-Erionite
-Estrogen
-Ethylene Oxide
-Fluoride
-Formaldehyde
-Gamma rays
-Garlic
-Gender
-Genetics
-Helicobacter pylori (H. pylori)
-Hepatitis B virus (HBV)
-Hepatitis C virus (HCV)
-Hexavalent Chromium Compounds
-Hormone replacement therapy
-Hormones
-Human immunodeficiency virus (HIV)
-Human Papillomavirus (HPV)
-Human T-Cell Leukemia/Lymphoma Virus Type 1 (HTLV-1)
-Immunosuppression
-Indoor Emissions from the Household Combustion of Coal
-Infectious Agents
-Kaposi Sarcoma-Associated Herpesvirus (KSHV)
-Liver flukes
-Merkel Cell Polyomavirus (MCPyV)
-Mineral Oils: Untreated and Mildly Treated
-Neutrons
-Nickel Compounds
-Obesity
-Opisthorchis viverrini
-Oral contraceptives
-Positron emission tomography (PET) scans
-Race
-Radiation
-Radiation therapy
-Radon
-Radon
-Red wine
-Schistosoma hematobium
-Secondhand Tobacco Smoke (Environmental Tobacco Smoke)
-Soot
-Strong Inorganic Acid Mists Containing Sulfuric Acid
-Sun
-Sunlamps
-Sunlight
-Tanning booths
-Tea
-Thorium
-Tobacco
-Vinyl Chloride
-Vitamin D
-Wood Dust
-X-Rays
+CODE	NAME	PARENT_CODE
+butadiene	1,3-Butadiene	cancerCausingSubstances
+acrylamide	Acrylamide	diet
+aflatoxins	Aflatoxins	cancerCausingSubstances
+age	Age	
+alcohol	Alcohol	
+alphaParticles	Alpha particles	radiation
+aristolochicAcids	Aristolochic Acids	cancerCausingSubstances
+arsenic	Arsenic	cancerCausingSubstances
+artificialSweeteners	Artificial sweeteners	diet
+asbestos	Asbestos	cancerCausingSubstances
+benzene	Benzene	cancerCausingSubstances
+benzidine	Benzidine	cancerCausingSubstances
+beryllium	Beryllium	cancerCausingSubstances
+betaParticles	Beta particles	radiation
+breastfeeding	Breastfeeding	
+cadmium	Cadmium	cancerCausingSubstances
+calcium	Calcium	diet
+cancerCausingSubstances	Cancer-Causing Substances	
+charredMeat	Charred meat	diet
+childbearing	Childbearing	
+Chronic Inflammation	Chronic Inflammation	
+coalTar	Coal Tar and Coal-Tar Pitch	cancerCausingSubstances
+cokeOven	Coke-Oven Emissions	cancerCausingSubstances
+ctScan	Computed tomography (CT) scans	radiation
+cruciferousVegetables	Cruciferous vegetables	diet
+crystallineSilica	Crystalline Silica (respirable size)	cancerCausingSubstances
+diet	Diet	
+ebv	Epstein-Barr virus (EBV)	infectiousAgents
+erionite	Erionite	cancerCausingSubstances
+estrogen	Estrogen	hormones
+ethyleneOxide	Ethylene Oxide	cancerCausingSubstances
+fluoride	Fluoride	diet
+formaldehyde	Formaldehyde	cancerCausingSubstances
+gammaRay	Gamma rays	radiation
+garlic	Garlic	diet
+gender	Gender	
+genetics	Genetics	
+hpylori	Helicobacter pylori (H. pylori)	infectiousAgents
+hbv	Hepatitis B virus (HBV)	infectiousAgents
+hcv	Hepatitis C virus (HCV)	infectiousAgents
+hexavalentChromium	Hexavalent Chromium Compounds	cancerCausingSubstances
+hormoneReplacementTherapy	Hormone replacement therapy	hormones
+hormones	Hormones	
+hiv	Human immunodeficiency virus (HIV)	infectiousAgents
+hpv	Human Papillomavirus (HPV)	infectiousAgents
+htlv1	Human T-Cell Leukemia/Lymphoma Virus Type 1 (HTLV-1)	infectiousAgents
+immunosuppression	Immunosuppression	
+coalCombustion	Indoor Emissions from the Household Combustion of Coal	cancerCausingSubstances
+infectiousAgents	Infectious Agents	
+kshv	Kaposi Sarcoma-Associated Herpesvirus (KSHV)	infectiousAgents
+liverFlukes	Liver flukes	infectiousAgents
+mcpyv	Merkel Cell Polyomavirus (MCPyV)	infectiousAgents
+mineralOils	Mineral Oils: Untreated and Mildly Treated	cancerCausingSubstances
+neutrons	Neutrons	radiation
+nickelCompounds	Nickel Compounds	cancerCausingSubstances
+obesity	Obesity	
+opisthorchisViverrini	Opisthorchis viverrini	infectiousAgents
+oralContraceptives	Oral contraceptives	hormones
+petScan	Positron emission tomography (PET) scans	radiation
+race	Race	
+radiation	Radiation	
+radiationTherapy	Radiation therapy	radiation
+radon	Radon	radiation
+radon	Radon	cancerCausingSubstances
+redWine	Red wine	diet
+schistosomaHematobium	Schistosoma hematobium	infectiousAgents
+secondhandSmoke	Secondhand Tobacco Smoke (Environmental Tobacco Smoke)	cancerCausingSubstances
+soot	Soot	cancerCausingSubstances
+acidMist	Strong Inorganic Acid Mists Containing Sulfuric Acid	cancerCausingSubstances
+sun	Sun	sunlight
+sunlamp	Sunlamps	sunlight
+sunlight	Sunlight	
+tanningBooth	Tanning booths	sunlight
+tea	Tea	diet
+thorium	Thorium	cancerCausingSubstances
+tobacco	Tobacco	
+vinylChloride	Vinyl Chloride	cancerCausingSubstances
+vitaminD	Vitamin D	diet
+woodDust	Wood Dust	cancerCausingSubstances
+xRay	X-Rays	radiation
