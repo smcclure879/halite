@@ -10,13 +10,14 @@ with recursive
     select rootOf.level-1 , problem.problemId, problem.parentId
     from problem join rootOf on rootOf.parentId=problem.problemId
 --    where hashid='.2k3q-elqiw'
-    order by 1 DESC
+    order by 1 desc 
 )
-select coalesce(substr('.................',1,rootOf.level*3),'X'),
+select --coalesce(substr('.................',1,rootOf.level*3),'X'),
+       rootOf.level,
        problem.problemId,
        problem.parentId,
        game.gameName,
-       problem.hashid,
+       --       problem.hashid,
        problem.problemData,
        coalesce(       problem.answer, '  ----NYA----  ')
 from rootOf
@@ -24,7 +25,7 @@ join problem
 on rootOf.problemId=problem.problemId
 join game
 on game.gameid=problem.gameid
---select coalesce(substr('.................',1,level*3), problemId) FROM rootOf
+order by problem.problemId asc --select coalesce(substr('.................',1,level*3), problemId) FROM rootOf
 --order by hashid,rootOf.level,problem.problemId
 ;
 
