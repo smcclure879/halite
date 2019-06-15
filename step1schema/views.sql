@@ -4,9 +4,9 @@ drop view if exists myAssignment;
 
 create view
 myAssignment (assignmentId,    problemid,     playerid,   sentat,  resultat,
-	     gameid,  hashid, problemdata, parentProblemId, gameName)
+	     gameid,  hashid, prstart, prend, extraproblem, parentProblemId, gameName)
 as select     aa.assignmentId, aa.problemid, aa.playerid, aa.sentat, aa.resultat, 
-   	      pp.gameid, pp.hashid, pp.problemdata, pp.parentid, gg.gameName
+   	      pp.gameid, pp.hashid, pp.prstart, pp.prend, pp.extraproblem, pp.parentid, gg.gameName
 
 from         assignment as aa
 inner join   problem as pp

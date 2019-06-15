@@ -14,6 +14,7 @@ with recursive
 )
 select coalesce(substr('.................',1,treeOf.level*3),'X'),
        problem.problemId,
+       problem.parentId,
        game.gameName,
        problem.hashid,
        problem.problemData,

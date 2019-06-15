@@ -27,12 +27,10 @@ function showAssignmentText(assignment) {  //from myAssignment view
     //alert(JSON.stringify(assignment)+fullPath);
 
 
-    var problemData=JSON.parse(assignment.problemdata);
-    assert(problemData,"bugbug0138i");
-    var start = problemData.start;
-    var end = problemData.end;
+
+    var start = assignment.prstart;
+    var end = assignment.prend;
     assert(end==-1 || end>start,"bugbug1913");
-    assert(start>-1 ,"bugbug0123m"+JSON.stringify(problemData));
     
     $.ajax({
 	type: "GET",      //POST does a create, no id given. nothing really. gives back whole assignment
@@ -176,6 +174,14 @@ function topicGame() {
     addButtons([
 	['DRUG','DRUG', 'drug'],
 	['CONDITION','CONDITION', 'condition'],
+	['ORGAN','ORGAN','organ'],
+	['RISKFACTOR','RISKFACTOR','riskfactor'],
+	
+	['SIDEEFFECT','SIDEEFFECT','sideeffect'],
+	['SYMPTOM','SYMPTOM','symptom'],
+	['TREATMENT','TREATMENT','treatment'],
+	['TEST','TEST','test'],
+	
 	HUHButton
     ]);
 }
@@ -202,15 +208,20 @@ function addButtons_oldbugbug(btns) {
 //generic button handler...elem is the button that was clicked...
 function bb(elem,actionCode){
     var aid = window.assignment.assignmentId;
+    var utc = new Date().toUTCString();
+    alert(utc);
     $.ajax({
 	type: "PUT",
 	url: '/assignment/'+aid, 
 	data: {
 	    assignmentid: aid,
-	    start: tt.selectionStart,  //server will add offsets back.
-	    end: tt.selectionEnd,
-	    action: actionCode
+	    rstart: tt.selectionStart,  //server will add offsets back.
+	    rend: tt.selectionEnd,
+	    raction: actionCode,
+	    extraresult: JSON.stringify({ utc: utc })        // room for expansion bugbug needed? would be schema change to remove??
 	},
+	//!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN"}
+	//!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN","extraresult":{"utc":"Fri, 14 Jun 2019 22:34:14 	
 	success: function(res){
 	    alert("put res="+res);
 	},

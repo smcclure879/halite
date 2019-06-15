@@ -21,14 +21,14 @@ const readInterface = readline.createInterface({
 
 var db = new sqlite3.Database('../halite.db');
 function addTopLevelProblemToDb(hash,nct,src1,src2,cb) {
-    var problemData = JSON.stringify({nct:nct,start:0,end:-1});
-    var sql = [
-	"insert into problem (",
-	"gameId,hashId,problemData) values (",
-	"1,$1,$2)",    //1=gameId of topLevel !
-    ];
-    var params = [hash,problemData];    //bugbug parameterize better???
-    db.run(sql.join(''), params, function(err){
+    var problemData = JSON.stringify({nct:nct});
+    var sql = `insert into
+    problem (gameId,hashId,extraproblem,prstart,prend     )
+    values  ( 1,     $1,     $2,         0,      -1       )   
+    `;//gameId=1 is toplevel, end is determined later and is -1 for now
+
+    var params = [ hash, problemData ]; 
+    db.run(sql, params, function(err){
 	if (err)
 	    console.log('***sql error:'+err);
 	else

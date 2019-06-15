@@ -16,17 +16,22 @@ create table if not exists playergame (  --can player play game, etc
        playerid integer player,
        gameid integer game references game,
        canPlay varchar(10) not null,
-       primary key (playerId,gameId)
+       primary key (playerId,gameid)
 );
 
 create table if not exists problem (  --game plus init data
        problemid integer primary key autoincrement,
        gameid integer references game,
        hashid varchar(20) not null,
-       problemdata varchar(4000),
+       prstart integer not null,
+       prend integer not null,
+       extraproblem varchar(400),
        parentid integer references problem,  --selfref is root indicator
-       answer varchar(4000),
-       UNIQUE(hashid,gameid,problemdata)
+       anstart integer,  --answer start
+       anend integer,  --answer end
+       anaction varchar(20),
+       extraanswer varchar(400),
+       UNIQUE(hashid,gameid,prstart,prend)
 );
 
 create table if not exists assignment( -- problem plus player
@@ -35,9 +40,12 @@ create table if not exists assignment( -- problem plus player
        playerid integer references player,
        sentat datetime not null,
        sentip varchar(100) not null,
-       resultat datetime ,
+       resultat datetime,
        resultip varchar(100),
-       result varchar(200),
+       rstart integer,
+       rend integer,
+       raction varchar(20),
+       extraresult varchar(400),
        unique(playerid,problemid)
 );
 
