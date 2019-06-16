@@ -19,6 +19,10 @@ assert(mySubstring("abc",0,-1)=="abc","bugbug2245i");
 assert(mySubstring("abc",0,1)=="a","bugbug0078j");
 
 
+
+var enforce = null;
+
+
 function showAssignmentText(assignment) {  //from myAssignment view
     //   (assignmentId,    problemid,     playerid,   sentat,  resultat,
     //    gameid,  gameName, hashid, problemdata, parentProblemId)
@@ -112,7 +116,12 @@ function runGame(assignment) {
     case 'isleaf':      isLeafGame();          return;
     case 'kingword':    kingGame();            return;
     case 'topic':       topicGame();           return;
+
+	//need to implement all of these bugbug instead of fallthru
+    case 'condition':
+    case 'symptom':
     case 'medtest':     medtestGame();         return;
+
     default:
 	alert("game "+game+" is NYI. err2014v");
 	alert(assignment);
@@ -145,6 +154,17 @@ function splitGame(subtype) {
 	['JOIN', 'SPLIT'],   //an AND button, labelled "split"  //bugbug needs to take the inherent wrapper instead of AND/OR
 	HUHButton
     ]);
+
+    enforce = singleSplit;
+}
+
+function singleSplit() {
+    //games that require start and end to be the same
+    //call to this function returns true, so enforce returns true. so it returns iwthout action
+    if (tt.selectionStart!=tt.selectionEnd) return true;
+
+
+    return false;
 }
 
 
@@ -221,7 +241,8 @@ function addButtons_oldbugbug(btns) {
 function bb(elem,actionCode){
     var aid = window.assignment.assignmentId;
     var utc = new Date().toUTCString();
-    alert(utc);
+    if (enforce && enforce())
+	return;
     $.ajax({
 	type: "PUT",
 	url: '/assignment/'+aid, 
@@ -230,7 +251,7 @@ function bb(elem,actionCode){
 	    rstart: tt.selectionStart,  //server will add offsets back.
 	    rend: tt.selectionEnd,
 	    raction: actionCode,
-	    extraresult: ({ "utc": utc })        // room for expansion bugbug needed? would be schema change to remove??
+	    extraresult: { "utc": utc }        // room for expansion bugbug needed? would be schema change to remove??
 	},
 	//!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN"}
 	//!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN","extraresult":{"utc":"Fri, 14 Jun 2019 22:34:14 	

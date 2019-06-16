@@ -453,7 +453,7 @@ function splitGameSpawn(parent) {
     // assert(isNumeric(parent.anstart));
     //every answer generates two new questions (problems)
 
-    assert(parent.anstart==parent.anend,"err2128t");
+    assert(parent.anstart==parent.anend,"err2128t");  //bugbug you are here 1. check in again 2. fix this in clientside game rules.
     var prob1 = singleGame0('isleaf',parent);
     prob1.prend = prob1.prstart + parent.anstart;
     //bugbug
