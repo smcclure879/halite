@@ -56,14 +56,15 @@ function show(x,y,z) {
     console.log(str);
 }
 
-function hasAll(item,cols) {
+function hasAllOrDie(item,cols,label) {
     for (var col of cols) {
+	console.log(col);
 	if ( !item.hasOwnProperty(col) ){
-	    stop("bugbug0243b"+col+JSON.stringify(item));
+	    stop( (label||"bugbug0243b") + col + JSON.stringify(item) );
 	    return false;
 	}
 	if ( !item[col] && !isNumeric(item[col]) ) {
-	    stop("bugbug0244q"+col+JSON.stringify(item))
+	    stop( (label||"bugbug0244q") + col + JSON.stringify(item) )
 	    return false;
 	}
     }
@@ -144,10 +145,8 @@ var urlEncodedParser = bodyParser.urlencoded({ extended:true });
 //when you are turning back in a unit of work ("assignment")
 async function putAssignment(req,res,next) {
     var userResult=req.body;
-    //!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN","extraresult":{"utc":"Fri, 14 Jun 2019 22:34:14 
-    assert( hasAll(userResult,['assignmentid','rstart','rend','raction','extraresult']),
-	    'err1535e:'+JSON.stringify(userResult)  );
-
+    //!!!bugbug? ---> {"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN","extraresult":{"utc":"Fri, 14 Jun 2019 22:34:14 
+    hasAllOrDie( userResult, ['assignmentid','rstart','rend','raction','extraresult'], "bugbug1001e"+JSON.stringify(userResult)  );
     
     var assignmentId=""+req.params.assignmentid;
     if (assignmentId != ""+req.body.assignmentid) {
@@ -156,27 +155,28 @@ async function putAssignment(req,res,next) {
 	return;
     }
 
-
-    assert(userResult.extraresult);
-
-    
+    assert(userResult.extraresult,"err0115q"+userResult);
+    show("userResult.extraresult",userResult.extraresult);
+    var extraresult = JSON.stringify(userResult.extraresult);
+    show("bugbug2135d",typeof extraresult);
     // write the user answer back to db.
     await db.runAsync(
 	`
 	update assignment set resultat=datetime(),
-	resultIp=?,   extraresult=?,            rstart=?,           rend=? ,     raction=?   where    assignmentId=?   and resultAt is null;
-	`,[ getIp(req),userResult.extraresult, userResult.rstart, userResult.rend, userResult.raction,
+	resultIp=?,       extraresult=?,          rstart=?,           rend=? ,     raction=?   where    assignmentId=?   and resultAt is null;
+	`,[ getIp(req),   extraresult,    userResult.rstart, userResult.rend, userResult.raction,
 	    /* */ assignmentId  //bugbug upgrade to use "proj"
 	]
     );
-
+    
     var rowsChanged = await db.getScalarAsync("  select changes();  ", [], "changes()");
     if (rowsChanged!=1) {
 	console.log("err1752t: rc="+rowsChanged);
 	res.status(500).end('err0908w');
 	return;
     }
-    
+
+
     res.status(200).end("plus 10 points for gryffindor");  //bugbug did this make it back...tell client to look for another assignment
 
     //setImmediate(  ()=>{ buildNewProblems(assignmentId) }  );
@@ -199,15 +199,16 @@ var answerCountThreshold = 1;  //bugbug should be 5
 async function resultsBecomeAnswers() {
     var rows=
 	await db.allAsync(
-	    "  select pp.problemId, count(1) as c, aa.extraresult, aa.rstart, aa.rend, aa.raction   "+
-		"  from problem pp inner join assignment aa   "+
-		"  on aa.problemId=pp.problemId    "+
-		"  where aa.rstart is not null and"+  //where we have an a result in assignments not in problems
-		"      pp.anstart is null   "+
-		"  group by  pp.problemId,aa.rstart   "+
-		"  having c >= ?  "+
-		"  order by pp.problemId ASC, aa.rstart ASC     "+
-		"  ;  ",
+	    `  select pp.problemId, count(1) as c, aa.extraresult as extraresult, aa.rstart, aa.rend, aa.raction   
+		  from problem pp inner join assignment aa   
+		  on aa.problemId=pp.problemId    
+		  where aa.rstart is not null and  
+		      pp.anstart is null   
+		  group by  pp.problemId,aa.rstart   
+		  having c >= ?  
+		  order by pp.problemId ASC, aa.rstart ASC     
+		  ;  
+	    `,
 	    [answerCountThreshold]
 	);
 
@@ -216,12 +217,19 @@ async function resultsBecomeAnswers() {
 	return;
     }
 
+
+
+    //bugbug1209 upgrading to use proj
+    var colsStr="extraresult,rstart,rend,raction";
+    var colsList=colsStr.split(',');
+    
     for (var ii=0; ii<rows.length; ii++) {
 	var row = rows[ii];
+	hasAllOrDie(row,colsList,'bugbug1226');
 	//show("writing answer loc0026m..ii",ii);
 	await db.runAsync(  
 	    " update problem set extraanswer=?,  anstart=?,    anend=?,   anaction=?      where problemid=? ",
-	    [row["extraresult"]||"bugbug0227r", row['rstart'],row['rend'],row['raction'],    row["problemid"]     ]
+	    [row["extraresult"], row['rstart'],row['rend'],row['raction'],    row["problemid"]     ]
 	);
     }
 
@@ -232,15 +240,16 @@ function verifyProblemList(problems) {  //bugbug improve. should fill the range 
     var start = 0;
     var end = 0;
     for(var ii in problems) {
+	console.log("vpl ii="+ii);
 	var pr = problems[ii];
 	var newstart = pr.prstart;
 	var newend = pr.prend;
-	assert(newend,JSON.stringify(problems));
+	assert(newend,"vpl0117j"+JSON.stringify(problems));
 	show("start,end,newstart,newend",[start,end,newstart,newend]);
-
+/*
 	start,end,newstart,newend=[0,0,454,-1]-undefined
 	start,end,newstart,newend=[454,-1,454,-1]-undefined
-/*	!!! ---> assert fail:err0107vpl[
+	!!! ---> assert fail:err0107vpl[
 	    {"gameid":2,"hashid":".2cun-ounjc","extraproblem":{},"prstart":454,"prend":-1,"parentid":1},
 	    {"gameid":2,"hashid":".2cun-ounjc","extraproblem":{},"prstart":454,"prend":-1,"parentid":1}]
 */	
@@ -279,6 +288,7 @@ async function answersBecomeSmallerProblems() {
 
     for(var ii in workItems) {
 	var item=workItems[ii];
+	assert(item.extraproblem,"err1045p");
 	assert(item.popid,"err0050u"+JSON.stringify(item));
 	show("parentItem",item);
 	debugger;
@@ -313,18 +323,18 @@ function verifyProblemBeforeWrite(kid,parent) {
 
 const requiredCols='extraanswer,anstart,anend,anaction,extraproblem,prstart,prend,hashid,popid,gamename'.split(",");
 function spawn(item) {  //returns new problems to insert
-
-    //!!! ---> assert fail:err2131j:{"popid":1,"parentid":null,"kidid":null,"hashid":".2cun-ounjc","extraproblem":"{\"nct\":\"NCT01666808\"}","prstart":0,"prend":-1,"extraanswer":null,"anstart":454,"anend":454,"anaction":"JOIN","gameid":1,"gamename":"toplevel"}
-
-    assert( hasAll(item,requiredCols),  'err2131j:'+JSON.stringify(item)  );
-    show("done 2083k,item",item);
     //----a big dispatch ------
+    //!!! ---> assert fail:err2131j:{"popid":1,"parentid":null,"kidid":null,"hashid":".2cun-ounjc","extraproblem":"{\"nct\":\"NCT01666808\"}","prstart":0,"prend":-1,"extraanswer":null,"anstart":454,"anend":454,"anaction":"JOIN","gameid":1,"gamename":"toplevel"}
+    
+    hasAllOrDie( item, requiredCols, 'err2131j:'+JSON.stringify(item)  );
+    show("done 2083k,item",item);
     
     //based first on overriding conditions found that are for many games
-    show("bugbug1227e",item);
 
-    if (item.raction=='HUH')	return adminGameSpawn(item);
-    if (item.raction=='COMPLEX')  return adminGameSpawn(item);
+    //bugbug should these be checks for gamename???
+    //regardless of what game played, these have their own special spawn rules...
+    if (item.anaction=='HUH')	return adminGameSpawn(item);
+    if (item.anaction=='COMPLEX')  return adminGameSpawn(item);  //bugbug COMPLEX likely same as HUH !!!
 
     //then based on which game WAS played (parent)
     switch(item.gamename) { 
@@ -341,9 +351,9 @@ function spawn(item) {  //returns new problems to insert
 
 function topicGameSpawn(item) {
 
-    assert(item.anend && item.anstart && item.anaction);
-    
-    switch(item.raction) {  	//the mapping might now be simple, but won't be in future likely.  we certainly don't want to trust the raction since it's TAINTED data from user.  can't exec on it or anything!!!
+    assert(item.anend && item.anstart && item.anaction, "err0115t",item);
+
+    switch(item.anaction) {  	//the mapping might now be simple, but won't be in future likely.  we certainly don't want to trust the raction since it's TAINTED data from user.  can't exec on it or anything!!!
 
     case 'CONDITION':  return singleGame('condition'  ,item);
     case 'DRUG':       return singleGame('drug'       ,item);
@@ -352,7 +362,7 @@ function topicGameSpawn(item) {
     case 'SIDEEFFECT': return singleGame('sideeffect' ,item);
     case 'SYMPTOM':    return singleGame('symptom'    ,item);
     case 'TREATMENT':  return singleGame('treatment'  ,item);
-    case 'TEST':       return singleGame('test'       ,item);
+    case 'TEST':       return singleGame('medtest'    ,item);
 
     default:
 	assert(false,"bugbug0031c",item);
@@ -369,12 +379,12 @@ function singleGame(gameName,parent) {
 
 function singleGame0(gameName,parent){
     
-    assert(parent.anend && parent.anstart && parent.anaction);
-    
+    assert(parent.anend && isNumeric(parent.anstart) && parent.anaction,"err0118k",parent);
+    assert( games[gameName] , "err0135p"+gameName+JSON.stringify(games));
     return {
 	gameid: games[gameName].gameid,
 	hashid: parent.hashid,
-	extraproblem: {},
+	extraproblem: JSON.stringify({}),
 	prstart: parent.prstart,
 	prend: parent.prend, //bring in inherent and/or??? bugbug
 	parentid: parent.popid
@@ -412,8 +422,7 @@ function kingWordSpawn(parent) {
     var prob1=singleGame0('semanticnull',parent);
     //starts inh from parent
     prob1.prend = prob1.prstart + parent.anstart;
-    show("prob1="+prob1);
-    stop("foo");
+
     
     //its meaning is subsumed into a wrapper of the list in prob3.
     var prob2=singleGame0('semanticnull',parent);
@@ -446,13 +455,17 @@ function splitGameSpawn(parent) {
 
     assert(parent.anstart==parent.anend,"err2128t");
     var prob1 = singleGame0('isleaf',parent);
-    prob1.prend = parent.anstart;
+    prob1.prend = prob1.prstart + parent.anstart;
+    //bugbug
+    //prob1.prstart  parent.anstart ????
     
     var prob2 = singleGame0('isleaf',parent);
     prob2.prstart += parent.anend;
 
-    assert(prob2.gameid,'err0023r');  //bugbug check all a few levels up!
-
+//    stop("bugbug0102v probs",[prob1,prob2]);
+    //!!   STOP   =bugbug0102v probs--[{"gameid":2,"hashid":".2cun-ounjc","extraproblem":"{}","prstart":483,"prend":426,"parentid":27},
+    //				     {"gameid":2,"hashid":".2cun-ounjc","extraproblem":"{}","prstart":909,"prend":-1,"parentid":27}]
+    
     return [prob1,prob2];
 }
 

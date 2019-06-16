@@ -112,6 +112,7 @@ function runGame(assignment) {
     case 'isleaf':      isLeafGame();          return;
     case 'kingword':    kingGame();            return;
     case 'topic':       topicGame();           return;
+    case 'medtest':     medtestGame();         return;
     default:
 	alert("game "+game+" is NYI. err2014v");
 	alert(assignment);
@@ -144,9 +145,8 @@ function splitGame(subtype) {
 	['JOIN', 'SPLIT'],   //an AND button, labelled "split"  //bugbug needs to take the inherent wrapper instead of AND/OR
 	HUHButton
     ]);
-    
-
 }
+
 
 function isLeafGame() {
     addTitle("which is closest description of the text?");
@@ -186,6 +186,18 @@ function topicGame() {
     ]);
 }
 
+
+function medtestGame() {
+    addTitle("NYI0141u");
+    addButtons([
+	//bugbug NYI
+	HUHButton
+
+    ]);
+}
+
+
+
 function addButtons(btns) {
     for(var ii in btns) {
 	var btn=btns[ii];
@@ -218,7 +230,7 @@ function bb(elem,actionCode){
 	    rstart: tt.selectionStart,  //server will add offsets back.
 	    rend: tt.selectionEnd,
 	    raction: actionCode,
-	    extraresult: JSON.stringify({ utc: utc })        // room for expansion bugbug needed? would be schema change to remove??
+	    extraresult: ({ "utc": utc })        // room for expansion bugbug needed? would be schema change to remove??
 	},
 	//!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN"}
 	//!!! ---> assert fail:err1535e:{"assignmentid":"1","rstart":"454","rend":"454","raction":"JOIN","extraresult":{"utc":"Fri, 14 Jun 2019 22:34:14 	
