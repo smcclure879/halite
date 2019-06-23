@@ -52,7 +52,7 @@ module.exports = {
 	//no return value expected
 	db.runAsync=function (sql,vals) {    
 	    return new Promise(function (resolve, reject) {
-		console.log("running");
+		//console.log("running");
 		db.run(sql, vals, function(err,rows) {
 		    if (err) {
 			//console.log("bugbug"+err);

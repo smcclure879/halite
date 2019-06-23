@@ -49,3 +49,11 @@ create table if not exists assignment( -- problem plus player
        unique(playerid,problemid)
 );
 
+
+create table if not exists dd (  -- for all domain data (hopefully)
+       dd varchar(20),  --riskfactor, organ, condition, etc   
+       token varchar(40), --the official name within the domain (what user both sees and picks in prototype)
+       pres varchar(100), --with pretty version, i have no intent to use as the other is readable enough for a "game"
+       text varchar(400), --for a help button or something in the rules.  won't be used in prototype
+       unique(dd,token)
+);

@@ -4,17 +4,21 @@
 
 //get away from thresholdcount=1
 
+//merge isLeaf and various leaf games?
+
 //get away from all one user
 
-//actual leaf      (uses the actual domain data, but to what extent?  bugbug )
-
-//and this "bug"...
+//and this "bug"... (unify everything to 3 sub case?, invert tree to have 3 child pointers?)
     //bugbug for now ignoring the 3 result case, where user didn't pick a point but a range.
     //need to add it back in for "completeness" (checking the final result didn't skip stuff)
-    //to fix probably need to do it in the game itself, and in the answer-checker, NOT HERE
+//to fix probably need to do it in the game itself, and in the answer-checker, NOT HERE
 
-//sub bullet isLeaf  <<< you are here,working here upward
-// (using meta domain data from rubenstein  (also code cleanup)
+//actual leaf      (uses the actual domain data, but to what extent?  bugbug )
+// (using meta domain data from rubenstein  (also code cleanup)   //<<< you are here,working here upward
+
+
+
+
 
 
 
@@ -29,7 +33,7 @@ const util = require('util')
 const htmlEncode = require('htmlencode').htmlEncode;
 const fs = require('fs');
 const sqlite = require('sqlite3');
-const sqa = require('./sqliteAsync.js');
+const sqa = require('../libs/sqliteAsync.js');
 
 const SECONDS=1000;
 
@@ -453,7 +457,7 @@ function splitGameSpawn(parent) {
     // assert(isNumeric(parent.anstart));
     //every answer generates two new questions (problems)
 
-    assert(parent.anstart==parent.anend,"err2128t");  //bugbug you are here 1. check in again 2. fix this in clientside game rules.
+    assert(parent.anstart==parent.anend,"err2128t");  //bugbug  1. check in again 2. fix this in clientside game rules.
     var prob1 = singleGame0('isleaf',parent);
     prob1.prend = prob1.prstart + parent.anstart;
     //bugbug
@@ -469,7 +473,7 @@ function splitGameSpawn(parent) {
     return [prob1,prob2];
 }
 
-	
+
 
 //from post
 async function doNewAssignment(req,res,next) {
@@ -568,9 +572,53 @@ async function sendOldAssignment(assignment,req,res,next){
     res.end(JSON.stringify(assignment));
 }
 
+function lc(x) {
+    return (""+x).toLowerCase();
+}
 
 
 
+//bugbug etc etc  must be a list of approve values, not just anything the user sent us !!! else script injection
+const approvedDomains='condition,drug,sideeffect,treatment,organ,symptom,type,riskfactor,medtest'.split(',');
+//condition|169,drug|533,sideeffect|62,treatment|168,organ|110,symptom|82,riskfactor|79,test|122
+
+//bugbug should we memoize/cache response?
+async function getDomain(req,res,next){    
+    var domain=lc(req.params.domain);
+    //bugbug you are here this is supposed to happen in step2
+    if (domain=='test')
+	domain='medtest';
+    console.log(domain);
+    assert(approvedDomains.includes(domain));//bugbug more than assert (should run even if not in debug the way I wrote it, it's not a debug-flagged thing)
+
+
+    var sql = " select * from dd where dd=?; ";
+    var bigList = await db.allAsync(sql,[domain]);
+
+    console.log(bigList);
+    //res.setresponseType?
+    //res.status(200).end(bigList);
+    
+
+    const mimeType = 'text/javascript';
+    res.setHeader('Content-Type', mimeType);
+    res.status(200).end(JSON.stringify(bigList));
+
+
+
+    /*
+    if (assignmentId != ""+req.body.assignmentid) {
+	assert(false,"err1834: params:"+JSON.stringify(req.params)+"!!!body:"+JSON.stringify(req.body)  );
+	res.status(500).end("badly formed response");
+	return;
+    }
+
+    assert(userResult.extraresult,"err0115q"+userResult);
+    show("userResult.extraresult",userResult.extraresult);
+    var extraresult = JSON.stringify(userResult.extraresult);
+    show("bugbug2135d",typeof extraresult);
+    */
+}
 
 
 
@@ -606,13 +654,17 @@ halApi.post('/', doNewAssignment);
 halApi.put('/:assignmentid', putAssignment);
 
 
+//extra apis can these be combined in somehow?
+var halDom = express();
+halDom.get("/:domain",getDomain);
+
 //just halite
 var halApp = express();
 halApp.use('/favicon.ico', serveIconFile);
 halApp.use('/statics', express.static('../statics')); 
 halApp.use('/crits',express.static('../crits'));
 halApp.use("/assignment/", halApi);
-
+halApp.use("/domain/", halDom); 
 
 
 

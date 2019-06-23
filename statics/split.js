@@ -37,7 +37,7 @@ function showAssignmentText(assignment) {  //from myAssignment view
     assert(end==-1 || end>start,"bugbug1913");
     
     $.ajax({
-	type: "GET",      //POST does a create, no id given. nothing really. gives back whole assignment
+	type: "GET",     
 	url: fullPath,
 	success: function(contents){
 	    tt.value=mySubstring(contents,start,end);
@@ -116,12 +116,22 @@ function runGame(assignment) {
     case 'isleaf':      isLeafGame();          return;
     case 'kingword':    kingGame();            return;
     case 'topic':       topicGame();           return;
-
+	
 	//need to implement all of these bugbug instead of fallthru
     case 'condition':
+    case 'drug':
+    case 'sideeffect':
+    case 'treatment':
+    case 'organ':
     case 'symptom':
-    case 'medtest':     medtestGame();         return;
+    case 'type':  //bugbug type of WHAT???
+    case 'riskfactor':
+    case 'medtest':  //bugbug etc etc  must be a list of approve values, not just anything the user sent us !!! else script injection
+	domainGame(assignment.gameName);    return;
 
+    case 'misc':
+	miscGame(assignment.gameName);  /*bugbug*/  return;
+	
     default:
 	alert("game "+game+" is NYI. err2014v");
 	alert(assignment);
@@ -138,6 +148,53 @@ function addTitle(text){
     var t = document.createTextNode(text);
     h.appendChild(t);
     document.body.insertBefore(h,buttons);
+}
+
+async function addSelector(whichDomain) {
+    holdGame();
+    var ss=await selector(whichDomain);
+    //alert("bugbug1136y="+typeof ss);
+    document.body.insertBefore(ss,buttons);
+    activateGame();
+    //bugbug oops move to server....selector calls memoize calls server to get this list once.
+    /*var sql=`
+*	select * from ? where ?=?
+	`;
+    */
+}
+
+function holdGame() {
+    document.body.style.background="red";  //bugbug working???
+}
+function activateGame() {
+    document.body.bgcolor="white";   //bugbug working???
+}
+
+var zz = {};
+async function memoize(inp,fn){
+    var qq=zz[inp];
+    if (qq) return qq;
+    qq = await fn(inp);
+    zz[inp] = qq;
+    return qq;
+}
+
+async function selector(domain){
+    //bugbug may need cookie-ize instead
+    var fullPath = '/selector/' + domain;
+    var retval = await memoize(fullPath, async function(url){
+	try{
+	    var rawdata = await $.ajax({
+		type: "GET",     
+		url: url
+	    });
+	    return rawdata;
+	}catch(ex){
+	    return "bugbug1206"+domain;
+	}
+    });
+    
+    return retval;
 }
 
 
@@ -206,8 +263,18 @@ function topicGame() {
     ]);
 }
 
+function domainGame(whichDomain) {
+    
+    addTitle("DOMAIN GAME: "+whichDomain);
+    addSelector(whichDomain);
+    addButtons([
+	['DONE','DONE','push when translation complete'],
+	HUHButton
+    ])
 
-function medtestGame() {
+}
+
+/*function medtestGame() {
     addTitle("NYI0141u");
     addButtons([
 	//bugbug NYI
@@ -215,7 +282,7 @@ function medtestGame() {
 
     ]);
 }
-
+*/
 
 
 function addButtons(btns) {

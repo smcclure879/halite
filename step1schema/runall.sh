@@ -4,3 +4,4 @@ sqlite3 ../halite.db < dataGame.sql
 sqlite3 ../halite.db < dataFakePlayer.sql
 
 
+
