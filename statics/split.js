@@ -153,8 +153,11 @@ function addTitle(text){
 async function addSelector(whichDomain) {
     holdGame();
     var ss=await selector(whichDomain);
-    //alert("bugbug1136y="+typeof ss);
-    document.body.insertBefore(ss,buttons);
+    var sel=document.createElement("SELECT");
+    sel.innerHTML=ss;
+    sel.size=4;
+    //alert("bugbug1136y="+ ss);
+    document.body.insertBefore(sel,buttons);
     activateGame();
     //bugbug oops move to server....selector calls memoize calls server to get this list once.
     /*var sql=`
@@ -164,10 +167,10 @@ async function addSelector(whichDomain) {
 }
 
 function holdGame() {
-    document.body.style.background="red";  //bugbug working???
+    document.body.style.background="red";  //bugbug something more subtle???
 }
 function activateGame() {
-    document.body.bgcolor="white";   //bugbug working???
+    document.body.bgcolor="white";   
 }
 
 var zz = {};
@@ -181,14 +184,20 @@ async function memoize(inp,fn){
 
 async function selector(domain){
     //bugbug may need cookie-ize instead
-    var fullPath = '/selector/' + domain;
+    var fullPath = '/domain/' + domain.toLowerCase();
     var retval = await memoize(fullPath, async function(url){
 	try{
 	    var rawdata = await $.ajax({
 		type: "GET",     
 		url: url
 	    });
-	    return rawdata;
+	    rawdata=JSON.parse(rawdata);  //bugbug didn't req it right ???
+	    
+	    var retval="";
+	    for (x of rawdata) {
+		retval += "<option value='"+x.token+"'>"+x.token+"</option>\n";
+	    }
+	    return retval;
 	}catch(ex){
 	    return "bugbug1206"+domain;
 	}
@@ -268,7 +277,8 @@ function domainGame(whichDomain) {
     addTitle("DOMAIN GAME: "+whichDomain);
     addSelector(whichDomain);
     addButtons([
-	['DONE','DONE','push when translation complete'],
+	['MUST','MUST',''],
+	['MUSTNOT','MUSTNOT','']
 	HUHButton
     ])
 
