@@ -1,0 +1,54 @@
+|0|1|toplevel|JOIN|.2cun-ounjc|0|-1
+ |1|22|isleaf|KING|.2cun-ounjc|0|454
+  |2|24|kingword|AND|.2cun-ounjc|0|454
+   |3|26|semanticnull|  ----NYA----  |.2cun-ounjc|0|28
+   |3|27|split|JOIN|.2cun-ounjc|28|454
+    |4|30|isleaf|SPLITTABLE|.2cun-ounjc|28|168
+     |5|34|split|JOIN|.2cun-ounjc|28|168
+      |6|37|isleaf|SPLITTABLE|.2cun-ounjc|28|116
+       |7|44|split|JOIN|.2cun-ounjc|28|116
+        |8|49|isleaf|LEAF|.2cun-ounjc|28|73
+         |9|52|topic|CONDITION|.2cun-ounjc|28|73
+          |10|61|condition|MUST|.2cun-ounjc|28|73
+        |8|50|isleaf|LAMBDA|.2cun-ounjc|73|116
+         |9|60|lambda|MUST|.2cun-ounjc|73|116
+      |6|38|isleaf|LEAF|.2cun-ounjc|116|168
+       |7|45|topic|TEST|.2cun-ounjc|116|168
+        |8|51|medtest|HUH|.2cun-ounjc|116|168
+         |9|66|admin|  ----NYA----  |.2cun-ounjc|116|168
+    |4|31|isleaf|SPLITTABLE|.2cun-ounjc|168|454
+     |5|35|split|JOIN|.2cun-ounjc|168|454
+      |6|42|isleaf|SPLITTABLE|.2cun-ounjc|168|396
+       |7|48|split|JOIN|.2cun-ounjc|168|396
+        |8|54|isleaf|LAMBDA|.2cun-ounjc|168|257
+         |9|65|lambda|  ----NYA----  |.2cun-ounjc|168|257
+        |8|55|isleaf|LAMBDA|.2cun-ounjc|257|396
+         |9|63|lambda|MUST|.2cun-ounjc|257|396
+      |6|43|isleaf|LEAF|.2cun-ounjc|396|454
+       |7|56|topic|TEST|.2cun-ounjc|396|454
+        |8|64|medtest|HUH|.2cun-ounjc|396|454
+         |9|69|admin|  ----NYA----  |.2cun-ounjc|396|454
+ |1|23|isleaf|KING|.2cun-ounjc|454|-1
+  |2|25|kingword|OR|.2cun-ounjc|454|-1
+   |3|28|semanticnull|  ----NYA----  |.2cun-ounjc|455|483
+   |3|29|split|JOIN|.2cun-ounjc|483|-1
+    |4|32|isleaf|SPLITTABLE|.2cun-ounjc|483|909
+     |5|39|split|JOIN|.2cun-ounjc|483|909
+      |6|57|isleaf|SPLITTABLE|.2cun-ounjc|483|697
+       |7|67|split|JOIN|.2cun-ounjc|483|697
+        |8|72|isleaf|SPLITTABLE|.2cun-ounjc|483|670
+        |8|73|isleaf|  ----NYA----  |.2cun-ounjc|670|697
+      |6|58|isleaf|SPLITTABLE|.2cun-ounjc|697|909
+       |7|62|split|JOIN|.2cun-ounjc|697|909
+    |4|33|isleaf|KING|.2cun-ounjc|909|-1
+     |5|36|kingword|OR|.2cun-ounjc|909|-1
+      |6|40|semanticnull|  ----NYA----  |.2cun-ounjc|910|970
+      |6|41|split|JOIN|.2cun-ounjc|970|-1
+       |7|46|isleaf|SPLITTABLE|.2cun-ounjc|970|1513
+        |8|53|split|JOIN|.2cun-ounjc|970|1513
+         |9|70|isleaf|  ----NYA----  |.2cun-ounjc|970|1179
+         |9|74|isleaf|  ----NYA----  |.2cun-ounjc|1179|1513
+       |7|47|isleaf|LEAF|.2cun-ounjc|1513|-1
+        |8|59|topic|CONDITION|.2cun-ounjc|1513|-1
+         |9|68|condition|HUH|.2cun-ounjc|1513|-1
+          |10|71|admin|  ----NYA----  |.2cun-ounjc|1513|-1
