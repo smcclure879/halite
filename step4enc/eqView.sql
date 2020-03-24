@@ -12,14 +12,15 @@ with recursive
 --    where hashid='.2k3q-elqiw'
     order by 1 DESC
 )
-select coalesce(substr('....................................................................................',1,treeOf.lvl*3),'X'),
+select coalesce(substr('                                               ',1,treeOf.lvl),'X'),
+       treeOf.lvl,
        problem.problemId,
-       problem.parentId,
+       --problem.parentId,
        game.gameName,
-       --problem.hashid,
-       problem.prstart,  --etc etc etc columns here
-       
-       coalesce(       problem.anaction, '  ----NYA----  ')
+       coalesce(       problem.anaction, '  ----NYA----  '),
+       problem.hashid,
+       problem.prstart,
+       problem.prend   --etc etc etc columns here
 from treeOf
 join problem
 on treeOf.problemId=problem.problemId
