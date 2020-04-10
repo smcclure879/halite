@@ -13,12 +13,11 @@ bag = M.empty
 
 --patient :: () -> Bag
 patient = M.insert "type" (S "patient") bag
-
+kdrugs = M.insert "promemethanon" (S "blah blah") bag
+karen =  M.insert "drugs"  ( B kdrugs )   patient
+            
 main = do
-  let kdrugs = M.insert "promemethanon" (S "blah blah") bag
-  let karen = M.insert "drugs" (B kdrugs) patient
   putStrLn $ show $ karen
- 
 {-
 myMap :: M.Map Int String
 myMap = M.fromList bugbugoops zip [1..10] ["abcdefghij"]
