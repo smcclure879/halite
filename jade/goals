@@ -1,0 +1,11 @@
+...roughly in priority order
+
+nginx
+github and ayvex, jade, halite
+domain names (two) from google
+two static web services separated by domain, plus the default
+nginx and ssl (certbot)
+alternate ports in generate ufw
+stun/turn
+old ayvex code
+relay rtsp or somethign like that
